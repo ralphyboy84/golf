@@ -1,0 +1,1469 @@
+{
+  "data": {
+    "tee_times": [
+      {
+        "id": 433962,
+        "time": "09:50",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 158,
+            "green_fee1_ball": "47.50",
+            "green_fee2_ball": "95.00",
+            "green_fee3_ball": "142.50",
+            "green_fee4_ball": "180.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433963,
+        "time": "10:00",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 158,
+            "green_fee1_ball": "47.50",
+            "green_fee2_ball": "95.00",
+            "green_fee3_ball": "142.50",
+            "green_fee4_ball": "180.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433964,
+        "time": "10:10",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 158,
+            "green_fee1_ball": "47.50",
+            "green_fee2_ball": "95.00",
+            "green_fee3_ball": "142.50",
+            "green_fee4_ball": "180.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433965,
+        "time": "10:20",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 158,
+            "green_fee1_ball": "47.50",
+            "green_fee2_ball": "95.00",
+            "green_fee3_ball": "142.50",
+            "green_fee4_ball": "180.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433966,
+        "time": "10:30",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 158,
+            "green_fee1_ball": "47.50",
+            "green_fee2_ball": "95.00",
+            "green_fee3_ball": "142.50",
+            "green_fee4_ball": "180.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433967,
+        "time": "10:40",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 158,
+            "green_fee1_ball": "47.50",
+            "green_fee2_ball": "95.00",
+            "green_fee3_ball": "142.50",
+            "green_fee4_ball": "180.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433968,
+        "time": "10:50",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 158,
+            "green_fee1_ball": "47.50",
+            "green_fee2_ball": "95.00",
+            "green_fee3_ball": "142.50",
+            "green_fee4_ball": "180.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433969,
+        "time": "11:00",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 161,
+            "green_fee1_ball": "40.00",
+            "green_fee2_ball": "80.00",
+            "green_fee3_ball": "120.00",
+            "green_fee4_ball": "150.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433970,
+        "time": "11:10",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 161,
+            "green_fee1_ball": "40.00",
+            "green_fee2_ball": "80.00",
+            "green_fee3_ball": "120.00",
+            "green_fee4_ball": "150.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433971,
+        "time": "11:20",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 161,
+            "green_fee1_ball": "40.00",
+            "green_fee2_ball": "80.00",
+            "green_fee3_ball": "120.00",
+            "green_fee4_ball": "150.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433972,
+        "time": "11:30",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 161,
+            "green_fee1_ball": "40.00",
+            "green_fee2_ball": "80.00",
+            "green_fee3_ball": "120.00",
+            "green_fee4_ball": "150.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433973,
+        "time": "11:40",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 161,
+            "green_fee1_ball": "40.00",
+            "green_fee2_ball": "80.00",
+            "green_fee3_ball": "120.00",
+            "green_fee4_ball": "150.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433974,
+        "time": "11:50",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 161,
+            "green_fee1_ball": "40.00",
+            "green_fee2_ball": "80.00",
+            "green_fee3_ball": "120.00",
+            "green_fee4_ball": "150.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433975,
+        "time": "12:00",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 161,
+            "green_fee1_ball": "40.00",
+            "green_fee2_ball": "80.00",
+            "green_fee3_ball": "120.00",
+            "green_fee4_ball": "150.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433976,
+        "time": "12:10",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 161,
+            "green_fee1_ball": "40.00",
+            "green_fee2_ball": "80.00",
+            "green_fee3_ball": "120.00",
+            "green_fee4_ball": "150.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433977,
+        "time": "12:20",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 161,
+            "green_fee1_ball": "40.00",
+            "green_fee2_ball": "80.00",
+            "green_fee3_ball": "120.00",
+            "green_fee4_ball": "150.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433986,
+        "time": "13:50",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 161,
+            "green_fee1_ball": "40.00",
+            "green_fee2_ball": "80.00",
+            "green_fee3_ball": "120.00",
+            "green_fee4_ball": "150.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433987,
+        "time": "14:00",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 164,
+            "green_fee1_ball": "35.00",
+            "green_fee2_ball": "70.00",
+            "green_fee3_ball": "105.00",
+            "green_fee4_ball": "130.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433988,
+        "time": "14:10",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 164,
+            "green_fee1_ball": "35.00",
+            "green_fee2_ball": "70.00",
+            "green_fee3_ball": "105.00",
+            "green_fee4_ball": "130.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433989,
+        "time": "14:20",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 164,
+            "green_fee1_ball": "35.00",
+            "green_fee2_ball": "70.00",
+            "green_fee3_ball": "105.00",
+            "green_fee4_ball": "130.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433990,
+        "time": "14:30",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 164,
+            "green_fee1_ball": "35.00",
+            "green_fee2_ball": "70.00",
+            "green_fee3_ball": "105.00",
+            "green_fee4_ball": "130.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433991,
+        "time": "14:40",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 164,
+            "green_fee1_ball": "35.00",
+            "green_fee2_ball": "70.00",
+            "green_fee3_ball": "105.00",
+            "green_fee4_ball": "130.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433992,
+        "time": "14:50",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 164,
+            "green_fee1_ball": "35.00",
+            "green_fee2_ball": "70.00",
+            "green_fee3_ball": "105.00",
+            "green_fee4_ball": "130.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433993,
+        "time": "15:00",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 165,
+            "green_fee1_ball": "30.00",
+            "green_fee2_ball": "60.00",
+            "green_fee3_ball": "90.00",
+            "green_fee4_ball": "120.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433994,
+        "time": "15:10",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 165,
+            "green_fee1_ball": "30.00",
+            "green_fee2_ball": "60.00",
+            "green_fee3_ball": "90.00",
+            "green_fee4_ball": "120.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433995,
+        "time": "15:20",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 165,
+            "green_fee1_ball": "30.00",
+            "green_fee2_ball": "60.00",
+            "green_fee3_ball": "90.00",
+            "green_fee4_ball": "120.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433996,
+        "time": "15:30",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 165,
+            "green_fee1_ball": "30.00",
+            "green_fee2_ball": "60.00",
+            "green_fee3_ball": "90.00",
+            "green_fee4_ball": "120.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433997,
+        "time": "15:40",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 165,
+            "green_fee1_ball": "30.00",
+            "green_fee2_ball": "60.00",
+            "green_fee3_ball": "90.00",
+            "green_fee4_ball": "120.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433998,
+        "time": "15:50",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 165,
+            "green_fee1_ball": "30.00",
+            "green_fee2_ball": "60.00",
+            "green_fee3_ball": "90.00",
+            "green_fee4_ball": "120.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 433999,
+        "time": "16:00",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 165,
+            "green_fee1_ball": "30.00",
+            "green_fee2_ball": "60.00",
+            "green_fee3_ball": "90.00",
+            "green_fee4_ball": "120.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434000,
+        "time": "16:10",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 165,
+            "green_fee1_ball": "30.00",
+            "green_fee2_ball": "60.00",
+            "green_fee3_ball": "90.00",
+            "green_fee4_ball": "120.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434001,
+        "time": "16:20",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 165,
+            "green_fee1_ball": "30.00",
+            "green_fee2_ball": "60.00",
+            "green_fee3_ball": "90.00",
+            "green_fee4_ball": "120.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434002,
+        "time": "16:30",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 165,
+            "green_fee1_ball": "30.00",
+            "green_fee2_ball": "60.00",
+            "green_fee3_ball": "90.00",
+            "green_fee4_ball": "120.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434003,
+        "time": "16:40",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 165,
+            "green_fee1_ball": "30.00",
+            "green_fee2_ball": "60.00",
+            "green_fee3_ball": "90.00",
+            "green_fee4_ball": "120.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434004,
+        "time": "16:50",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 165,
+            "green_fee1_ball": "30.00",
+            "green_fee2_ball": "60.00",
+            "green_fee3_ball": "90.00",
+            "green_fee4_ball": "120.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434005,
+        "time": "17:00",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 168,
+            "green_fee1_ball": "27.50",
+            "green_fee2_ball": "55.00",
+            "green_fee3_ball": "82.50",
+            "green_fee4_ball": "110.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434006,
+        "time": "17:10",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 168,
+            "green_fee1_ball": "27.50",
+            "green_fee2_ball": "55.00",
+            "green_fee3_ball": "82.50",
+            "green_fee4_ball": "110.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434007,
+        "time": "17:20",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 168,
+            "green_fee1_ball": "27.50",
+            "green_fee2_ball": "55.00",
+            "green_fee3_ball": "82.50",
+            "green_fee4_ball": "110.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434008,
+        "time": "17:30",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 168,
+            "green_fee1_ball": "27.50",
+            "green_fee2_ball": "55.00",
+            "green_fee3_ball": "82.50",
+            "green_fee4_ball": "110.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434009,
+        "time": "17:40",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 168,
+            "green_fee1_ball": "27.50",
+            "green_fee2_ball": "55.00",
+            "green_fee3_ball": "82.50",
+            "green_fee4_ball": "110.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434010,
+        "time": "17:50",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 168,
+            "green_fee1_ball": "27.50",
+            "green_fee2_ball": "55.00",
+            "green_fee3_ball": "82.50",
+            "green_fee4_ball": "110.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434011,
+        "time": "18:00",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 168,
+            "green_fee1_ball": "27.50",
+            "green_fee2_ball": "55.00",
+            "green_fee3_ball": "82.50",
+            "green_fee4_ball": "110.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434012,
+        "time": "18:10",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 168,
+            "green_fee1_ball": "27.50",
+            "green_fee2_ball": "55.00",
+            "green_fee3_ball": "82.50",
+            "green_fee4_ball": "110.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434013,
+        "time": "18:20",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 168,
+            "green_fee1_ball": "27.50",
+            "green_fee2_ball": "55.00",
+            "green_fee3_ball": "82.50",
+            "green_fee4_ball": "110.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434014,
+        "time": "18:30",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 168,
+            "green_fee1_ball": "27.50",
+            "green_fee2_ball": "55.00",
+            "green_fee3_ball": "82.50",
+            "green_fee4_ball": "110.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434015,
+        "time": "18:40",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 168,
+            "green_fee1_ball": "27.50",
+            "green_fee2_ball": "55.00",
+            "green_fee3_ball": "82.50",
+            "green_fee4_ball": "110.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      },
+      {
+        "id": 434016,
+        "time": "18:50",
+        "holes": "",
+        "num_holes": null,
+        "slots": {
+          "1": { "status": "Available", "name_on_teesheet": null },
+          "2": { "status": "Available", "name_on_teesheet": null },
+          "3": { "status": "Available", "name_on_teesheet": null },
+          "4": { "status": "Available", "name_on_teesheet": null }
+        },
+        "green_fees": [
+          {
+            "id": 168,
+            "green_fee1_ball": "27.50",
+            "green_fee2_ball": "55.00",
+            "green_fee3_ball": "82.50",
+            "green_fee4_ball": "110.00",
+            "num_holes": "18",
+            "type": "Standard",
+            "package_enabled": false,
+            "package_name": "",
+            "package_description": "",
+            "package_has_food_icon": false,
+            "package_has_buggies_icon": false,
+            "package_has_accommodation_icon": false
+          }
+        ],
+        "is_hot_deal": false,
+        "buggies_available": null
+      }
+    ],
+    "title": "",
+    "tee_date": "2026-07-10",
+    "sunrise": "04:51",
+    "sunset": "22:01",
+    "currency_code": "GBP",
+    "messages": []
+  }
+}
