@@ -2,150 +2,58 @@ Set trip start date:
 <input
   type="date"
   id="start"
-  value="2026-06-13"
+  value="2026-03-28"
   min="2026-01-01"
   max="2028-07-22" /><br /><br />
+
+ Number of days:
+  <input type='number' id='days' name='days' min='1'  value='1' /><br /><br />
   <table>
     <tr>
         <td>
 <?php
-$files = [
-    "shiskine",
-    "pitlochry",
+require_once "courses.php";
 
-    "gullane",
-    "machrihanishdunes",
-    "machrihanish",
+$regions = ["angus", "fife", "highlands", "ayrshire", "islands", "aberdeen"];
 
-    "lundingc",
-    "levenlinks",
-    "ladybank",
-    "dumbarnie",
-
-    "prestwickstnicholas",
-    "westkilbride",
-    "dundonald",
-    "irvine",
-    "glasgow",
-    "prestwick",
-    "royaltroon",
-
-    "monifieth",
-    "panmure",
-    "montrosegolflinks",
-    "downfield",
-
-    "nairngc",
-    "fortrose",
-    "moray",
-    "nairndunbargolf",
-    "golspie",
-    "tain",
-
-    "peterhead",
-    "murcarlinks",
-    "crudenbay",
-
-    "eastrenfrewshire",
-    "lanark",
-];
-
-$angus = ["monifieth", "panmure", "montrosegolflinks", "downfield"];
-$fife = ["lundingc", "levenlinks", "ladybank", "dumbarnie"];
-$highlands = [
-    "nairngc",
-    "fortrose",
-    "moray",
-    "nairndunbargolf",
-    "golspie",
-    "tain",
-];
-$ayrshire = [
-    "prestwickstnicholas",
-    "westkilbride",
-    "dundonald",
-    "irvine",
-    "glasgow",
-    "prestwick",
-    "royaltroon",
-];
-$islands = ["shiskine", "machrihanishdunes", "machrihanish"];
-$aberdeen = ["peterhead", "murcarlinks", "crudenbay"];
-
-echo "Scotland Golf Trip<br /><select multiple='multiple' id='dropDownScotland' style='height:200px'>";
-
-foreach ($files as $file) {
-    echo "<option value='$file'>$file</optino>";
+foreach ($regions as $region) {
+    $$region = get_courses_for_area($region, $golfCourses);
 }
 
-echo "</select><br /><br />
-<button onclick='findTrip(\"dropDownScotland\")'>Find Scotland Trip</button></td>";
+$scotlandSelect = build_select_box($golfCourses, "Scotland");
+
+echo "Scotland Golf Trip<br />$scotlandSelect<br /><br /><button onclick='findTrip(\"dropDownScotland\")'>Find Scotland Trip</button></td>";
+echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
+
+$angusSelect = build_select_box($angus, "Angus");
+
+echo "<td>Angus Golf Trip<br />$angusSelect<br /><br /><button onclick='findTrip(\"dropDownAngus\")'>Find Angus Trip</button></td>";
+echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
+
+$fifeSelect = build_select_box($fife, "Fife");
+
+echo "<td>Fife Golf Trip<br />$fifeSelect<br /><br /><button onclick='findTrip(\"dropDownFife\")'>Find Fife Trip</button></td>";
 
 echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
 
-echo "<td>Angus Golf Trip<br /><select multiple='multiple' id='dropDownAngus' style='height:200px'>";
+$highlandsSelect = build_select_box($highlands, "Highlands");
 
-foreach ($angus as $file) {
-    echo "<option value='$file'>$file</optino>";
-}
-
-echo "</select><br /><br />
-<button onclick='findTrip(\"dropDownAngus\")'>Find Angus Trip</button></td>";
-
+echo "<td>Highlands Golf Trip<br />$highlandsSelect<br /><br /><button onclick='findTrip(\"dropDownHighlands\")'>Find Highlands Trip</button></td>";
 echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
 
-echo "<td>Fife Golf Trip<br /><select multiple='multiple' id='dropDownFife' style='height:200px'>";
+$ayrshireSelect = build_select_box($ayrshire, "Ayrshire");
 
-foreach ($fife as $file) {
-    echo "<option value='$file'>$file</optino>";
-}
-
-echo "</select><br /><br />
-<button onclick='findTrip(\"dropDownFife\")'>Find Fife Trip</button></td>";
-
+echo "<td>Ayrshire Golf Trip<br />$ayrshireSelect<br /><br /><button onclick='findTrip(\"dropDownAyrshire\")'>Find Ayrshire Trip</button></td>";
 echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
 
-echo "<td>Highlands Golf Trip<br /><select multiple='multiple' id='dropDownHighlands' style='height:200px'>";
+$islandsSelect = build_select_box($islands, "WesternIslands");
 
-foreach ($highlands as $file) {
-    echo "<option value='$file'>$file</optino>";
-}
-
-echo "</select><br /><br />
-<button onclick='findTrip(\"dropDownHighlands\")'>Find Highlands Trip</button></td>";
-
+echo "<td>Western Islands Golf Trip<br />$islandsSelect<br /><br /><button onclick='findTrip(\"dropDownWesternIslands\")'>Find Western Islands Trip</button></td>";
 echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
 
-echo "<td>Ayrshire Golf Trip<br /><select multiple='multiple' id='dropDownAyrshire' style='height:200px'>";
+$aberdeenSelect = build_select_box($aberdeen, "Aberdeen");
 
-foreach ($ayrshire as $file) {
-    echo "<option value='$file'>$file</optino>";
-}
-
-echo "</select><br /><br />
-<button onclick='findTrip(\"dropDownAyrshire\")'>Find Ayrshire Trip</button></td>";
-
-echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
-
-echo "<td>Western Islands Golf Trip<br /><select multiple='multiple' id='dropDownWesternIslands' style='height:200px'>";
-
-foreach ($islands as $file) {
-    echo "<option value='$file'>$file</optino>";
-}
-
-echo "</select><br /><br />
-<button onclick='findTrip(\"dropDownWesternIslands\")'>Find Western Islands Trip</button></td>";
-
-echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
-
-echo "<td>Aberdeen Golf Trip<br /><select multiple='multiple' id='dropDownAberdeen' style='height:200px'>";
-
-foreach ($aberdeen as $file) {
-    echo "<option value='$file'>$file</optino>";
-}
-
-echo "</select><br /><br />
-<button onclick='findTrip(\"dropDownAberdeen\")'>Find Aberdeen Trip</button></td>";
+echo "<td>Aberdeen Golf Trip<br />$aberdeenSelect<br /><br /><button onclick='findTrip(\"dropDownAberdeen\")'>Find Aberdeen Trip</button></td>";
 ?></tr></table>
 
 

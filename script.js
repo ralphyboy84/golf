@@ -1,9 +1,7 @@
 async function findTrip(idToUse) {
-  var e = getSelectValues(document.getElementById(idToUse));
+  var selectBoxValues = getSelectValues(document.getElementById(idToUse));
 
-  console.log(e);
-
-  if (!e.length) {
+  if (!selectBoxValues.length) {
     document.getElementById("loadingDiv").innerHTML =
       "You have not selected any courses";
     return;
@@ -15,20 +13,45 @@ async function findTrip(idToUse) {
     "Please waiting loading.....";
   document.getElementById("divToPopulate").innerHTML = "";
 
-  let count = 0;
-
-  for (let x in e) {
-    let date = addDays(tripStart, count);
-    let content = await fetch("ajax.php?club=" + e[x] + "&date=" + date).then(
-      (result) => {
-        return result.text();
-      },
-    );
-
+  // Usage
+  fetchAllResults(selectBoxValues, tripStart).then((allResults) => {
     document.getElementById("loadingDiv").innerHTML = "";
-    document.getElementById("divToPopulate").innerHTML += content + "<br />";
-    count++;
+
+    Object.entries(allResults).forEach(([course, messages]) => {
+      document.getElementById("divToPopulate").innerHTML += course + "<br />";
+
+      messages.forEach((msg) => {
+        document.getElementById("divToPopulate").innerHTML += msg + "<br />";
+      });
+
+      document.getElementById("divToPopulate").innerHTML += "<br />";
+    });
+  });
+}
+
+async function fetchAllResults(selectBoxValues, tripStart) {
+  const results = {};
+
+  for (let x in selectBoxValues) {
+    let count = 0;
+    const fetchPromises = [];
+
+    for (let y = 0; y < document.getElementById("days").value; y++) {
+      const date = addDays(tripStart, count);
+      count++;
+
+      const fetchPromise = fetch(
+        `ajax.php?club=${selectBoxValues[x].course}&bookingSystem=${selectBoxValues[x].bookingSystem}&date=${date}&courseId=${selectBoxValues[x].courseId}`,
+      ).then((res) => res.text());
+
+      fetchPromises.push(fetchPromise);
+    }
+
+    // Wait for all fetches for this x to complete
+    results[selectBoxValues[x].courseName] = await Promise.all(fetchPromises);
   }
+
+  return results;
 }
 
 function getSelectValues(select) {
@@ -39,10 +62,16 @@ function getSelectValues(select) {
   for (var i = 0, iLen = options.length; i < iLen; i++) {
     opt = options[i];
 
-    if (opt.selected) {
-      result.push(opt.value || opt.text);
+    if (opt.selected && opt.getAttribute("data-onlineBooking") == "Yes") {
+      result.push({
+        course: opt.value,
+        bookingSystem: opt.getAttribute("data-bookingSystem"),
+        courseName: opt.text,
+        courseId: opt.getAttribute("data-courseId") || 1,
+      });
     }
   }
+
   return result;
 }
 
