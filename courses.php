@@ -495,6 +495,34 @@ $golfCourses = [
         "bookingSystem" => "clubv1",
         "region" => "highlands",
     ],
+    "aberdour" => [
+        "name" => "Aberdour",
+        "bookingLink" => "https://www.brsgolf.com/aberdour/visitor_home.php",
+        "onlineBooking" => "Yes",
+        "greenFee" => "330",
+        "image" => "",
+        "bookingSystem" => "brs",
+        "region" => "islands",
+    ],
+    "alford" => [
+        "name" => "Alford",
+        "bookingLink" => "https://www.brsgolf.com/alford/visitor_home.php",
+        "onlineBooking" => "Yes",
+        "greenFee" => "330",
+        "image" => "",
+        "bookingSystem" => "brs",
+        "region" => "islands",
+    ],
+    "balbirniepark" => [
+        "name" => "balbirniepark",
+        "bookingLink" =>
+            "https://www.brsgolf.com/balbirniepark/visitor_home.php",
+        "onlineBooking" => "Yes",
+        "greenFee" => "330",
+        "image" => "",
+        "bookingSystem" => "brs",
+        "region" => "islands",
+    ],
 ];
 
 uksort($golfCourses, function ($a, $b) {

@@ -18,5 +18,47 @@ $words = array_filter($words, fn($word) => $word !== "");
 // 5. Reindex array
 $words = array_values($words);
 
-echo "<pre>";
-print_r($words);
+require_once "call/BRSCall.php";
+
+$count = 0;
+
+$oks = [];
+$errors = [];
+
+foreach ($words as $course) {
+    $BRSCall = new BRSCall();
+    $teeTimes = $BRSCall->getTeeTimesForDay(
+        "2026-02-02",
+        str_replace(" ", "", $course),
+        1,
+    );
+
+    if ($teeTimes == '{"message":"Could not get tee sheet","code":8}') {
+        $errors[] = $course;
+    } else {
+        $oks[] = $course;
+    }
+
+    $count++;
+
+    if ($count == 10) {
+        break;
+    }
+}
+
+if ($oks) {
+    echo "oks";
+    echo "<br />";
+    echo implode("<br />", $oks);
+}
+
+echo "<br />";
+echo "<br />";
+echo "<br />";
+echo "<br />";
+
+if ($errors) {
+    echo "errors";
+    echo "<br />";
+    echo implode("<br />", $errors);
+}
