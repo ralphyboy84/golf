@@ -120,14 +120,19 @@ async function findOpenForDropDown(selectBoxValues) {
   const results = {};
 
   document.getElementById("divToPopulate").innerHTML = "";
+  document.getElementById("loadingDiv").innerHTML =
+    "Please waiting loading.....";
 
   for (let x in selectBoxValues) {
     let temp = await fetch(
       `getOpen.php?club=${selectBoxValues[x].course}&courseId=${selectBoxValues[x].courseId}`,
-    ).then((res) => res.text());
+    ).then((res) => res.json());
 
-    document.getElementById("divToPopulate").innerHTML += temp + "<br />";
+    document.getElementById("divToPopulate").innerHTML +=
+      displayContent(temp) + "<br />";
   }
+
+  document.getElementById("loadingDiv").innerHTML = "";
 
   return results;
 }
