@@ -15,13 +15,15 @@ async function findTrip(idToUse) {
 
   // Usage
   fetchAllResults(selectBoxValues, tripStart).then((allResults) => {
+    console.log(allResults);
     document.getElementById("loadingDiv").innerHTML = "";
 
     Object.entries(allResults).forEach(([course, messages]) => {
       document.getElementById("divToPopulate").innerHTML += course + "<br />";
 
       messages.forEach((msg) => {
-        document.getElementById("divToPopulate").innerHTML += msg + "<br />";
+        document.getElementById("divToPopulate").innerHTML +=
+          displayContent(msg) + "<br />";
       });
 
       document.getElementById("divToPopulate").innerHTML += "<br />";
@@ -41,8 +43,8 @@ async function fetchAllResults(selectBoxValues, tripStart) {
       count++;
 
       const fetchPromise = fetch(
-        `ajax.php?club=${selectBoxValues[x].course}&bookingSystem=${selectBoxValues[x].bookingSystem}&date=${date}&courseId=${selectBoxValues[x].courseId}`,
-      ).then((res) => res.text());
+        `ajax.php?club=${selectBoxValues[x].course}&bookingSystem=${selectBoxValues[x].bookingSystem}&date=${date}&courseId=${selectBoxValues[x].courseId}&onlineBooking=${selectBoxValues[x].onlineBooking}&openBooking=${selectBoxValues[x].openBooking}`,
+      ).then((res) => res.json());
 
       fetchPromises.push(fetchPromise);
     }
@@ -62,10 +64,16 @@ function getSelectValues(select) {
   for (var i = 0, iLen = options.length; i < iLen; i++) {
     opt = options[i];
 
-    if (opt.selected && opt.getAttribute("data-onlineBooking") == "Yes") {
+    if (
+      opt.selected &&
+      (opt.getAttribute("data-onlineBooking") == "Yes" ||
+        opt.getAttribute("data-openBooking") == "Yes")
+    ) {
       result.push({
         course: opt.value,
         bookingSystem: opt.getAttribute("data-bookingSystem"),
+        openBooking: opt.getAttribute("data-openBooking"),
+        onlineBooking: opt.getAttribute("data-onlineBooking"),
         courseName: opt.text,
         courseId: opt.getAttribute("data-courseId") || 1,
       });
@@ -91,4 +99,14 @@ function addDays(date, days) {
   }
 
   return tomorrow.getFullYear() + "-" + month + "-" + day;
+}
+
+function displayContent(msg) {
+  let string = "";
+
+  for (const [key, value] of Object.entries(msg)) {
+    string += `${key}: ${value}<br />`;
+  }
+
+  return string;
 }

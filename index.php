@@ -2,7 +2,7 @@ Set trip start date:
 <input
   type="date"
   id="start"
-  value="2026-03-28"
+  value="2026-01-13"
   min="2026-01-01"
   max="2028-07-22" /><br /><br />
 

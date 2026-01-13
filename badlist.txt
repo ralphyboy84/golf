@@ -14,7 +14,6 @@ hopeman
 invergordon
 kilspindie
 kirkcaldy
-kirkcudbright - scottish golf
 longniddry
 longside
 newtonstewart
@@ -25,6 +24,5 @@ rothes
 royaltarlair
 speyvalleygolfcourse
 stboswells
-strathpefferspa - scottish golf
 westerwood
 wigtownshirecounty

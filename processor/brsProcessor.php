@@ -21,13 +21,18 @@ class BRSProcessor
             $uniqueFees = array_unique($greenFees);
             sort($uniqueFees);
 
-            return $club .
-                " is available on " .
-                $this->_format_date($data["data"]["tee_date"]) .
-                " and has $x times free starting from $start starting from £{$uniqueFees[0]} - to book a tee time <a href=\"{$info["bookingLink"]}?date=2026-07-12\" target=\"_blank\">click here</a>";
+            return [
+                "date" => $this->_format_date($data["data"]["tee_date"]),
+                "teeTimesAvailable" => "Yes",
+                "timesAvailable" => $x,
+                "firstTime" => $start,
+                "cheapestPrice" => $uniqueFees[0],
+            ];
         } else {
-            return "No tee times available at $club on " .
-                $this->_format_date($data["data"]["tee_date"]);
+            return [
+                "date" => $this->_format_date($data["data"]["tee_date"]),
+                "teeTimesAvailable" => "No",
+            ];
         }
     }
 
@@ -51,43 +56,34 @@ class BRSProcessor
 
         if ($openFlag) {
             return [
-                " but there is an open on this day which costs £$greenFee",
-                $openFlag,
-                $greenFee,
-                $availableDate,
+                "competitionId" => $openFlag,
+                "openGreenFee" => $greenFee,
+                "bookingsOpenDate" => $availableDate,
             ];
         }
+
+        return [];
     }
 
-    public function processOpenCompetition($entryList, $availableDate)
+    public function processOpenCompetition($entryList)
     {
         $data = json_decode($entryList, true);
 
-        $available = false;
-
-        if (
-            isset($data["message"]) &&
-            $data["message"] == "Competition is not yet available."
-        ) {
-            return " but the competition is not available for booking until " .
-                $this->_format_date($availableDate);
-        }
+        $available = "No";
 
         if (isset($data["data"]["tee_times"])) {
             foreach ($data["data"]["tee_times"] as $teeTime) {
                 foreach ($teeTime["slots"] as $slot) {
                     if ($slot["status"] == "Available") {
-                        $available = true;
+                        $available = "Yes";
                     }
                 }
             }
         }
 
-        if ($available) {
-            return " and there are still slots available";
-        }
-
-        return " but unfortunately it is fully booked";
+        return [
+            "slotsAvailable" => $available,
+        ];
     }
 
     private function _get_green_fee($fees)

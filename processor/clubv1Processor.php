@@ -19,51 +19,62 @@ class ClubV1Processor
             }
         }
 
-        if (!$innerHTML) {
-            return "No tee times available at $club on " .
-                $this->_format_date($date);
-        }
+        if ($innerHTML) {
+            $tmp = json_encode(simplexml_load_string("<div>$innerHTML</div>"));
+            $tmp = json_decode($tmp, true);
 
-        $tmp = json_encode(simplexml_load_string("<div>$innerHTML</div>"));
-        $tmp = json_decode($tmp, true);
+            $teeTimes = 0;
+            $firstTeeSet = "";
 
-        $teeTimes = 0;
-        $firstTeeSet = "";
+            if (isset($tmp["div"]) && is_array($tmp["div"])) {
+                foreach ($tmp["div"] as $xx) {
+                    if (
+                        isset($xx["@attributes"]["class"]) &&
+                        $xx["@attributes"]["class"] == "tee available"
+                    ) {
+                        $teeTimes++;
 
-        if (isset($tmp["div"]) && is_array($tmp["div"])) {
-            foreach ($tmp["div"] as $xx) {
-                if (
-                    isset($xx["@attributes"]["class"]) &&
-                    $xx["@attributes"]["class"] == "tee available"
-                ) {
-                    $teeTimes++;
+                        if (!$firstTeeSet) {
+                            $time = $xx["@attributes"]["data-min-val"];
 
-                    if (!$firstTeeSet) {
-                        $time = $xx["@attributes"]["data-min-val"];
+                            if (
+                                strlen($xx["@attributes"]["data-min-val"]) == 1
+                            ) {
+                                $time =
+                                    "0" . $xx["@attributes"]["data-min-val"];
+                            }
 
-                        if (strlen($xx["@attributes"]["data-min-val"]) == 1) {
-                            $time = "0" . $xx["@attributes"]["data-min-val"];
+                            $firstTeeSet =
+                                $xx["@attributes"]["data-hour-val"] .
+                                ":" .
+                                $time;
                         }
 
-                        $firstTeeSet =
-                            $xx["@attributes"]["data-hour-val"] . ":" . $time;
+                        $greenFees[] = str_replace(
+                            "£",
+                            "",
+                            $xx["div"][1]["div"][0]["div"]["div"][0]["div"][1],
+                        );
                     }
-
-                    $greenFees[] =
-                        $xx["div"][1]["div"][0]["div"]["div"][0]["div"][1];
                 }
+
+                $uniqueFees = array_unique($greenFees);
+                sort($uniqueFees);
+
+                return [
+                    "date" => $this->_format_date($date),
+                    "teeTimesAvailable" => "Yes",
+                    "timesAvailable" => $teeTimes,
+                    "firstTime" => $firstTeeSet,
+                    "cheapestPrice" => $uniqueFees[0],
+                ];
             }
-
-            $uniqueFees = array_unique($greenFees);
-            sort($uniqueFees);
-
-            return "$club is available on " .
-                $this->_format_date($date) .
-                " and has $teeTimes times starting from $firstTeeSet starting from £{$uniqueFees[0]} - to book a tee time <a href=\"https://$club.hub.clubv1.com/Visitors/TeeSheet?date=$date\" target=\"_blank\">click here</a>";
-        } else {
-            return "No tee times available at $club on " .
-                $this->_format_date($date);
         }
+
+        return [
+            "date" => $this->_format_date($date),
+            "teeTimesAvailable" => "No",
+        ];
     }
 
     public function checkForOpenOnDay($opens, $date)
@@ -93,45 +104,49 @@ class ClubV1Processor
 
         $openFlag = false;
         $greenFee = false;
-        $availableDate = false;
+        $availableDate = "TBC";
         $token = false;
 
-        foreach ($tmp["div"]["div"]["div"] as $open) {
-            if (
-                trim($open["div"]["div"]["div"][1]["span"][1]) ==
-                $this->_format_date($date)
-            ) {
-                $openFlag = $this->_format_course_id(
-                    $open["div"]["div"]["div"][2]["span"][1]["a"][
-                        "@attributes"
-                    ]["href"],
-                );
-                $token = $this->_format_token(
-                    $open["div"]["div"]["div"][2]["span"][1]["a"][
-                        "@attributes"
-                    ]["href"],
-                );
-                $greenFee = $open["div"]["div"]["div"][1]["span"][7];
+        if (isset($tmp["div"]["div"]["div"])) {
+            foreach ($tmp["div"]["div"]["div"] as $open) {
+                if (
+                    isset($open["div"]["div"]["div"][1]["span"][1]) &&
+                    trim($open["div"]["div"]["div"][1]["span"][1]) ==
+                        $this->_format_date($date)
+                ) {
+                    $openFlag = $this->_format_course_id(
+                        $open["div"]["div"]["div"][2]["span"][1]["a"][
+                            "@attributes"
+                        ]["href"],
+                    );
+                    $token = $this->_format_token(
+                        $open["div"]["div"]["div"][2]["span"][1]["a"][
+                            "@attributes"
+                        ]["href"],
+                    );
+                    $greenFee = str_replace(
+                        "£",
+                        "",
+                        $open["div"]["div"]["div"][1]["span"][7],
+                    );
+                }
             }
         }
 
         if ($openFlag) {
             return [
-                " but there is an open on this day which costs $greenFee",
-                $openFlag,
-                $greenFee,
-                $availableDate,
-                $token,
+                "competitionId" => $openFlag,
+                "openGreenFee" => $greenFee,
+                "bookingsOpenDate" => $availableDate,
+                "token" => $token,
             ];
         }
+
+        return [];
     }
 
-    public function processOpenCompetition(
-        $entryList,
-        $availableDate,
-        $openId,
-        $token,
-    ) {
+    public function processOpenCompetition($entryList, $openId, $token)
+    {
         libxml_use_internal_errors(true);
 
         $dom = new DOMDocument();
@@ -154,9 +169,7 @@ class ClubV1Processor
         $tmp = json_encode(simplexml_load_string("$innerHTML"));
         $tmp = json_decode($tmp, true);
 
-        $available = false;
-
-        // echo "<pre>";
+        $available = "No";
 
         foreach ($tmp["div"] as $teeTime) {
             if ($teeTime["div"][0] == "Time") {
@@ -176,17 +189,16 @@ class ClubV1Processor
             ) {
                 foreach ($teeTime["div"][1]["div"] as $slot) {
                     if (trim($slot["span"]) == "Available") {
-                        $available = true;
+                        $available = 1;
                     }
                 }
             }
         }
 
-        if ($available) {
-            return " and there are still slots available - <a href=\"https://howdidido-whs.clubv1.com/hdidbooking/open?token=$token&cid=$openId&rd=1\" target=\"_blank\">click here</a> to book this open";
-        }
-
-        return " but unfortunately it is fully booked";
+        return [
+            "slotsAvailable" => "Yes",
+            "bookingUrl" => "https://howdidido-whs.clubv1.com/hdidbooking/open?token=$token&cid=$openId&rd=1",
+        ];
     }
 
     private function _format_date($date)
