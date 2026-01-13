@@ -1,55 +1,9 @@
-strathmore
-harburn
-golspie
 deerpark - intelligent golf
-lanark
-bamburgh
-stonehaven
-burntisland
-largs
-broomieknowe
-inverurie
-pumpherston
-carrick
-elgin
-ralston
-kirriemuir
-kirkhill
-longniddry
-kirkintilloch
-dunfermline
-buchanancastle
-rathopark
-muckhart
-dumfriesandgalloway
-cawder
-levenlinks
-brora
-elderslie
-royalmusselburgh
-brechin
-bishopbriggs
-erskine
-roxburghe
-speybay
-carnwath
-ballochmyle
-hopeman
-southerness
-clober
-nairn
-dunblanenew
-moray
-peterhead
-crudenbay
-newmachar
-mortonhall
-scotscraig
-turnhouse
-alyth
-downfield
-auchterarder
-haggscastle
-deeside
-eastren
-baberton
+bamburgh - not found
+kirkintilloch - tbc
+rathopark - tbc
+brora - intelligent golf
+hopeman - intelligent golf
+moray - not working
+mortonhall - not working in todo list
+scotscraig - intelligent golf

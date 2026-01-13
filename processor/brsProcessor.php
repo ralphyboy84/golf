@@ -7,7 +7,9 @@ class BRSProcessor
         $data = json_decode($json, true);
 
         if (isset($data["message"]) && !empty($data["message"])) {
-            return "Something has gone wrong checking tee times for $club";
+            return [
+                "teeTimesAvailable" => "No",
+            ];
         }
 
         if ($data["data"]["tee_times"]) {
@@ -44,7 +46,7 @@ class BRSProcessor
         $greenFee = false;
         $availableDate = false;
 
-        if ($data["data"]) {
+        if (isset($data["data"])) {
             foreach ($data["data"] as $open) {
                 if ($open["date"] == $date) {
                     $openFlag = $open["competition_id"];
@@ -65,7 +67,7 @@ class BRSProcessor
         return [];
     }
 
-    public function processOpenCompetition($entryList)
+    public function processOpenCompetition($entryList, $bookingUrl)
     {
         $data = json_decode($entryList, true);
 
@@ -83,7 +85,26 @@ class BRSProcessor
 
         return [
             "slotsAvailable" => $available,
+            "openBookingUrl" => $bookingUrl,
         ];
+    }
+
+    public function getOpenTypes($opens, $types)
+    {
+        $opens = json_decode($opens, true);
+
+        $returnArray = [];
+
+        foreach ($opens["data"] as $open) {
+            if (
+                $open["type"] == "4 Player Teams" &&
+                str_contains($open["name"], "Masters")
+            ) {
+                $returnArray[] = $open;
+            }
+        }
+
+        return $returnArray;
     }
 
     private function _get_green_fee($fees)

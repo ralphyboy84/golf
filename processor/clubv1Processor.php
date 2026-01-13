@@ -12,8 +12,9 @@ class ClubV1Processor
         $xpath = new DOMXPath($dom);
         $node = $xpath->query('//*[@class="tees"]')->item(0);
 
+        $innerHTML = "";
+
         if ($node) {
-            $innerHTML = "";
             foreach ($node->childNodes as $child) {
                 $innerHTML .= $dom->saveHTML($child);
             }
@@ -197,7 +198,7 @@ class ClubV1Processor
 
         return [
             "slotsAvailable" => "Yes",
-            "bookingUrl" => "https://howdidido-whs.clubv1.com/hdidbooking/open?token=$token&cid=$openId&rd=1",
+            "openBookingUrl" => "https://howdidido-whs.clubv1.com/hdidbooking/open?token=$token&cid=$openId&rd=1",
         ];
     }
 

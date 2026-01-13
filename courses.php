@@ -250,6 +250,14 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "highlands",
+        "courses" => [
+            "Old" => [
+                "courseId" => 1,
+            ],
+            "New" => [
+                "courseId" => 3,
+            ],
+        ],
     ],
     "dundonald" => [
         "name" => "Dundonald",
@@ -495,12 +503,12 @@ $golfCourses = [
     ],
     "downfield" => [
         "name" => "Downfield",
-        "bookingLink" => "https://downfield.hub.clubv1.com/Visitors/TeeSheet",
-        "onlineBooking" => "Yes",
+        "bookingLink" => "https://visitors.brsgolf.com/downfield",
+        "onlineBooking" => "No",
         "openBooking" => "Yes",
         "greenFee" => "330",
         "image" => "",
-        "bookingSystem" => "clubv1",
+        "bookingSystem" => "brs",
         "region" => "angus",
         "courseId" => 531,
     ],
@@ -582,7 +590,7 @@ $golfCourses = [
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "islands",
+        "region" => "fife",
     ],
     "alford" => [
         "name" => "Alford",
@@ -592,7 +600,7 @@ $golfCourses = [
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "islands",
+        "region" => "aberdeen",
     ],
     "balbirniepark" => [
         "name" => "balbirniepark",
@@ -2330,7 +2338,7 @@ $golfCourses = [
         "courseId" => 2894,
     ],
     "westlothian" => [
-        "name" => "Westlothian",
+        "name" => "West Lothian",
         "bookingLink" => "https://westlothian.hub.clubv1.com/Visitors/TeeSheet",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
@@ -2340,18 +2348,99 @@ $golfCourses = [
         "region" => "",
         "courseId" => 1623,
     ],
-    "westlothian" => [
-        "name" => "Westlothian",
+    "ralston" => [
+        "name" => "Ralston",
         "bookingLink" =>
-            "https://www.howdidido.com/Directory/OpenCompetitions/440",
+            "https://www.howdidido.com/Directory/OpenCompetitions/686",
         "onlineBooking" => "No",
         "openBooking" => "Yes",
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "clubv1",
         "region" => "",
-        "courseId" => 440,
+        "courseId" => 686,
     ],
+    "speybay" => [
+        "name" => "Spey Bay",
+        "bookingLink" => "https://visitors.brsgolf.com/speybay#/course/1",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "205",
+        "image" => "",
+        "bookingSystem" => "brs",
+        "region" => "highlands",
+    ],
+    "mortonhall" => [
+        "name" => "Mortonhall",
+        "bookingLink" =>
+            "https://www.howdidido.com/Directory/OpenCompetitions/3007",
+        "onlineBooking" => "No",
+        "openBooking" => "Yes",
+        "greenFee" => "340",
+        "image" => "",
+        "bookingSystem" => "clubv1",
+        "region" => "edinburgh",
+        "courseId" => 3007,
+    ],
+    "turnhouse" => [
+        "name" => "Turnhouse",
+        "bookingLink" => "https://visitors.brsgolf.com/turnhouse#/course/1",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "205",
+        "image" => "",
+        "bookingSystem" => "brs",
+        "region" => "edinburgh",
+    ],
+];
+
+$masters = [
+    "strathmore",
+    "harburn",
+    "golspie",
+    "lanark",
+    "stonehaven",
+    "burntisland",
+    "largs",
+    "broomieknowe",
+    "inverurie",
+    "pumpherston",
+    "cameronhouse",
+    "elgin",
+    "ralston",
+    "kirriemuir",
+    "kirkhill",
+    "longniddry",
+    "dunfermline",
+    "buchanancastle",
+    "muckhart",
+    "dumfriesandgalloway",
+    "cawder",
+    "levenlinks",
+    "elderslie",
+    "royalmusselburgh",
+    "brechin",
+    "bishopbriggs",
+    "erskine",
+    "roxburghe",
+    "speybay",
+    "carnwath",
+    "ballochmyle",
+    "southerness",
+    "clober",
+    "nairn",
+    "dunblanenew",
+    "peterhead",
+    "crudenbay",
+    "newmachar",
+    "turnhouse",
+    "alyth",
+    "downfield",
+    "auchterarder",
+    "haggscastle",
+    "deeside",
+    "eastren",
+    "baberton",
 ];
 
 uksort($golfCourses, function ($a, $b) {
@@ -2362,6 +2451,17 @@ function get_courses_for_area($region, $courseList)
 {
     foreach ($courseList as $courseName => $courseInfo) {
         if (isset($courseInfo["region"]) && $courseInfo["region"] == $region) {
+            $newArray[$courseName] = $courseInfo;
+        }
+    }
+
+    return $newArray;
+}
+
+function get_courses_from_array($coursesToFind, $courseList)
+{
+    foreach ($courseList as $courseName => $courseInfo) {
+        if (in_array($courseName, $coursesToFind)) {
             $newArray[$courseName] = $courseInfo;
         }
     }
@@ -2397,5 +2497,7 @@ function build_select_box($region, $label)
 
     // echo "$count <br />";
 
-    return "<select multiple='multiple' id='dropDown$label' style='height:200px'>$options</select>";
+    return "<select multiple='multiple' id='dropDown" .
+        str_replace(" ", "", $label) .
+        "' style='height:200px'>$options</select>";
 }

@@ -43,7 +43,7 @@ async function fetchAllResults(selectBoxValues, tripStart) {
       count++;
 
       const fetchPromise = fetch(
-        `ajax.php?club=${selectBoxValues[x].course}&bookingSystem=${selectBoxValues[x].bookingSystem}&date=${date}&courseId=${selectBoxValues[x].courseId}&onlineBooking=${selectBoxValues[x].onlineBooking}&openBooking=${selectBoxValues[x].openBooking}`,
+        `ajax.php?club=${selectBoxValues[x].course}&date=${date}&courseId=${selectBoxValues[x].courseId}`,
       ).then((res) => res.json());
 
       fetchPromises.push(fetchPromise);
@@ -71,9 +71,6 @@ function getSelectValues(select) {
     ) {
       result.push({
         course: opt.value,
-        bookingSystem: opt.getAttribute("data-bookingSystem"),
-        openBooking: opt.getAttribute("data-openBooking"),
-        onlineBooking: opt.getAttribute("data-onlineBooking"),
         courseName: opt.text,
         courseId: opt.getAttribute("data-courseId") || 1,
       });
@@ -109,4 +106,28 @@ function displayContent(msg) {
   }
 
   return string;
+}
+
+function findOpens(openType) {
+  const selectVals = getSelectValues(
+    document.getElementById("dropDownGolfinScotlandMastersTexasScramble"),
+  );
+
+  findOpenForDropDown(selectVals);
+}
+
+async function findOpenForDropDown(selectBoxValues) {
+  const results = {};
+
+  document.getElementById("divToPopulate").innerHTML = "";
+
+  for (let x in selectBoxValues) {
+    let temp = await fetch(
+      `getOpen.php?club=${selectBoxValues[x].course}&courseId=${selectBoxValues[x].courseId}`,
+    ).then((res) => res.text());
+
+    document.getElementById("divToPopulate").innerHTML += temp + "<br />";
+  }
+
+  return results;
 }

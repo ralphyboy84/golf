@@ -7,15 +7,16 @@ require_once "courses.php";
 $teeTimeInfo = [];
 $openOnDay = [];
 $openCompetitionInfo = [];
+$additionalArray = [];
 
-if ($_GET["bookingSystem"] == "clubv1") {
+if ($golfCourses[$_GET["club"]]["bookingSystem"] == "clubv1") {
     require_once "call/clubV1Call.php";
     require_once "processor/clubV1Processor.php";
 
     $ClubV1Call = new ClubV1Call();
     $ClubV1Processor = new ClubV1Processor();
 
-    if ($_GET["onlineBooking"]) {
+    if ($golfCourses[$_GET["club"]]["onlineBooking"]) {
         $response = $ClubV1Call->getTeeTimesForDay(
             $_GET["date"],
             $_GET["club"],
@@ -28,7 +29,7 @@ if ($_GET["bookingSystem"] == "clubv1") {
         );
     }
 
-    if ($_GET["openBooking"]) {
+    if ($golfCourses[$_GET["club"]]["openBooking"]) {
         $opens = $ClubV1Call->getOpens($_GET["courseId"]);
         $openOnDay = $ClubV1Processor->checkForOpenOnDay($opens, $_GET["date"]);
 
@@ -45,14 +46,14 @@ if ($_GET["bookingSystem"] == "clubv1") {
             );
         }
     }
-} elseif ($_GET["bookingSystem"] == "brs") {
+} elseif ($golfCourses[$_GET["club"]]["bookingSystem"] == "brs") {
     require_once "call/brsCall.php";
     require_once "processor/brsProcessor.php";
 
     $BRSCall = new BRSCall();
     $BRSProcessor = new BRSProcessor();
 
-    if ($_GET["onlineBooking"]) {
+    if ($golfCourses[$_GET["club"]]["onlineBooking"]) {
         $teeTimes = $BRSCall->getTeeTimesForDay(
             $_GET["date"],
             $_GET["club"],
@@ -66,7 +67,7 @@ if ($_GET["bookingSystem"] == "clubv1") {
         );
     }
 
-    if ($_GET["openBooking"]) {
+    if ($golfCourses[$_GET["club"]]["openBooking"]) {
         $opens = $BRSCall->getOpens($_GET["club"]);
 
         $openOnDay = $BRSProcessor->checkForOpenOnDay($opens, $_GET["date"]);
@@ -78,9 +79,22 @@ if ($_GET["bookingSystem"] == "clubv1") {
             );
             $openCompetitionInfo = $BRSProcessor->processOpenCompetition(
                 $openField,
+                $golfCourses[$_GET["club"]]["bookingLink"],
             );
         }
     }
 }
 
-echo json_encode(array_merge($teeTimeInfo, $openOnDay, $openCompetitionInfo));
+$additionalArray = [
+    "bookingUrl" =>
+        $golfCourses[$_GET["club"]]["bookingLink"] . "?date=" . $_GET["date"],
+];
+
+echo json_encode(
+    array_merge(
+        $teeTimeInfo,
+        $openOnDay,
+        $openCompetitionInfo,
+        $additionalArray,
+    ),
+);

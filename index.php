@@ -2,7 +2,7 @@ Set trip start date:
 <input
   type="date"
   id="start"
-  value="2026-01-13"
+  value="2026-01-14"
   min="2026-01-01"
   max="2028-07-22" /><br /><br />
 
@@ -54,6 +54,15 @@ echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
 $aberdeenSelect = build_select_box($aberdeen, "Aberdeen");
 
 echo "<td>Aberdeen Golf Trip<br />$aberdeenSelect<br /><br /><button onclick='findTrip(\"dropDownAberdeen\")'>Find Aberdeen Trip</button></td>";
+?></tr><tr><?php
+$masters = get_courses_from_array($masters, $golfCourses);
+
+$mastersSelect = build_select_box(
+    $masters,
+    "Golf in Scotland Masters Texas Scramble",
+);
+
+echo "<td colspan='3'><br />Golf in Scotland Masters Texas Scramble<br />$mastersSelect<br /><br /><button onclick='findOpens(\"texasScramble\")'>Find Masters Scramble</button></td>";
 ?></tr></table>
 
 
