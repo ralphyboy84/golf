@@ -69,7 +69,7 @@ class BRSCall extends Call
         );
     }
 
-    public function getOpens($club)
+    public function getAllOpensForCourse($club)
     {
         return $this->_doCorsCall(
             "https://visitors.brsgolf.com/api/openCompetitions/list",

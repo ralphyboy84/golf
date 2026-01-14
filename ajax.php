@@ -22,7 +22,7 @@ if ($golfCourses[$_GET["club"]]["bookingSystem"] == "clubv1") {
             $_GET["club"],
         );
 
-        $teeTimeInfo = $ClubV1Processor->processTeeTime(
+        $teeTimeInfo = $ClubV1Processor->processTeeTimeForDay(
             $response,
             $_GET["date"],
             $_GET["club"],
@@ -30,7 +30,7 @@ if ($golfCourses[$_GET["club"]]["bookingSystem"] == "clubv1") {
     }
 
     if ($golfCourses[$_GET["club"]]["openBooking"]) {
-        $opens = $ClubV1Call->getOpens($_GET["courseId"]);
+        $opens = $ClubV1Call->getAllOpensForCourse($_GET["courseId"]);
         $openOnDay = $ClubV1Processor->checkForOpenOnDay($opens, $_GET["date"]);
 
         if ($openOnDay) {
@@ -39,7 +39,7 @@ if ($golfCourses[$_GET["club"]]["bookingSystem"] == "clubv1") {
                 $openOnDay["token"],
                 $openOnDay["competitionId"],
             );
-            $openCompetitionInfo = $ClubV1Processor->processOpenCompetition(
+            $openCompetitionInfo = $ClubV1Processor->processOpenAvailability(
                 $openField,
                 $openOnDay["competitionId"],
                 $openOnDay["token"],
@@ -60,7 +60,7 @@ if ($golfCourses[$_GET["club"]]["bookingSystem"] == "clubv1") {
             $_GET["courseId"],
         );
 
-        $teeTimeInfo = $BRSProcessor->processTeeTime(
+        $teeTimeInfo = $BRSProcessor->processTeeTimeForDay(
             $_GET["club"],
             $teeTimes,
             $golfCourses[$_GET["club"]],
@@ -68,7 +68,7 @@ if ($golfCourses[$_GET["club"]]["bookingSystem"] == "clubv1") {
     }
 
     if ($golfCourses[$_GET["club"]]["openBooking"]) {
-        $opens = $BRSCall->getOpens($_GET["club"]);
+        $opens = $BRSCall->getAllOpensForCourse($_GET["club"]);
 
         $openOnDay = $BRSProcessor->checkForOpenOnDay($opens, $_GET["date"]);
 
@@ -77,7 +77,7 @@ if ($golfCourses[$_GET["club"]]["bookingSystem"] == "clubv1") {
                 $_GET["club"],
                 $openOnDay["competitionId"],
             );
-            $openCompetitionInfo = $BRSProcessor->processOpenCompetition(
+            $openCompetitionInfo = $BRSProcessor->processOpenAvailability(
                 $openField,
                 $golfCourses[$_GET["club"]]["bookingLink"],
             );

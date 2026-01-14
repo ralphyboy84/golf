@@ -1,8 +1,10 @@
 <?php
 
-class ClubV1Processor
+require_once "Processor.php";
+
+class ClubV1Processor extends Processor
 {
-    public function processTeeTime($html, $date, $club)
+    public function processTeeTimeForDay($html, $date, $club)
     {
         libxml_use_internal_errors(true);
 
@@ -80,65 +82,23 @@ class ClubV1Processor
 
     public function checkForOpenOnDay($opens, $date)
     {
-        $opens = str_replace("<br />", "", $opens);
-        $opens = str_replace('style="height: 60px"', "", $opens);
-        $opens = str_replace("Booking closes", "", $opens);
-        $opens = str_replace("View Competition", "<div></div>", $opens);
-        libxml_use_internal_errors(true);
+        $competition_id = "";
 
-        $dom = new DOMDocument();
-        $dom->loadHTML($opens, LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD);
-
-        $xpath = new DOMXPath($dom);
-        $node = $xpath->query('//*[@id="main-content"]')->item(0);
-
-        if ($node) {
-            $innerHTML = "";
-
-            foreach ($node->childNodes as $child) {
-                $innerHTML .= $dom->saveHTML($child);
-            }
-        }
-
-        $tmp = json_encode(simplexml_load_string("$innerHTML"));
-        $tmp = json_decode($tmp, true);
-
-        $openFlag = false;
-        $greenFee = false;
-        $availableDate = "TBC";
-        $token = false;
-
-        if (isset($tmp["div"]["div"]["div"])) {
-            foreach ($tmp["div"]["div"]["div"] as $open) {
-                if (
-                    isset($open["div"]["div"]["div"][1]["span"][1]) &&
-                    trim($open["div"]["div"]["div"][1]["span"][1]) ==
-                        $this->_format_date($date)
-                ) {
-                    $openFlag = $this->_format_course_id(
-                        $open["div"]["div"]["div"][2]["span"][1]["a"][
-                            "@attributes"
-                        ]["href"],
-                    );
-                    $token = $this->_format_token(
-                        $open["div"]["div"]["div"][2]["span"][1]["a"][
-                            "@attributes"
-                        ]["href"],
-                    );
-                    $greenFee = str_replace(
-                        "£",
-                        "",
-                        $open["div"]["div"]["div"][1]["span"][7],
-                    );
+        if ($opens) {
+            foreach ($opens as $open) {
+                if ($open["date"] == $this->_format_date($date)) {
+                    $competition_id = $open["competition_id"];
+                    $greenFee = $open["visitor_green_fee"];
+                    $token = $open["token"];
                 }
             }
         }
 
-        if ($openFlag) {
+        if ($competition_id) {
             return [
-                "competitionId" => $openFlag,
+                "competitionId" => $competition_id,
                 "openGreenFee" => $greenFee,
-                "bookingsOpenDate" => $availableDate,
+                "bookingsOpenDate" => "TBC",
                 "token" => $token,
             ];
         }
@@ -146,7 +106,7 @@ class ClubV1Processor
         return [];
     }
 
-    public function processOpenCompetition($entryList, $openId, $token)
+    public function processOpenAvailability($entryList, $openId, $token)
     {
         libxml_use_internal_errors(true);
 
@@ -159,9 +119,9 @@ class ClubV1Processor
         $xpath = new DOMXPath($dom);
         $node = $xpath->query('//*[@class="booking"]')->item(0);
 
-        if ($node) {
-            $innerHTML = "";
+        $innerHTML = "";
 
+        if ($node) {
             foreach ($node->childNodes as $child) {
                 $innerHTML .= $dom->saveHTML($child);
             }
@@ -181,42 +141,46 @@ class ClubV1Processor
                 isset($teeTime["div"][1]["div"]["span"]) &&
                 trim($teeTime["div"][1]["div"]["span"]) == "Available"
             ) {
-                $available = true;
+                $available = "Yes";
             }
 
             if (
+                isset($teeTime["div"][1]["div"][0]) &&
                 isset($teeTime["div"][1]["div"]) &&
                 is_array($teeTime["div"][1]["div"])
             ) {
                 foreach ($teeTime["div"][1]["div"] as $slot) {
                     if (trim($slot["span"]) == "Available") {
-                        $available = 1;
+                        $available = "Yes";
                     }
                 }
             }
         }
 
         return [
-            "slotsAvailable" => "Yes",
+            "slotsAvailable" => $available,
             "openBookingUrl" => "https://howdidido-whs.clubv1.com/hdidbooking/open?token=$token&cid=$openId&rd=1",
         ];
     }
 
-    private function _format_date($date)
+    public function getOpenOfType($opens, $type)
     {
-        $args = explode("-", $date);
-        return $args[2] . "/" . $args[1] . "/" . $args[0];
-    }
+        $returnArray = [];
+        $typeArray = [
+            "MastersTexasScramble" => ["Masters", "Masters Texas Scramble"],
+        ];
 
-    private function _format_course_id($url)
-    {
-        preg_match("/[?&]cid=(\d+)/", $url, $matches);
-        return $matches[1];
-    }
+        foreach ($opens as $open) {
+            if (
+                $this->_string_contains_array_value(
+                    $open["name"],
+                    $typeArray[$type],
+                )
+            ) {
+                $returnArray[] = $open;
+            }
+        }
 
-    private function _format_token($url)
-    {
-        preg_match("/[?&]token=([^&]+)/", $url, $matches);
-        return $matches[1];
+        return $returnArray;
     }
 }

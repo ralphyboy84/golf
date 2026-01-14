@@ -1,8 +1,10 @@
 <?php
 
-class BRSProcessor
+require_once "Processor.php";
+
+class BRSProcessor extends Processor
 {
-    public function processTeeTime($club, $json, $info)
+    public function processTeeTimeForDay($club, $json, $info)
     {
         $data = json_decode($json, true);
 
@@ -67,7 +69,7 @@ class BRSProcessor
         return [];
     }
 
-    public function processOpenCompetition($entryList, $bookingUrl)
+    public function processOpenAvailability($entryList, $bookingUrl)
     {
         $data = json_decode($entryList, true);
 
@@ -89,16 +91,22 @@ class BRSProcessor
         ];
     }
 
-    public function getOpenTypes($opens, $types)
+    public function getOpenOfType($opens, $type)
     {
         $opens = json_decode($opens, true);
 
         $returnArray = [];
+        $typeArray = [
+            "MastersTexasScramble" => ["Masters", "Masters Texas Scramble"],
+        ];
 
         foreach ($opens["data"] as $open) {
             if (
                 $open["type"] == "4 Player Teams" &&
-                str_contains($open["name"], "Masters")
+                $this->_string_contains_array_value(
+                    $open["name"],
+                    $typeArray[$type],
+                )
             ) {
                 $returnArray[] = $open;
             }
@@ -110,11 +118,5 @@ class BRSProcessor
     private function _get_green_fee($fees)
     {
         return $fees[0]["green_fee1_ball"];
-    }
-
-    private function _format_date($date)
-    {
-        $args = explode("-", $date);
-        return $args[2] . "/" . $args[1] . "/" . $args[0];
     }
 }
