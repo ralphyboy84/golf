@@ -129,6 +129,8 @@ async function findOpenForDropDown(selectBoxValues) {
     ).then((res) => res.json());
 
     for (let x in temp) {
+      document.getElementById("divToPopulate").innerHTML +=
+        selectBoxValues[x].course + "<br />";
       document.getElementById("divToPopulate").innerHTML += //temp;
         displayContent(temp[x]) + "<br />";
     }

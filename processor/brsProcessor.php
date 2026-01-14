@@ -66,7 +66,7 @@ class BRSProcessor extends Processor
             ];
         }
 
-        return [];
+        return ["not found" => "yes"];
     }
 
     public function processOpenAvailability($entryList, $bookingUrl)
@@ -97,12 +97,16 @@ class BRSProcessor extends Processor
 
         $returnArray = [];
         $typeArray = [
-            "MastersTexasScramble" => ["Masters", "Masters Texas Scramble"],
+            "MastersTexasScramble" => [
+                "Masters",
+                "Masters Texas Scramble",
+                "Golf in Scotland Texas Scramble",
+                "US Masters Texas Scramble",
+            ],
         ];
 
         foreach ($opens["data"] as $open) {
             if (
-                $open["type"] == "4 Player Teams" &&
                 $this->_string_contains_array_value(
                     $open["name"],
                     $typeArray[$type],

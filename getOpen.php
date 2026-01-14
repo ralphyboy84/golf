@@ -62,4 +62,8 @@ if ($golfCourses[$_GET["club"]]["bookingSystem"] == "clubv1") {
     }
 }
 
+if (!$totalOpenInfo) {
+    $totalOpenInfo = [0 => ["not found" => "not found"]];
+}
+
 echo json_encode($totalOpenInfo);

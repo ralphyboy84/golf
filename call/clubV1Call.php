@@ -66,6 +66,14 @@ class ClubV1Call extends Call
 
         $openCompetitions = [];
 
+        if (
+            isset($tmp["div"]["div"]["div"]["h3"]) &&
+            trim($tmp["div"]["div"]["div"]["h3"]) ==
+                "Currently there are no competitions for you to book into"
+        ) {
+            return $openCompetitions;
+        }
+
         if (isset($tmp["div"]["div"]["div"])) {
             foreach ($tmp["div"]["div"]["div"] as $open) {
                 $token = $this->_format_token(

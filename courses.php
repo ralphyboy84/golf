@@ -1005,7 +1005,7 @@ $golfCourses = [
         "region" => "",
     ],
     "dunblanenew" => [
-        "name" => "Dunblanenew",
+        "name" => "Dunblane New",
         "bookingLink" => "https://visitors.brsgolf.com/dunblanenew#/course/1",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
@@ -1045,7 +1045,7 @@ $golfCourses = [
         "region" => "",
     ],
     "cameronhouse" => [
-        "name" => "Cameronhouse",
+        "name" => "Carrick at Loch Lomond",
         "bookingLink" => "https://visitors.brsgolf.com/cameronhouse#/course/1",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
@@ -1096,7 +1096,7 @@ $golfCourses = [
         "region" => "",
     ],
     "dumfriesandcounty" => [
-        "name" => "Dumfriesandcounty",
+        "name" => "Dumfries and County",
         "bookingLink" =>
             "https://visitors.brsgolf.com/dumfriesandcounty#/course/1",
         "onlineBooking" => "Yes",
@@ -1107,7 +1107,7 @@ $golfCourses = [
         "region" => "",
     ],
     "dumfriesandgalloway" => [
-        "name" => "Dumfriesandgalloway",
+        "name" => "Dumfries and Galloway",
         "bookingLink" =>
             "https://visitors.brsgolf.com/dumfriesandgalloway#/course/1",
         "onlineBooking" => "Yes",
@@ -1248,7 +1248,7 @@ $golfCourses = [
         "region" => "",
     ],
     "haggscastle" => [
-        "name" => "Haggscastle",
+        "name" => "Haggs Castle",
         "bookingLink" => "https://visitors.brsgolf.com/haggscastle#/course/1",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
@@ -1680,7 +1680,7 @@ $golfCourses = [
         "region" => "",
     ],
     "royalmusselburgh" => [
-        "name" => "Royalmusselburgh",
+        "name" => "Royal Musselburgh",
         "bookingLink" =>
             "https://visitors.brsgolf.com/royalmusselburgh#/course/1",
         "onlineBooking" => "Yes",
@@ -2093,7 +2093,7 @@ $golfCourses = [
         "courseId" => 1026,
     ],
     "buchanancastle" => [
-        "name" => "Buchanancastle",
+        "name" => "Buchanan Castle",
         "bookingLink" =>
             "https://buchanancastle.hub.clubv1.com/Visitors/TeeSheet",
         "onlineBooking" => "Yes",
@@ -2146,7 +2146,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "clubv1",
         "region" => "",
-        "courseId" => 0,
+        "courseId" => 524,
     ],
     "duffhouseroyal" => [
         "name" => "Duffhouseroyal",

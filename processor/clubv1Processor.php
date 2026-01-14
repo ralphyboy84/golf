@@ -103,7 +103,7 @@ class ClubV1Processor extends Processor
             ];
         }
 
-        return [];
+        return ["not found" => "yes"];
     }
 
     public function processOpenAvailability($entryList, $openId, $token)
@@ -167,7 +167,11 @@ class ClubV1Processor extends Processor
     {
         $returnArray = [];
         $typeArray = [
-            "MastersTexasScramble" => ["Masters", "Masters Texas Scramble"],
+            "MastersTexasScramble" => [
+                "Masters",
+                "Masters Texas Scramble",
+                "Golf in Scotland Texas Scramble",
+            ],
         ];
 
         foreach ($opens as $open) {
