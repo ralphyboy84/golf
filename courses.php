@@ -196,20 +196,27 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "islands",
     ],
-    "Brora" => [
+    "broragolfclub" => [
         "name" => "Brora",
         "bookingLink" => "https://www.broragolfclub.co.uk/visitorbooking/",
+        "baseUrl" => "https://www.broragolfclub.co.uk/",
         "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
         "greenFee" => "180",
         "image" => "",
+        "bookingSystem" => "intelligent",
+        "region" => "highlands",
     ],
-    "Elie" => [
+    "elie" => [
         "name" => "Elie",
         "bookingLink" => "https://elie.intelligentgolf.co.uk/visitorbooking/",
+        "baseUrl" => "https://elie.intelligentgolf.co.uk",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
         "greenFee" => "160",
         "image" => "",
+        "bookingSystem" => "intelligent",
+        "region" => "highlands",
     ],
     "murcarlinks" => [
         "name" => "Murcar",
@@ -369,13 +376,16 @@ $golfCourses = [
         "greenFee" => "330",
         "image" => "",
     ],
-    "Scotscraig" => [
+    "scotscraiggolfclub" => [
         "name" => "Scotscraig",
         "bookingLink" => "https://www.scotscraiggolfclub.com/visitorbooking/",
+        "baseUrl" => "https://www.scotscraiggolfclub.com",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
         "greenFee" => "330",
         "image" => "",
+        "bookingSystem" => "intelligent",
+        "region" => "highlands",
     ],
     "levenlinks" => [
         "name" => "Leven",
@@ -2394,110 +2404,6 @@ $golfCourses = [
     ],
 ];
 
-$masters = [
-    "strathmore",
-    "harburn",
-    "golspie",
-    "lanark",
-    "stonehaven",
-    "burntisland",
-    "largs",
-    "broomieknowe",
-    "inverurie",
-    "pumpherston",
-    "cameronhouse",
-    "elgin",
-    "ralston",
-    "kirriemuir",
-    "kirkhill",
-    "longniddry",
-    "dunfermline",
-    "buchanancastle",
-    "muckhart",
-    "dumfriesandgalloway",
-    "cawder",
-    "levenlinks",
-    "elderslie",
-    "royalmusselburgh",
-    "brechin",
-    "bishopbriggs",
-    "erskine",
-    "roxburghe",
-    "speybay",
-    "carnwath",
-    "ballochmyle",
-    "southerness",
-    "clober",
-    "nairn",
-    "dunblanenew",
-    "peterhead",
-    "crudenbay",
-    "newmachar",
-    "turnhouse",
-    "alyth",
-    "downfield",
-    "auchterarder",
-    "haggscastle",
-    "deeside",
-    "eastren",
-    "baberton",
-];
-
 uksort($golfCourses, function ($a, $b) {
     return strcasecmp($a, $b); // Compare keys ignoring case
 });
-
-function get_courses_for_area($region, $courseList)
-{
-    foreach ($courseList as $courseName => $courseInfo) {
-        if (isset($courseInfo["region"]) && $courseInfo["region"] == $region) {
-            $newArray[$courseName] = $courseInfo;
-        }
-    }
-
-    return $newArray;
-}
-
-function get_courses_from_array($coursesToFind, $courseList)
-{
-    foreach ($courseList as $courseName => $courseInfo) {
-        if (in_array($courseName, $coursesToFind)) {
-            $newArray[$courseName] = $courseInfo;
-        }
-    }
-
-    return $newArray;
-}
-
-function build_select_box($region, $label)
-{
-    $options = "";
-
-    $count = 0;
-
-    foreach ($region as $key => $properties) {
-        if (isset($properties["bookingSystem"])) {
-            $count++;
-
-            if (isset($properties["courses"])) {
-                foreach ($properties["courses"] as $name => $course) {
-                    $options .= "<option value='{$key}' data-onlineBooking={$properties["onlineBooking"]} data-bookingSystem={$properties["bookingSystem"]} data-courseId={$course["courseId"]} data-openBooking={$properties["openBooking"]}>{$properties["name"]} - $name</option>";
-                }
-            } else {
-                $courseId = "";
-
-                if (isset($properties["courseId"])) {
-                    $courseId = " data-courseId={$properties["courseId"]}";
-                }
-
-                $options .= "<option value='{$key}' data-onlineBooking={$properties["onlineBooking"]} data-bookingSystem={$properties["bookingSystem"]}$courseId data-openBooking={$properties["openBooking"]}>{$properties["name"]}</option>";
-            }
-        }
-    }
-
-    // echo "$count <br />";
-
-    return "<select multiple='multiple' id='dropDown" .
-        str_replace(" ", "", $label) .
-        "' style='height:200px'>$options</select>";
-}

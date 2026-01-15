@@ -103,7 +103,7 @@ class ClubV1Processor extends Processor
             ];
         }
 
-        return ["not found" => "yes"];
+        return [];
     }
 
     public function processOpenAvailability($entryList, $openId, $token)

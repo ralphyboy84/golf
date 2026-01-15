@@ -29,6 +29,19 @@ async function findTrip(idToUse) {
       document.getElementById("divToPopulate").innerHTML += "<br />";
     });
   });
+
+  const info = await fetch(
+    `map/getDistance.php?from=Inverness&to=Dornoch`,
+  ).then((res) => res.text());
+
+  document.getElementById("travelInfo").innerHTML = "";
+  document.getElementById("travelInfo").innerHTML += info + "<br />";
+
+  const info2 = await fetch(
+    `map/getDistance.php?from=Dornoch&to=Golspie,Tain`,
+  ).then((res) => res.text());
+
+  document.getElementById("travelInfo").innerHTML += info2 + "<br />";
 }
 
 async function fetchAllResults(selectBoxValues, tripStart) {
@@ -43,7 +56,7 @@ async function fetchAllResults(selectBoxValues, tripStart) {
       count++;
 
       const fetchPromise = fetch(
-        `ajax.php?club=${selectBoxValues[x].course}&date=${date}&courseId=${selectBoxValues[x].courseId}`,
+        `api/getCourseAvailabilityForDate.php?club=${selectBoxValues[x].course}&date=${date}&courseId=${selectBoxValues[x].courseId}`,
       ).then((res) => res.json());
 
       fetchPromises.push(fetchPromise);
@@ -125,7 +138,7 @@ async function findOpenForDropDown(selectBoxValues) {
 
   for (let x in selectBoxValues) {
     let temp = await fetch(
-      `getOpen.php?club=${selectBoxValues[x].course}&courseId=${selectBoxValues[x].courseId}&openType=MastersTexasScramble`,
+      `../api/getOpen.php?club=${selectBoxValues[x].course}&courseId=${selectBoxValues[x].courseId}&openType=MastersTexasScramble`,
     ).then((res) => res.json());
 
     for (let x in temp) {

@@ -86,10 +86,16 @@
 //     print_r($data);
 // }
 
-require_once "brsCall.php";
+// require_once "brsCall.php";
 
-$BRSCall = new BRSCall();
-$tmp = $BRSCall->getTeeTimesForDay("2026-07-11", "pitlochry");
+// $BRSCall = new BRSCall();
+// $tmp = $BRSCall->getTeeTimesForDay("2026-07-11", "pitlochry");
+
+// 57.968528102410566, -4.0109028539878295
+
+require_once "call/intelligentCall.php";
 
 echo "<pre>";
-print_r($tmp);
+
+$IntelligentCall = new IntelligentCall();
+echo $IntelligentCall->checkOpenAvailability("broragolfclub", 846);

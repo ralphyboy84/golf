@@ -2,14 +2,14 @@
 
 header("Content-Type: application/json; charset=utf-8");
 
-require_once "courses.php";
+require_once "../courses.php";
 
 $opensOfType = [];
 $totalOpenInfo = [];
 
 if ($golfCourses[$_GET["club"]]["bookingSystem"] == "clubv1") {
-    require_once "call/clubV1Call.php";
-    require_once "processor/clubV1Processor.php";
+    require_once "../call/clubV1Call.php";
+    require_once "../processor/clubV1Processor.php";
 
     $ClubV1Call = new ClubV1Call();
     $ClubV1Processor = new ClubV1Processor();
@@ -35,8 +35,8 @@ if ($golfCourses[$_GET["club"]]["bookingSystem"] == "clubv1") {
         }
     }
 } elseif ($golfCourses[$_GET["club"]]["bookingSystem"] == "brs") {
-    require_once "call/brsCall.php";
-    require_once "processor/brsProcessor.php";
+    require_once "../call/brsCall.php";
+    require_once "../processor/brsProcessor.php";
 
     $BRSCall = new BRSCall();
     $BRSProcessor = new BRSProcessor();

@@ -66,7 +66,7 @@ class BRSProcessor extends Processor
             ];
         }
 
-        return ["not found" => "yes"];
+        return [];
     }
 
     public function processOpenAvailability($entryList, $bookingUrl)
