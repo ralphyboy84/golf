@@ -29,30 +29,30 @@ function build_select_box($region, $label)
     $count = 0;
 
     foreach ($region as $key => $properties) {
-        if (isset($properties["bookingSystem"])) {
-            $count++;
+        //if (isset($properties["bookingSystem"])) {
+        $count++;
 
-            if (isset($properties["courses"])) {
-                foreach ($properties["courses"] as $name => $course) {
-                    $options .= "<option value='{$key}' data-onlineBooking={$properties["onlineBooking"]} data-bookingSystem={$properties["bookingSystem"]} data-courseId={$course["courseId"]} data-openBooking={$properties["openBooking"]}>{$properties["name"]} - $name</option>";
-                }
-            } else {
-                $courseId = "";
-
-                if (isset($properties["courseId"])) {
-                    $courseId = " data-courseId={$properties["courseId"]}";
-                }
-
-                $options .= "<option value='{$key}' data-onlineBooking={$properties["onlineBooking"]} data-bookingSystem={$properties["bookingSystem"]}$courseId data-openBooking={$properties["openBooking"]}>{$properties["name"]}</option>";
+        if (isset($properties["courses"])) {
+            foreach ($properties["courses"] as $name => $course) {
+                $options .= "<option value='{$key}' data-onlineBooking={$properties["onlineBooking"]} data-bookingSystem={$properties["bookingSystem"]} data-courseId={$course["courseId"]} data-openBooking={$properties["openBooking"]}>{$properties["name"]} - $name</option>";
             }
+        } else {
+            $courseId = "";
+
+            if (isset($properties["courseId"])) {
+                $courseId = " data-courseId={$properties["courseId"]}";
+            }
+
+            $options .= "<option value='{$key}' data-onlineBooking={$properties["onlineBooking"]} data-bookingSystem={$properties["bookingSystem"]}$courseId data-openBooking={$properties["openBooking"]}>{$properties["name"]}</option>";
         }
+        //}
     }
 
     // echo "$count <br />";
 
     return "<select multiple='multiple' id='dropDown" .
         str_replace(" ", "", $label) .
-        "' style='height:200px'>$options</select>";
+        "' style='height:300px'>$options</select>";
 }
 
 $masters = [

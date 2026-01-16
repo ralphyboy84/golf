@@ -76,37 +76,39 @@ class ClubV1Call extends Call
 
         if (isset($tmp["div"]["div"]["div"])) {
             foreach ($tmp["div"]["div"]["div"] as $open) {
-                $token = $this->_format_token(
-                    $open["div"]["div"]["div"][2]["span"][1]["a"][
-                        "@attributes"
-                    ]["href"],
-                );
-                $memberGreenFee = str_replace(
-                    "£",
-                    "",
-                    $open["div"]["div"]["div"][1]["span"][7],
-                );
-                $visitorGreenFee = str_replace(
-                    "£",
-                    "",
-                    $open["div"]["div"]["div"][1]["span"][9],
-                );
-                $competitionId = $this->_format_course_id(
-                    $open["div"]["div"]["div"][2]["span"][1]["a"][
-                        "@attributes"
-                    ]["href"],
-                );
-                $date = $open["div"]["div"]["div"][1]["span"][1];
-                $name = $open["div"]["div"]["div"][0]["a"];
+                if (isset($open["div"]["div"]["div"])) {
+                    $token = $this->_format_token(
+                        $open["div"]["div"]["div"][2]["span"][1]["a"][
+                            "@attributes"
+                        ]["href"],
+                    );
+                    $memberGreenFee = str_replace(
+                        "£",
+                        "",
+                        $open["div"]["div"]["div"][1]["span"][7],
+                    );
+                    $visitorGreenFee = str_replace(
+                        "£",
+                        "",
+                        $open["div"]["div"]["div"][1]["span"][9],
+                    );
+                    $competitionId = $this->_format_course_id(
+                        $open["div"]["div"]["div"][2]["span"][1]["a"][
+                            "@attributes"
+                        ]["href"],
+                    );
+                    $date = $open["div"]["div"]["div"][1]["span"][1];
+                    $name = $open["div"]["div"]["div"][0]["a"];
 
-                $openCompetitions[] = [
-                    "competition_id" => $competitionId,
-                    "member_green_fee" => $memberGreenFee,
-                    "visitor_green_fee" => $visitorGreenFee,
-                    "token" => $token,
-                    "date" => $date,
-                    "name" => $name,
-                ];
+                    $openCompetitions[] = [
+                        "competition_id" => $competitionId,
+                        "member_green_fee" => $memberGreenFee,
+                        "visitor_green_fee" => $visitorGreenFee,
+                        "token" => $token,
+                        "date" => $date,
+                        "name" => $name,
+                    ];
+                }
             }
         }
 

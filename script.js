@@ -78,9 +78,10 @@ function getSelectValues(select) {
     opt = options[i];
 
     if (
-      opt.selected &&
-      (opt.getAttribute("data-onlineBooking") == "Yes" ||
-        opt.getAttribute("data-openBooking") == "Yes")
+      opt.selected
+      // &&
+      // (opt.getAttribute("data-onlineBooking") == "Yes" ||
+      //   opt.getAttribute("data-openBooking") == "Yes")
     ) {
       result.push({
         course: opt.value,
