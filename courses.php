@@ -19,6 +19,8 @@ $golfCourses = [
                 "courseId" => 3,
             ],
         ],
+        "bookingSystem" => "",
+        "region" => "angus",
     ],
     "muirfield" => [
         "name" => "Muirfield",
@@ -28,6 +30,7 @@ $golfCourses = [
         "greenFee" => "395",
         "image" => "",
         "bookingSystem" => "",
+        "region" => "eastlothian",
     ],
     "RoyalDornoch" => [
         "name" => "Royal Dornoch",
@@ -48,6 +51,8 @@ $golfCourses = [
         "openBooking" => "No",
         "greenFee" => "545",
         "image" => "",
+        "bookingSystem" => "",
+        "region" => "ayrshire",
     ],
     "Kingsbarns" => [
         "name" => "Kingsbarns",
@@ -56,6 +61,8 @@ $golfCourses = [
         "openBooking" => "No",
         "greenFee" => "399",
         "image" => "",
+        "bookingSystem" => "",
+        "region" => "fife",
     ],
     "North Berwick" => [
         "name" => "North Berwick",
@@ -65,6 +72,8 @@ $golfCourses = [
         "openBooking" => "No",
         "greenFee" => "320",
         "image" => "",
+        "bookingSystem" => "",
+        "region" => "eastlothian",
     ],
     "Cabot Highlands" => [
         "name" => "Cabot Highlands",
@@ -73,6 +82,8 @@ $golfCourses = [
         "openBooking" => "No",
         "greenFee" => "385",
         "image" => "",
+        "bookingSystem" => "",
+        "region" => "highlands",
     ],
     "crudenbay" => [
         "name" => "Cruden Bay",
@@ -91,6 +102,8 @@ $golfCourses = [
         "openBooking" => "No",
         "greenFee" => "560",
         "image" => "",
+        "bookingSystem" => "",
+        "region" => "aberdeen",
     ],
     "royalaberdeen" => [
         "name" => "Royal Aberdeen",
@@ -100,6 +113,8 @@ $golfCourses = [
         "openBooking" => "Yes",
         "greenFee" => "245",
         "image" => "",
+        "bookingSystem" => "",
+        "region" => "aberdeen",
     ],
     "prestwick" => [
         "name" => "Prestwick",
@@ -141,6 +156,8 @@ $golfCourses = [
         "openBooking" => "No",
         "greenFee" => "375",
         "image" => "",
+        "bookingSystem" => "",
+        "region" => "perthshire",
     ],
     "Western Gailes" => [
         "name" => "Western Gailes",
@@ -149,6 +166,8 @@ $golfCourses = [
         "openBooking" => "No",
         "greenFee" => "335",
         "image" => "",
+        "bookingSystem" => "",
+        "region" => "ayrshire",
     ],
     "Dumbarnie" => [
         "name" => "Dumbarnie",
@@ -178,6 +197,8 @@ $golfCourses = [
         "openBooking" => "No",
         "greenFee" => "185",
         "image" => "",
+        "bookingSystem" => "",
+        "region" => "islands",
     ],
     "Gullane" => [
         "name" => "Gullane",
@@ -279,31 +300,51 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "ayrshire",
     ],
-    "Blairgowrie" => [
+    "blairgowrie" => [
         "name" => "Blairgowrie",
         "bookingLink" =>
             "https://blairgowrie.intelligentgolf.co.uk/visitorbooking/",
+        "baseUrl" => "https://blairgowrie.intelligentgolf.co.uk",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
         "greenFee" => "155",
         "image" => "",
+        "courses" => [
+            "Rosemount" => [
+                "courseId" => 115,
+            ],
+            "Landsdown" => [
+                "courseId" => 114,
+            ],
+            "Wee" => [
+                "courseId" => 116,
+            ],
+        ],
+        "bookingSystem" => "intelligent",
+        "region" => "perthshire",
     ],
-    "Dunbar" => [
-        "name" => "Dumbar",
+    "dunbar" => [
+        "name" => "Dunbar",
         "bookingLink" => "https://www.dunbargolfclub.com/visitorbooking/",
+        "baseUrl" => "https://www.dunbargolfclub.com",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
         "greenFee" => "225",
         "image" => "",
+        "bookingSystem" => "intelligent",
+        "region" => "eastlothian",
     ],
     "Boat of Garten" => [
         "name" => "Boat of Garten",
         "bookingLink" =>
             "https://boatofgarten.intelligentgolf.co.uk/visitorbooking/",
+        "baseUrl" => "https://boatofgarten.intelligentgolf.co.uk",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
         "greenFee" => "115",
         "image" => "",
+        "bookingSystem" => "intelligent",
+        "region" => "highlands",
     ],
     "Southerness" => [
         "name" => "Southerness",
@@ -322,6 +363,8 @@ $golfCourses = [
         "openBooking" => "No",
         "greenFee" => "210",
         "image" => "",
+        "bookingSystem" => "",
+        "region" => "eastlothian",
     ],
     "Fraserburgh" => [
         "name" => "Fraseburgh",
@@ -331,6 +374,8 @@ $golfCourses = [
         "openBooking" => "Yes",
         "greenFee" => "150",
         "image" => "",
+        "bookingSystem" => "",
+        "region" => "aberdeen",
     ],
     "glasgow" => [
         "name" => "Glasgow Gailes",
@@ -350,6 +395,8 @@ $golfCourses = [
         "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
+        "bookingSystem" => "",
+        "region" => "highlands",
     ],
     "montrosegolflinks" => [
         "name" => "Montrose",
@@ -378,6 +425,8 @@ $golfCourses = [
         "openBooking" => "Yes",
         "greenFee" => "330",
         "image" => "",
+        "bookingSystem" => "",
+        "region" => "islands",
     ],
     "scotscraiggolfclub" => [
         "name" => "Scotscraig",
@@ -440,13 +489,16 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "ayrshire",
     ],
-    "Longniddry" => [
+    "longniddry" => [
         "name" => "Longniddry",
         "bookingLink" => "https://www.longniddrygolfclub.co.uk/visitorbooking/",
+        "baseUrl" => "https://www.longniddrygolfclub.co.uk",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
-        "greenFee" => "330",
+        "greenFee" => "160",
         "image" => "",
+        "bookingSystem" => "intelligent",
+        "region" => "eastlothian",
     ],
     "golspie" => [
         "name" => "Golspie",
@@ -458,13 +510,16 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "highlands",
     ],
-    "Kilspindie" => [
+    "kilspindie" => [
         "name" => "Kilspindie",
         "bookingLink" => "https://www.kilspindiegolfclub.co.uk/visitorbooking/",
+        "baseUrl" => "https://www.kilspindiegolfclub.co.uk",
         "onlineBooking" => "Yes",
-        "openBooking" => "No",
-        "greenFee" => "330",
+        "openBooking" => "Yes",
+        "greenFee" => "160",
         "image" => "",
+        "bookingSystem" => "intelligent",
+        "region" => "eastlothian",
     ],
     "monifieth" => [
         "name" => "Monifieth",
@@ -492,6 +547,8 @@ $golfCourses = [
         "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
+        "bookingSystem" => "",
+        "region" => "fife",
     ],
     "nairndunbargolf" => [
         "name" => "Nairn Dunbar",
@@ -562,6 +619,8 @@ $golfCourses = [
         "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
+        "bookingSystem" => "",
+        "region" => "ayrshire",
     ],
     "eastrenfrewshire" => [
         "name" => "East Renfrewshire",
@@ -624,7 +683,7 @@ $golfCourses = [
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "islands",
+        "region" => "fife",
     ],
     "aboyne" => [
         "name" => "Aboyne",
@@ -635,6 +694,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "",
+        "region" => "aberdeen",
     ],
     "alyth" => [
         "name" => "Alyth",
@@ -644,7 +704,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "perthshire",
     ],
     "auchterarder" => [
         "name" => "Auchterarder",
@@ -654,7 +714,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "perthshire",
     ],
     "auchterderran" => [
         "name" => "Auchterderran",
@@ -674,7 +734,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "edinburgh",
     ],
     "ballater" => [
         "name" => "Ballater",
@@ -684,7 +744,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "aberdeen",
     ],
     "ballindalloch" => [
         "name" => "Ballindalloch",
@@ -704,7 +764,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "angus",
     ],
     "balmore" => [
         "name" => "Balmore",
@@ -724,17 +784,17 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "aberdeen",
     ],
     "blairatholl" => [
-        "name" => "Blairatholl",
+        "name" => "Blair Atholl",
         "bookingLink" => "https://visitors.brsgolf.com/blairatholl#/course/1",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "highlands",
     ],
     "bonnyton" => [
         "name" => "Bonnyton",
@@ -775,17 +835,17 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "angus",
     ],
     "bridgeofallan" => [
-        "name" => "Bridgeofallan",
+        "name" => "Bridge of Allan",
         "bookingLink" => "https://visitors.brsgolf.com/bridgeofallan#/course/1",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "perthshire",
     ],
     "brodick" => [
         "name" => "Brodick",
@@ -795,7 +855,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "islands",
     ],
     "buckpool" => [
         "name" => "Buckpool",
@@ -815,7 +875,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "fife",
     ],
     "caldwell" => [
         "name" => "Caldwell",
@@ -878,7 +938,7 @@ $golfCourses = [
         "region" => "",
     ],
     "castlepark" => [
-        "name" => "Castlepark",
+        "name" => "Castle Park",
         "bookingLink" => "https://visitors.brsgolf.com/castlepark#/course/1",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
@@ -905,7 +965,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "fife",
     ],
     "forfar" => [
         "name" => "Forfar",
@@ -915,7 +975,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "angus",
     ],
     "kirriemuir" => [
         "name" => "Kirriemuir",
@@ -925,7 +985,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "angus",
     ],
     "cowglen" => [
         "name" => "Cowglen",
@@ -945,7 +1005,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "glasgow",
     ],
     "cupar" => [
         "name" => "Cupar",
@@ -955,7 +1015,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "fife",
     ],
     "dalmahoy" => [
         "name" => "Dalmahoy",
@@ -965,7 +1025,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "edinburgh",
     ],
     "dougalston" => [
         "name" => "Dougalston",
@@ -985,7 +1045,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "fife",
     ],
     "drumpellier" => [
         "name" => "Drumpellier",
@@ -995,7 +1055,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "glasgow",
     ],
     "dufftown" => [
         "name" => "Dufftown",
@@ -1005,17 +1065,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
-    ],
-    "dumbarton" => [
-        "name" => "Dumbarton",
-        "bookingLink" => "https://visitors.brsgolf.com/dumbarton#/course/1",
-        "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
-        "greenFee" => "340",
-        "image" => "",
-        "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "highlands",
     ],
     "dunblanenew" => [
         "name" => "Dunblane New",
@@ -1025,7 +1075,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "perthshire",
     ],
     "roxburghe" => [
         "name" => "Roxburghe",
@@ -1035,17 +1085,17 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "south",
     ],
     "balbirniepark" => [
-        "name" => "Balbirniepark",
+        "name" => "Balbirnie Park",
         "bookingLink" => "https://visitors.brsgolf.com/balbirniepark#/course/1",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "fife",
     ],
     "ballindalloch" => [
         "name" => "Ballindalloch",
@@ -1065,7 +1115,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "glasgow",
     ],
     "clydebankdistrict" => [
         "name" => "Clydebankdistrict",
@@ -1076,7 +1126,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "glasgow",
     ],
     "dumbarton" => [
         "name" => "Dumbarton",
@@ -1086,7 +1136,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "glasgow",
     ],
     "duns" => [
         "name" => "Duns",
@@ -1106,7 +1156,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "fife",
     ],
     "dumfriesandcounty" => [
         "name" => "Dumfries and County",
@@ -1117,7 +1167,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "south",
     ],
     "dumfriesandgalloway" => [
         "name" => "Dumfries and Galloway",
@@ -1128,7 +1178,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "south",
     ],
     "eastkilbride" => [
         "name" => "Eastkilbride",
@@ -1138,7 +1188,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "glasgow",
     ],
     "eastermoffat" => [
         "name" => "Eastermoffat",
@@ -1158,7 +1208,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "angus",
     ],
     "elderslie" => [
         "name" => "Elderslie",
@@ -1178,7 +1228,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "highlands",
     ],
     "eyemouth" => [
         "name" => "Eyemouth",
@@ -1228,7 +1278,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "highlands",
     ],
     "glenbervie" => [
         "name" => "Glenbervie",
@@ -1248,7 +1298,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "fife",
     ],
     "haddington" => [
         "name" => "Haddington",
@@ -1258,7 +1308,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "eastlothian",
     ],
     "haggscastle" => [
         "name" => "Haggs Castle",
@@ -1268,7 +1318,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "glasgow",
     ],
     "hayston" => [
         "name" => "Hayston",
@@ -1288,7 +1338,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "aberdeen",
     ],
     "helensburgh" => [
         "name" => "Helensburgh",
@@ -1298,7 +1348,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "glasgow",
     ],
     "hirsel" => [
         "name" => "Hirsel",
@@ -1348,7 +1398,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "highlands",
     ],
     "inverurie" => [
         "name" => "Inverurie",
@@ -1358,7 +1408,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "highlands",
     ],
     "jedburgh" => [
         "name" => "Jedburgh",
@@ -1368,7 +1418,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "south",
     ],
     "kilsythlennox" => [
         "name" => "Kilsythlennox",
@@ -1378,7 +1428,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "glasgow",
     ],
     "kinghorn" => [
         "name" => "Kinghorn",
@@ -1388,7 +1438,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "fife",
     ],
     "kingussie" => [
         "name" => "Kingussie",
@@ -1398,7 +1448,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "highlands",
     ],
     "kinross" => [
         "name" => "Kinross",
@@ -1408,7 +1458,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "perthshire",
     ],
     "kintore" => [
         "name" => "Kintore",
@@ -1448,7 +1498,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "south",
     ],
     "linlithgow" => [
         "name" => "Linlithgow",
@@ -1458,7 +1508,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "edinburgh",
     ],
     "lochgelly" => [
         "name" => "Lochgelly",
@@ -1468,7 +1518,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "fife",
     ],
     "lochoremeadows" => [
         "name" => "Lochoremeadows",
@@ -1520,7 +1570,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "edinburgh",
     ],
     "milngavie" => [
         "name" => "Milngavie",
@@ -1630,7 +1680,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "south",
     ],
     "pitreavie" => [
         "name" => "Pitreavie",
@@ -1650,7 +1700,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "aberdeen",
     ],
     "portpatrick" => [
         "name" => "Portpatrick",
@@ -1670,7 +1720,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "south",
     ],
     "pumpherston" => [
         "name" => "Pumpherston",
@@ -1690,7 +1740,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "aberdeen",
     ],
     "royalmusselburgh" => [
         "name" => "Royal Musselburgh",
@@ -1701,7 +1751,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "eastlothian",
     ],
     "scoonie" => [
         "name" => "Scoonie",
@@ -1711,7 +1761,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "fife",
     ],
     "shotts" => [
         "name" => "Shotts",
@@ -1721,7 +1771,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "glasgow",
     ],
     "southerness" => [
         "name" => "Southerness",
@@ -1731,7 +1781,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "south",
     ],
     "stmichaels" => [
         "name" => "Stmichaels",
@@ -1741,7 +1791,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "fife",
     ],
     "stirling" => [
         "name" => "Stirling",
@@ -1761,7 +1811,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "aberdeen",
     ],
     "stranraer" => [
         "name" => "Stranraer",
@@ -1791,7 +1841,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "perthshire",
     ],
     "swanston" => [
         "name" => "Swanston",
@@ -1801,7 +1851,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "edinburgh",
     ],
     "swanstontemplar" => [
         "name" => "Swanstontemplar",
@@ -1872,7 +1922,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "highlands",
     ],
     "uphall" => [
         "name" => "Uphall",
@@ -1884,29 +1934,9 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "",
     ],
-    "westkilbride" => [
-        "name" => "Westkilbride",
-        "bookingLink" => "https://visitors.brsgolf.com/westkilbride#/course/1",
-        "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
-        "greenFee" => "340",
-        "image" => "",
-        "bookingSystem" => "brs",
-        "region" => "",
-    ],
     "westlinton" => [
         "name" => "Westlinton",
         "bookingLink" => "https://visitors.brsgolf.com/westlinton#/course/1",
-        "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
-        "greenFee" => "340",
-        "image" => "",
-        "bookingSystem" => "brs",
-        "region" => "",
-    ],
-    "westerngailes" => [
-        "name" => "Westerngailes",
-        "bookingLink" => "https://visitors.brsgolf.com/westerngailes#/course/1",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
         "greenFee" => "340",
@@ -1953,7 +1983,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "highlands",
     ],
     "kingarrockhickory" => [
         "name" => "Kingarrockhickory",
@@ -1978,7 +2008,7 @@ $golfCourses = [
         "region" => "",
     ],
     "dunkeldbirnam" => [
-        "name" => "Dunkeldbirnam",
+        "name" => "Dunkeld and Birnam",
         "bookingLink" => "https://visitors.brsgolf.com/dunkeldbirnam#/course/1",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
@@ -1998,7 +2028,7 @@ $golfCourses = [
         "region" => "",
     ],
     "giffordgc" => [
-        "name" => "Giffordgc",
+        "name" => "Gifford",
         "bookingLink" => "https://visitors.brsgolf.com/giffordgc#/course/1",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
@@ -2018,7 +2048,7 @@ $golfCourses = [
         "region" => "",
     ],
     "newburghonythan" => [
-        "name" => "Newburghonythan",
+        "name" => "Newburgh on Ythan",
         "bookingLink" =>
             "https://visitors.brsgolf.com/newburghonythan#/course/1",
         "onlineBooking" => "Yes",
@@ -2026,7 +2056,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "aberdeen",
     ],
     "oldranfurly" => [
         "name" => "Oldranfurly",
@@ -2039,7 +2069,7 @@ $golfCourses = [
         "region" => "",
     ],
     "portpatrick" => [
-        "name" => "Portpatrick",
+        "name" => "Portpatrick Dunskey",
         "bookingLink" => "https://visitors.brsgolf.com/portpatrick#/course/1",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
@@ -2049,7 +2079,7 @@ $golfCourses = [
         "region" => "",
     ],
     "rowallancastle" => [
-        "name" => "Rowallancastle",
+        "name" => "Rowallan Castle",
         "bookingLink" =>
             "https://visitors.brsgolf.com/rowallancastle#/course/1",
         "onlineBooking" => "Yes",
@@ -2185,7 +2215,7 @@ $golfCourses = [
         "courseId" => 1937,
     ],
     "dundasparks" => [
-        "name" => "Dundasparks",
+        "name" => "Dundas Parks",
         "bookingLink" => "https://dundasparks.hub.clubv1.com/Visitors/TeeSheet",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
@@ -2324,7 +2354,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "clubv1",
-        "region" => "",
+        "region" => "aberdeen",
         "courseId" => 1357,
     ],
     "prestwickstcuthbert" => [
@@ -2479,7 +2509,124 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
+        "region" => "perthshire",
+    ],
+    "bellshill" => [
+        "name" => "Bellshill",
+        "bookingLink" => "https://bellshill.hub.clubv1.com/Visitors/TeeSheet",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "340",
+        "image" => "",
+        "bookingSystem" => "clubv1",
+        "region" => "glasgow",
+        "courseId" => 10069,
+    ],
+    "braemar" => [
+        "name" => "Braemar",
+        "bookingLink" => "https://braemar.hub.clubv1.com/Visitors/TeeSheet",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "340",
+        "image" => "",
+        "bookingSystem" => "clubv1",
+        "region" => "aberdeen",
+        "courseId" => 2832,
+    ],
+    "braes" => [
+        "name" => "Braes",
+        "bookingLink" => "https://visitors.brsgolf.com/braesgolf#/course/1",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "340",
+        "image" => "",
+        "bookingSystem" => "brs",
         "region" => "",
+    ],
+    "bruntsfieldlinks" => [
+        "name" => "Bruntsfield Links",
+        "bookingLink" => "https://www.bruntsfieldlinks.co.uk/visitorbooking/",
+        "baseUrl" => "https://www.bruntsfieldlinks.co.uk",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "160",
+        "image" => "",
+        "bookingSystem" => "intelligent",
+        "region" => "edinburgh",
+    ],
+    "campsie" => [
+        "name" => "Campsie",
+        "bookingLink" => "https://visitors.brsgolf.com/campsie#/course/1",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "340",
+        "image" => "",
+        "bookingSystem" => "brs",
+        "region" => "glasgow",
+    ],
+    "craigmillarpark" => [
+        "name" => "Craigmillar Park",
+        "bookingLink" => "https://www.craigmillarpark.co.uk/visitorbooking/",
+        "baseUrl" => "https://www.craigmillarpark.co.uk",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "160",
+        "image" => "",
+        "bookingSystem" => "intelligent",
+        "region" => "edinburgh",
+    ],
+    "crieff" => [
+        "name" => "Crieff",
+        "bookingLink" => "https://crieff.intelligentgolf.co.uk/visitorbooking/",
+        "baseUrl" => "https://crieff.intelligentgolf.co.uk",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "160",
+        "image" => "",
+        "bookingSystem" => "intelligent",
+        "region" => "perthshire",
+        "courses" => [
+            "Ferntower" => [
+                "courseId" => 1,
+            ],
+            "Dornock" => [
+                "courseId" => 282,
+            ],
+        ],
+    ],
+    "glengolfclub" => [
+        "name" => "Glen North Berwick",
+        "bookingLink" => "https://www.glengolfclub.co.uk/visitorbooking/",
+        "baseUrl" => "https://www.glengolfclub.co.uk",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "160",
+        "image" => "",
+        "bookingSystem" => "intelligent",
+        "region" => "eastlothian",
+    ],
+    "kingennie" => [
+        "name" => "Forbes of Kingennie",
+        "bookingLink" =>
+            "https://visitors.brsgolf.com/forbesofkingennie#/course/1",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "340",
+        "image" => "",
+        "bookingSystem" => "brs",
+        "region" => "angus",
+    ],
+    "kingsacre" => [
+        "name" => "Kings Acre",
+        "bookingLink" =>
+            "https://kingsacre.intelligentgolf.co.uk/visitorbooking/",
+        "baseUrl" => "https://kingsacre.intelligentgolf.co.uk",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "160",
+        "image" => "",
+        "bookingSystem" => "intelligent",
+        "region" => "edinburgh",
     ],
 ];
 

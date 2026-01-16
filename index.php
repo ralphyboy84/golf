@@ -2,12 +2,12 @@ Set trip start date:
 <input
   type="date"
   id="start"
-  value="2026-04-04"
+  value="2026-01-17"
   min="2026-01-01"
   max="2028-07-22" /><br /><br />
 
  Number of days:
-  <input type='number' id='days' name='days' min='1'  value='3' /><br /><br />
+  <input type='number' id='days' name='days' min='1'  value='1' /><br /><br />
    Where are you staying?
   <input type='text' id='staying' name='staying'  value='Dornoch' /><br /><br />
    Where are you flying in from?
@@ -25,12 +25,12 @@ foreach ($regions as $region) {
     $$region = get_courses_for_area($region, $golfCourses);
 }
 
-// $scotlandSelect = build_select_box($golfCourses, "Scotland");
+$scotlandSelect = build_select_box($golfCourses, "Scotland");
 
-// echo "Scotland Golf Trip<br />$scotlandSelect<br /><br /><button onclick='findTrip(\"dropDownScotland\")'>Find Scotland Trip</button></td>";
-// echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
+echo "Scotland Golf Trip<br />$scotlandSelect<br /><br /><button onclick='findTrip(\"dropDownScotland\")'>Find Scotland Trip</button></td>";
+echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
 
-// $angusSelect = build_select_box($angus, "Angus");
+$angusSelect = build_select_box($angus, "Angus");
 
 // echo "<td>Angus Golf Trip<br />$angusSelect<br /><br /><button onclick='findTrip(\"dropDownAngus\")'>Find Angus Trip</button></td>";
 // echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";

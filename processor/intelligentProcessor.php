@@ -6,6 +6,12 @@ class IntelligentProcessor extends Processor
 {
     public function processTeeTimeForDay($club, $json, $info)
     {
+        if (!$json) {
+            return [
+                "teeTimesAvailable" => "No",
+            ];
+        }
+
         // Decode JSON
         $data = json_decode($json, true);
 

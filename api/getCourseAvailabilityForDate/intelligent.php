@@ -7,9 +7,16 @@ $IntelligentCall = new IntelligentCall();
 $IntelligentProcessor = new IntelligentProcessor();
 
 if ($golfCourses[$_GET["club"]]["onlineBooking"]) {
+    $courseId = "";
+
+    if (isset($_GET["courseId"])) {
+        $courseId = $_GET["courseId"];
+    }
+
     $teeTimes = $IntelligentCall->getTeeTimesForDay(
         $golfCourses[$_GET["club"]]["baseUrl"],
         $_GET["date"],
+        $courseId,
     );
 
     $teeTimeInfo = $IntelligentProcessor->processTeeTimeForDay(

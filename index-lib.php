@@ -48,7 +48,7 @@ function build_select_box($region, $label)
         //}
     }
 
-    // echo "$count <br />";
+    echo "$count <br />";
 
     return "<select multiple='multiple' id='dropDown" .
         str_replace(" ", "", $label) .

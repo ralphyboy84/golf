@@ -24,7 +24,7 @@ class IntelligentCall extends Call
         // return preg_replace("/^HTTP\/2\s+200\s.*?\R\R/s", "", $server_output);
     }
 
-    public function getTeeTimesForDay($baseUrl, $date)
+    public function getTeeTimesForDay($baseUrl, $date, $courseId = false)
     {
         $dateArgs = explode("-", $date);
         $date = $dateArgs[2] . "-" . $dateArgs[1] . "-" . $dateArgs[0];
@@ -34,6 +34,10 @@ class IntelligentCall extends Call
             "group" => 1,
             "requestType" => "ajax",
         ];
+
+        if ($courseId) {
+            $post_data["course"] = $courseId;
+        }
 
         $ch = curl_init();
         curl_setopt_array($ch, [
