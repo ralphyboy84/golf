@@ -14,12 +14,20 @@ Set trip start date:
   <input type='text' id='flying' name='days' value='Inverness' /><br /><br />
   <table>
     <tr>
-        <td>
+        <td style='vertical-align:top'>
 <?php
 require_once "courses.php";
 require_once "index-lib.php";
 
-$regions = ["angus", "fife", "highlands", "ayrshire", "islands", "aberdeen"];
+$regions = [
+    "angus",
+    "fife",
+    "highlands",
+    "ayrshire",
+    "islands",
+    "aberdeen",
+    "eastlothian",
+];
 
 foreach ($regions as $region) {
     $$region = get_courses_for_area($region, $golfCourses);
@@ -30,7 +38,7 @@ $scotlandSelect = build_select_box($golfCourses, "Scotland");
 echo "Scotland Golf Trip<br />$scotlandSelect<br /><br /><button onclick='findTrip(\"dropDownScotland\")'>Find Scotland Trip</button></td>";
 echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
 
-$angusSelect = build_select_box($angus, "Angus");
+// $angusSelect = build_select_box($angus, "Angus");
 
 // echo "<td>Angus Golf Trip<br />$angusSelect<br /><br /><button onclick='findTrip(\"dropDownAngus\")'>Find Angus Trip</button></td>";
 // echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
@@ -41,9 +49,14 @@ $angusSelect = build_select_box($angus, "Angus");
 
 // echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
 
-$highlandsSelect = build_select_box($highlands, "Highlands");
+// $highlandsSelect = build_select_box($highlands, "Highlands");
 
-echo "<td style='vertical-align:top'>Highlands Golf Trip<br />$highlandsSelect<br /><br /><button onclick='findTrip(\"dropDownHighlands\")'>Find Highlands Trip</button></td>";
+// echo "<td style='vertical-align:top'>Highlands Golf Trip<br />$highlandsSelect<br /><br /><button onclick='findTrip(\"dropDownHighlands\")'>Find Highlands Trip</button></td>";
+// echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
+
+$highlandsSelect = build_select_box($eastlothian, "EastLothian");
+
+echo "<td style='vertical-align:top'>East Lothian Golf Trip<br />$highlandsSelect<br /><br /><button onclick='findTrip(\"dropDownEastLothian\")'>Find East Lothian Trip</button></td>";
 echo "<td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</td>";
 
 // $ayrshireSelect = build_select_box($ayrshire, "Ayrshire");

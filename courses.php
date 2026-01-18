@@ -30,6 +30,7 @@ $golfCourses = [
         "greenFee" => "395",
         "image" => "",
         "bookingSystem" => "",
+        "availabilityDays" => ["tue", "thu"],
         "region" => "eastlothian",
     ],
     "RoyalDornoch" => [
@@ -74,6 +75,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "",
         "region" => "eastlothian",
+        "availabilityDays" => ["mon", "tue", "wed", "thu", "sun"],
     ],
     "Cabot Highlands" => [
         "name" => "Cabot Highlands",
@@ -209,6 +211,17 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "eastlothian",
+        "courses" => [
+            "1" => [
+                "courseId" => 1,
+            ],
+            "2" => [
+                "courseId" => 3,
+            ],
+            "3" => [
+                "courseId" => 5,
+            ],
+        ],
     ],
     "machrihanishdunes" => [
         "name" => "Machrihanish Dunes",
@@ -365,6 +378,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "",
         "region" => "eastlothian",
+        "availabilityDays" => ["mon", "tue", "wed", "thu", "fri", "sun"],
     ],
     "Fraserburgh" => [
         "name" => "Fraseburgh",
