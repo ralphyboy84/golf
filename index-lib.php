@@ -1,27 +1,5 @@
 <?php
 
-function get_courses_for_area($region, $courseList)
-{
-    foreach ($courseList as $courseName => $courseInfo) {
-        if (isset($courseInfo["region"]) && $courseInfo["region"] == $region) {
-            $newArray[$courseName] = $courseInfo;
-        }
-    }
-
-    return $newArray;
-}
-
-function get_courses_from_array($coursesToFind, $courseList)
-{
-    foreach ($courseList as $courseName => $courseInfo) {
-        if (in_array($courseName, $coursesToFind)) {
-            $newArray[$courseName] = $courseInfo;
-        }
-    }
-
-    return $newArray;
-}
-
 function build_select_box($region, $label)
 {
     $options = "";

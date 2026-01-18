@@ -33,7 +33,7 @@ $golfCourses = [
         "availabilityDays" => ["tue", "thu"],
         "region" => "eastlothian",
     ],
-    "RoyalDornoch" => [
+    "royaldornoch" => [
         "name" => "Royal Dornoch",
         "bookingLink" => "https://booking.royaldornoch.com/",
         "onlineBooking" => "No",
@@ -77,7 +77,7 @@ $golfCourses = [
         "region" => "eastlothian",
         "availabilityDays" => ["mon", "tue", "wed", "thu", "sun"],
     ],
-    "Cabot Highlands" => [
+    "cabothighlands" => [
         "name" => "Cabot Highlands",
         "bookingLink" => "https://cabothighlands.com/make-a-reservation",
         "onlineBooking" => "No",
@@ -285,7 +285,7 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "fife",
     ],
-    "Moray" => [
+    "moray" => [
         "name" => "Moray",
         "bookingLink" => "https://www.brsgolf.com/moray/visitor_home.php",
         "onlineBooking" => "Yes",
@@ -347,7 +347,7 @@ $golfCourses = [
         "bookingSystem" => "intelligent",
         "region" => "eastlothian",
     ],
-    "Boat of Garten" => [
+    "boatofgarten" => [
         "name" => "Boat of Garten",
         "bookingLink" =>
             "https://boatofgarten.intelligentgolf.co.uk/visitorbooking/",
@@ -359,7 +359,7 @@ $golfCourses = [
         "bookingSystem" => "intelligent",
         "region" => "highlands",
     ],
-    "Southerness" => [
+    "southerness" => [
         "name" => "Southerness",
         "bookingLink" => "https://visitors.brsgolf.com/southerness#/course/1",
         "onlineBooking" => "Yes",
@@ -401,7 +401,7 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "ayrshire",
     ],
-    "Spey Valley" => [
+    "speyvalley" => [
         "name" => "Spey Valley",
         "bookingLink" =>
             "https://macdonald-hotels-spey-valley-championship.book.teeitup.com/",

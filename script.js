@@ -1,5 +1,5 @@
-async function findTrip(idToUse) {
-  var selectBoxValues = getSelectValues(document.getElementById(idToUse));
+async function findTrip() {
+  var selectBoxValues = getSelectValues(document.getElementById("clubsSelect"));
 
   if (!selectBoxValues.length) {
     document.getElementById("loadingDiv").innerHTML =
@@ -7,26 +7,38 @@ async function findTrip(idToUse) {
     return;
   }
 
-  const tripStart = document.getElementById("start").value;
+  document.getElementById("resultsDiv").innerHTML = "";
 
-  document.getElementById("loadingDiv").innerHTML =
-    "Please waiting loading.....";
-  document.getElementById("divToPopulate").innerHTML = "";
+  for (let x in selectBoxValues) {
+    const parent = document.getElementById("resultsDiv");
+
+    // 2. Create a new child div
+    const child = document.createElement("div");
+    child.id = selectBoxValues[x].course;
+
+    // 3. Set some content for the child
+    child.textContent = selectBoxValues[x].courseName;
+
+    // 4. Optionally add styles or attributes
+    child.style.backgroundColor = "lightblue";
+    child.style.marginTop = "10px";
+    child.style.padding = "5px";
+
+    // 5. Append the child div to the parent div
+    parent.appendChild(child);
+  }
+
+  const tripStart = document.getElementById("start").value;
 
   // Usage
   fetchAllResults(selectBoxValues, tripStart).then((allResults) => {
-    console.log(allResults);
-    document.getElementById("loadingDiv").innerHTML = "";
-
     Object.entries(allResults).forEach(([course, messages]) => {
-      document.getElementById("divToPopulate").innerHTML += course + "<br />";
-
       messages.forEach((msg) => {
-        document.getElementById("divToPopulate").innerHTML +=
+        document.getElementById(course).innerHTML +=
           displayContent(msg) + "<br />";
       });
 
-      document.getElementById("divToPopulate").innerHTML += "<br />";
+      document.getElementById(course).innerHTML += "<br />";
     });
   });
 
@@ -34,14 +46,14 @@ async function findTrip(idToUse) {
     `map/getDistance.php?from=Inverness&to=Dornoch`,
   ).then((res) => res.text());
 
-  document.getElementById("travelInfo").innerHTML = "";
-  document.getElementById("travelInfo").innerHTML += info + "<br />";
+  // document.getElementById("travelInfo").innerHTML = "";
+  // document.getElementById("travelInfo").innerHTML += info + "<br />";
 
-  const info2 = await fetch(
-    `map/getDistance.php?from=Dornoch&to=Golspie,Tain`,
-  ).then((res) => res.text());
+  // const info2 = await fetch(
+  //   `map/getDistance.php?from=Dornoch&to=Golspie,Tain`,
+  // ).then((res) => res.text());
 
-  document.getElementById("travelInfo").innerHTML += info2 + "<br />";
+  // document.getElementById("travelInfo").innerHTML += info2 + "<br />";
 }
 
 async function fetchAllResults(selectBoxValues, tripStart) {
@@ -63,7 +75,7 @@ async function fetchAllResults(selectBoxValues, tripStart) {
     }
 
     // Wait for all fetches for this x to complete
-    results[selectBoxValues[x].courseName] = await Promise.all(fetchPromises);
+    results[selectBoxValues[x].course] = await Promise.all(fetchPromises);
   }
 
   return results;
@@ -154,3 +166,27 @@ async function findOpenForDropDown(selectBoxValues) {
 
   return results;
 }
+
+async function getCoursesForDropDown() {
+  // document.getElementById("dropDownDiv").innerHTML =
+  //   "Please wait whilst we load your courses...";
+
+  let courses = await fetch(`../api/getCourses.php?region=highlands`).then(
+    (res) => res.json(),
+  );
+
+  const select = document.getElementById("clubsSelect");
+
+  // Loop through the object and add options
+  for (const key in courses) {
+    if (courses.hasOwnProperty(key)) {
+      const option = document.createElement("option");
+      option.value = key; // key as value
+      option.textContent = courses[key].name; // display name
+      option.setAttribute("data-courseId", courses[key].courseId || "");
+      select.appendChild(option);
+    }
+  }
+}
+
+getCoursesForDropDown();

@@ -1,8 +1,8 @@
 <?php
 
-// header("Content-Type: application/json; charset=utf-8");
+header("Content-Type: application/json; charset=utf-8");
 
-require_once "../courses.php";
+require_once "courses.php";
 
 $teeTimeInfo = [];
 $openOnDay = [];
@@ -26,12 +26,14 @@ if (
 
     if (in_array($day, $golfCourses[$_GET["club"]]["availabilityDays"])) {
         $additionalArray = [
+            "onlineBooking" => "No",
             "visitorsAvailable" => "Yes",
             "date" => $_GET["date"],
             "bookingInfo" => $golfCourses[$_GET["club"]]["bookingLink"],
         ];
     } else {
         $additionalArray = [
+            "onlineBooking" => "No",
             "visitorsAvailable" => "No",
             "date" => $_GET["date"],
             "bookingInfo" => $golfCourses[$_GET["club"]]["bookingLink"],
