@@ -17,12 +17,12 @@ async function findTrip() {
     child.id = selectBoxValues[x].course;
 
     // 3. Set some content for the child
-    child.textContent = selectBoxValues[x].courseName;
+    // child.textContent = "Please wait.... loading.....";
 
     // 4. Optionally add styles or attributes
-    child.style.backgroundColor = "lightblue";
-    child.style.marginTop = "10px";
-    child.style.padding = "5px";
+    child.classList.add("col-4");
+    // child.style.marginTop = "10px";
+    // child.style.padding = "5px";
 
     // 5. Append the child div to the parent div
     parent.appendChild(child);
@@ -31,20 +31,22 @@ async function findTrip() {
   const tripStart = document.getElementById("start").value;
 
   // Usage
-  fetchAllResults(selectBoxValues, tripStart).then((allResults) => {
-    Object.entries(allResults).forEach(([course, messages]) => {
-      messages.forEach((msg) => {
-        document.getElementById(course).innerHTML +=
-          displayContent(msg) + "<br />";
-      });
+  // fetchAllResults(selectBoxValues, tripStart).then((allResults) => {
+  //   Object.entries(allResults).forEach(([course, messages]) => {
+  //     messages.forEach((msg) => {
+  //       document.getElementById(course).innerHTML +=
+  //         displayContent(msg) + "<br />";
+  //     });
 
-      document.getElementById(course).innerHTML += "<br />";
-    });
-  });
+  //     document.getElementById(course).innerHTML += "<br />";
+  //   });
+  // });
 
   const info = await fetch(
     `map/getDistance.php?from=Inverness&to=Dornoch`,
   ).then((res) => res.text());
+
+  fetchAllResults2(selectBoxValues, tripStart);
 
   // document.getElementById("travelInfo").innerHTML = "";
   // document.getElementById("travelInfo").innerHTML += info + "<br />";
@@ -76,6 +78,31 @@ async function fetchAllResults(selectBoxValues, tripStart) {
 
     // Wait for all fetches for this x to complete
     results[selectBoxValues[x].course] = await Promise.all(fetchPromises);
+  }
+
+  return results;
+}
+
+async function fetchAllResults2(selectBoxValues, tripStart) {
+  const results = {};
+
+  for (let x in selectBoxValues) {
+    let count = 0;
+
+    for (let y = 0; y < document.getElementById("days").value; y++) {
+      const date = addDays(tripStart, count);
+      count++;
+
+      fetch(
+        `api/getCourseAvailabilityForDate.php?club=${selectBoxValues[x].course}&date=${date}&courseId=${selectBoxValues[x].courseId}`,
+      )
+        .then((res) => res.json())
+        .then(
+          (fetchPromise) =>
+            (document.getElementById(selectBoxValues[x].course).innerHTML +=
+              displayContent(fetchPromise)) + "<br />",
+        );
+    }
   }
 
   return results;
@@ -125,13 +152,97 @@ function addDays(date, days) {
 }
 
 function displayContent(msg) {
-  let string = "";
-
-  for (const [key, value] of Object.entries(msg)) {
-    string += `${key}: ${value}<br />`;
+  console.log(msg);
+  if (msg.onlineBooking == "No") {
+    return `
+    <div>
+    Date: ${msg.date}<br />
+    Unfortunately, Online Booking is not available at ${msg.courseName} but they do allow visitors on this day. For more information please <a hre='${msg.bookingInfo}' target='_blank'>click here</a>
+    </div>
+  `;
   }
 
-  return string;
+  let temp = "";
+  let timesAvailable = "";
+  let openText = "";
+  let openTimesAvailable = "";
+
+  if (msg.teeTimesAvailable == "Yes") {
+    temp = "Good news! There are tee times available on this day";
+
+    timesAvailable = returnCardList(
+      msg.cheapestPrice,
+      "Prices Starting From",
+      "bi-currency-pound",
+    );
+    timesAvailable += returnCardList(
+      msg.firstTime,
+      "First Tee Time",
+      "bi-alarm",
+    );
+    timesAvailable += returnCardList(
+      msg.timesAvailable,
+      "Available Slots",
+      "bi-balloon",
+    );
+    timesAvailable += returnCardList(
+      "31 minute",
+      "Drive to Course",
+      "bi-car-front",
+    );
+
+    if (msg.openBookingUrl) {
+      openText = `
+      <br /><br /><p class="card-text">There is also an Open Competition on this day</p>
+      `;
+
+      openText += returnCardList(
+        msg.openGreenFee,
+        "Open Entry Fee",
+        "bi-currency-pound",
+      );
+
+      openText += returnCardList(
+        msg.slotsAvailable,
+        "Available Slots",
+        "bi-balloon",
+      );
+
+      openText += `<a href="${msg.openBookingUrl}" class="btn btn-primary" target="_blank">Click here for more info</a>`;
+    }
+  } else {
+    temp = "Sorry - there are tee times available on this day";
+  }
+
+  return `
+    <div class="card">
+      <div class="card-header">
+      ${msg.date}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">${msg.courseName}</h5>
+        <p class="card-text">${temp}</p>
+        ${timesAvailable}
+        <a href="${msg.bookingUrl}" class="btn btn-primary" target="_blank">Click here for more info</a>
+        ${openText}
+      </div>
+    </div>
+  `;
+}
+
+function returnCardList(title, message, icon) {
+  return `
+    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true"> 
+
+      <i class="bi ${icon}"></i>
+      <div class="d-flex gap-2 w-100 justify-content-between"> 
+        <div> 
+          <h6 class="mb-0">${title}</h6> 
+          <p class="mb-0 opacity-75">${message}</p> 
+        </div> 
+      </div> 
+    </a>
+    `;
 }
 
 function findOpens(openType) {
@@ -190,3 +301,11 @@ async function getCoursesForDropDown() {
 }
 
 getCoursesForDropDown();
+
+// const params = new URLSearchParams({
+//   q: "DD7 7SS",
+//   max: 10,
+// });
+// fetch("https://api.geodojo.net/locate/find?" + params)
+//   .then((response) => response.json())
+//   .then((data) => console.log(data));

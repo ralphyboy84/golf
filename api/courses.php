@@ -358,6 +358,11 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "intelligent",
         "region" => "highlands",
+        "location" => [
+            "lat" => 57.25039,
+            "lon" => -3.75083,
+        ],
+        "working" => "yes",
     ],
     "southerness" => [
         "name" => "Southerness",
@@ -667,6 +672,10 @@ $golfCourses = [
         "bookingSystem" => "clubv1",
         "region" => "highlands",
         "courseId" => 753,
+        "location" => [
+            "lat" => 57.81281,
+            "lon" => -4.04313,
+        ],
     ],
     "aberdour" => [
         "name" => "Aberdour",
@@ -809,6 +818,11 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "highlands",
+        "location" => [
+            "lat" => 56.76374,
+            "lon" => -3.8403,
+        ],
+        "working" => "yes",
     ],
     "bonnyton" => [
         "name" => "Bonnyton",
@@ -1937,6 +1951,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "highlands",
+        "working" => "no",
     ],
     "uphall" => [
         "name" => "Uphall",
@@ -2504,6 +2519,11 @@ $golfCourses = [
         "bookingSystem" => "clubv1",
         "region" => "highlands",
         "courseId" => 18925,
+        "location" => [
+            "lat" => 57.43931,
+            "lon" => -4.56663,
+        ],
+        "working" => "yes",
     ],
     "auchenblae" => [
         "name" => "Auchenblae",
