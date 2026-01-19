@@ -150,7 +150,11 @@ class ClubV1Processor extends Processor
                 is_array($teeTime["div"][1]["div"])
             ) {
                 foreach ($teeTime["div"][1]["div"] as $slot) {
-                    if (trim($slot["span"]) == "Available") {
+                    if (
+                        is_array($slot) &&
+                        isset($slot["span"]) &&
+                        trim($slot["span"]) == "Available"
+                    ) {
                         $available = "Yes";
                     }
                 }

@@ -20,14 +20,22 @@ if (
             $golfCourses[$_GET["club"]]["bookingLink"] .
             "?date=" .
             $_GET["date"],
-        "courseName" => $golfCourses[$_GET["club"]]["name"],
+        "courseName" => get_course_name(
+            $_GET["club"],
+            $golfCourses,
+            $_GET["courseId"],
+        ),
     ];
 } else {
     $day = strtolower(date("D", strtotime($_GET["date"])));
 
     if (in_array($day, $golfCourses[$_GET["club"]]["availabilityDays"])) {
         $additionalArray = [
-            "courseName" => $golfCourses[$_GET["club"]]["name"],
+            "courseName" => get_course_name(
+                $_GET["club"],
+                $golfCourses,
+                $_GET["courseId"],
+            ),
             "onlineBooking" => "No",
             "visitorsAvailable" => "Yes",
             "date" => $_GET["date"],
@@ -35,7 +43,11 @@ if (
         ];
     } else {
         $additionalArray = [
-            "courseName" => $golfCourses[$_GET["club"]]["name"],
+            "courseName" => get_course_name(
+                $_GET["club"],
+                $golfCourses,
+                $_GET["courseId"],
+            ),
             "onlineBooking" => "No",
             "visitorsAvailable" => "No",
             "date" => $_GET["date"],

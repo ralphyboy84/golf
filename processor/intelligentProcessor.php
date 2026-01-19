@@ -21,7 +21,7 @@ class IntelligentProcessor extends Processor
 
         if ($slots->length === 0) {
             return [
-                "date" => $date,
+                "date" => $this->_format_date($date),
                 "teeTimesAvailable" => "No",
             ];
         }
@@ -61,7 +61,7 @@ class IntelligentProcessor extends Processor
         }
 
         return [
-            "date" => $date,
+            "date" => $this->_format_date($date),
             "teeTimesAvailable" => "Yes",
             "timesAvailable" => $count,
             "firstTime" => $firstTime,

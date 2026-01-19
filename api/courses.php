@@ -191,6 +191,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "highlands",
+        "working" => "yes",
     ],
     "The Machrie" => [
         "name" => "The Machrie",
@@ -304,6 +305,7 @@ $golfCourses = [
                 "courseId" => 3,
             ],
         ],
+        "working" => "yes",
     ],
     "dundonald" => [
         "name" => "Dundonald",
@@ -418,6 +420,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "",
         "region" => "highlands",
+        "working" => "no",
     ],
     "montrosegolflinks" => [
         "name" => "Montrose",
@@ -582,6 +585,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "highlands",
+        "working" => "yes",
     ],
     "peterhead" => [
         "name" => "Peterhead",
@@ -634,6 +638,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "highlands",
+        "working" => "yes",
     ],
     "Kilmarnock Barassie" => [
         "name" => "Kilmarnock Barassie",
@@ -680,6 +685,7 @@ $golfCourses = [
             "lat" => 57.81281,
             "lon" => -4.04313,
         ],
+        "working" => "yes",
     ],
     "aberdour" => [
         "name" => "Aberdour",
@@ -1434,6 +1440,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "highlands",
+        "working" => "yes",
     ],
     "inverurie" => [
         "name" => "Inverurie",
@@ -1444,6 +1451,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "highlands",
+        "working" => "yes",
     ],
     "jedburgh" => [
         "name" => "Jedburgh",
@@ -1484,6 +1492,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "highlands",
+        "working" => "yes",
     ],
     "kinross" => [
         "name" => "Kinross",
@@ -2134,8 +2143,9 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "clubv1",
-        "region" => "",
+        "region" => "highlands",
         "courseId" => 272,
+        "working" => "yes",
     ],
     "alloa" => [
         "name" => "Alloa",
@@ -2449,6 +2459,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "highlands",
+        "working" => "yes",
     ],
     "mortonhall" => [
         "name" => "Mortonhall",
@@ -2676,3 +2687,22 @@ $golfCourses = [
 uksort($golfCourses, function ($a, $b) {
     return strcasecmp($a, $b); // Compare keys ignoring case
 });
+
+function get_course_name($course, $golfCourses, $courseId = false)
+{
+    if (
+        isset($golfCourses[$course]["courses"]) &&
+        !empty($golfCourses[$course]["courses"])
+    ) {
+        foreach ($golfCourses[$course]["courses"] as $name => $data) {
+            if ($data["courseId"] == $courseId) {
+                $courseName = $name;
+                break;
+            }
+        }
+
+        return $golfCourses[$course]["name"] . " " . $courseName;
+    }
+
+    return $golfCourses[$course]["name"];
+}

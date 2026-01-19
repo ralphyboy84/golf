@@ -291,11 +291,21 @@ async function getCoursesForDropDown() {
   // Loop through the object and add options
   for (const key in courses) {
     if (courses.hasOwnProperty(key)) {
-      const option = document.createElement("option");
-      option.value = key; // key as value
-      option.textContent = courses[key].name; // display name
-      option.setAttribute("data-courseId", courses[key].courseId || "");
-      select.appendChild(option);
+      if (courses[key].courses) {
+        for (const [key2, value] of Object.entries(courses[key].courses)) {
+          const option = document.createElement("option");
+          option.value = key; // key as value
+          option.textContent = courses[key].name + " " + key2; // display name
+          option.setAttribute("data-courseId", value.courseId || "");
+          select.appendChild(option);
+        }
+      } else {
+        const option = document.createElement("option");
+        option.value = key; // key as value
+        option.textContent = courses[key].name; // display name
+        option.setAttribute("data-courseId", courses[key].courseId || "");
+        select.appendChild(option);
+      }
     }
   }
 }
