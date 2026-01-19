@@ -26,35 +26,41 @@ class IntelligentCall extends Call
 
     public function getTeeTimesForDay($baseUrl, $date, $courseId = false)
     {
-        $dateArgs = explode("-", $date);
-        $date = $dateArgs[2] . "-" . $dateArgs[1] . "-" . $dateArgs[0];
-
-        $post_data = [
-            "date" => $date,
-            "group" => 1,
-            "requestType" => "ajax",
-        ];
-
-        if ($courseId) {
-            $post_data["course"] = $courseId;
-        }
-
-        $ch = curl_init();
+        $ch = curl_init("$baseUrl/visitorbooking/");
         curl_setopt_array($ch, [
             CURLOPT_RETURNTRANSFER => true,
-            CURLOPT_HEADER => true,
-            CURLOPT_USERAGENT => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
+            CURLOPT_COOKIEJAR => __DIR__ . "/cookies.txt",
+            CURLOPT_COOKIEFILE => __DIR__ . "/cookies.txt",
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_USERAGENT => "Mozilla/5.0",
         ]);
-        curl_setopt($ch, CURLOPT_HEADER, true);
-        curl_setopt($ch, CURLOPT_URL, "$baseUrl/visitorbooking/");
-        curl_setopt($ch, CURLOPT_POSTFIELDS, http_build_query($post_data));
-        $response = curl_exec($ch);
-        $headerSize = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
+        curl_exec($ch);
         curl_close($ch);
 
-        // Split response
-        $headers = substr($response, 0, $headerSize);
-        return substr($response, $headerSize);
+        // Step 2: POST availability
+        $ch = curl_init("$baseUrl/visitorbooking/");
+        $post = [
+            "date" => $date,
+        ];
+
+        curl_setopt_array($ch, [
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => http_build_query($post),
+            CURLOPT_COOKIEJAR => __DIR__ . "/cookies.txt",
+            CURLOPT_COOKIEFILE => __DIR__ . "/cookies.txt",
+            CURLOPT_HTTPHEADER => [
+                "X-Requested-With: XMLHttpRequest",
+                "Referer: $baseUrl/visitorbooking/",
+                "Accept: application/json",
+            ],
+            CURLOPT_USERAGENT => "Mozilla/5.0",
+        ]);
+
+        $response = curl_exec($ch);
+        curl_close($ch);
+
+        return $response;
     }
 
     public function getAllOpensForCourse($baseUrl, $club)

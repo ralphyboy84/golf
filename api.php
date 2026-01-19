@@ -93,9 +93,24 @@
 
 // 57.968528102410566, -4.0109028539878295
 
-require_once "call/intelligentCall.php";
+require_once "api/courses.php";
 
-echo "<pre>";
+require_once "call/intelligentCall.php";
+require_once "processor/intelligentProcessor.php";
+
+$IntelligentProcessor = new IntelligentProcessor();
 
 $IntelligentCall = new IntelligentCall();
-echo $IntelligentCall->checkOpenAvailability("broragolfclub", 846);
+$teeTimes = $IntelligentCall->getTeeTimesForDay(
+    "https://www.broragolfclub.co.uk",
+    "27-03-2026",
+    846,
+);
+
+$tmp = $IntelligentProcessor->processTeeTimeForDay(
+    "broragolfclub",
+    $teeTimes,
+    $golfCourses["broragolfclub"],
+);
+
+print_r($tmp);

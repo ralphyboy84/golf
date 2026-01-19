@@ -86,6 +86,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "",
         "region" => "highlands",
+        "working" => "no",
     ],
     "crudenbay" => [
         "name" => "Cruden Bay",
@@ -236,13 +237,14 @@ $golfCourses = [
     "broragolfclub" => [
         "name" => "Brora",
         "bookingLink" => "https://www.broragolfclub.co.uk/visitorbooking/",
-        "baseUrl" => "https://www.broragolfclub.co.uk/",
+        "baseUrl" => "https://www.broragolfclub.co.uk",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
         "greenFee" => "180",
         "image" => "",
         "bookingSystem" => "intelligent",
         "region" => "highlands",
+        "working" => "yes",
     ],
     "elie" => [
         "name" => "Elie",
@@ -528,6 +530,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "highlands",
+        "working" => "yes",
     ],
     "kilspindie" => [
         "name" => "Kilspindie",
@@ -620,6 +623,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "highlands",
+        "working" => "yes",
     ],
     "pitlochry" => [
         "name" => "Pitlochry",
@@ -1094,6 +1098,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "highlands",
+        "working" => "yes",
     ],
     "dunblanenew" => [
         "name" => "Dunblane New",
@@ -1257,6 +1262,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "highlands",
+        "working" => "yes",
     ],
     "eyemouth" => [
         "name" => "Eyemouth",
@@ -1307,6 +1313,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "highlands",
+        "working" => "yes",
     ],
     "glenbervie" => [
         "name" => "Glenbervie",
@@ -2004,7 +2011,7 @@ $golfCourses = [
         "region" => "",
     ],
     "grantownonspey" => [
-        "name" => "Grantownonspey",
+        "name" => "Grantown on Spey",
         "bookingLink" =>
             "https://visitors.brsgolf.com/grantownonspey#/course/1",
         "onlineBooking" => "Yes",
@@ -2013,6 +2020,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "highlands",
+        "working" => "yes",
     ],
     "kingarrockhickory" => [
         "name" => "Kingarrockhickory",
@@ -2508,6 +2516,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "intelligent",
         "region" => "highlands",
+        "working" => "yes",
     ],
     "aigas" => [
         "name" => "Aigas",

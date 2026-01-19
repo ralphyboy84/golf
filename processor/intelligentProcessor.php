@@ -4,26 +4,13 @@ require_once "Processor.php";
 
 class IntelligentProcessor extends Processor
 {
-    public function processTeeTimeForDay($club, $json, $info)
+    public function processTeeTimeForDay($club, $data, $info, $date)
     {
-        if (!$json) {
-            return [
-                "teeTimesAvailable" => "No",
-            ];
-        }
-
-        // Decode JSON
-        $data = json_decode($json, true);
-
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            throw new Exception("Invalid JSON: " . json_last_error_msg());
-        }
-
         libxml_use_internal_errors(true);
 
         $dom = new DOMDocument();
         $dom->loadHTML(
-            '<?xml encoding="UTF-8">' . $data["teetimes"],
+            '<?xml encoding="UTF-8">' . $data,
             LIBXML_HTML_NOIMPLIED | LIBXML_HTML_NODEFDTD,
         );
 
@@ -34,6 +21,7 @@ class IntelligentProcessor extends Processor
 
         if ($slots->length === 0) {
             return [
+                "date" => $date,
                 "teeTimesAvailable" => "No",
             ];
         }
@@ -73,7 +61,7 @@ class IntelligentProcessor extends Processor
         }
 
         return [
-            "date" => "DATE",
+            "date" => $date,
             "teeTimesAvailable" => "Yes",
             "timesAvailable" => $count,
             "firstTime" => $firstTime,

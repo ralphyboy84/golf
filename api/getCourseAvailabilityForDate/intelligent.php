@@ -23,6 +23,7 @@ if ($golfCourses[$_GET["club"]]["onlineBooking"]) {
         $_GET["club"],
         $teeTimes,
         $golfCourses[$_GET["club"]],
+        $_GET["date"],
     );
 }
 
