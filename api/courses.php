@@ -19,7 +19,7 @@ $golfCourses = [
                 "courseId" => 3,
             ],
         ],
-        "bookingSystem" => "",
+        "bookingSystem" => "carnoustie",
         "region" => "angus",
     ],
     "muirfield" => [
@@ -110,14 +110,14 @@ $golfCourses = [
     ],
     "royalaberdeen" => [
         "name" => "Royal Aberdeen",
-        "bookingLink" =>
-            "https://www.brsgolf.com/royalaberdeen/visitor_home.php",
+        "bookingLink" => "",
         "onlineBooking" => "No",
         "openBooking" => "Yes",
         "greenFee" => "245",
         "image" => "",
         "bookingSystem" => "",
         "region" => "aberdeen",
+        "working" => "no",
     ],
     "prestwick" => [
         "name" => "Prestwick",
@@ -267,6 +267,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "aberdeen",
+        "working" => "yes",
     ],
     "panmure" => [
         "name" => "Panmure",
@@ -600,6 +601,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "aberdeen",
+        "working" => "yes",
     ],
     "downfield" => [
         "name" => "Downfield",
@@ -711,6 +713,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "aberdeen",
+        "working" => "yes",
     ],
     "balbirniepark" => [
         "name" => "balbirniepark",
@@ -731,8 +734,8 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
         "region" => "aberdeen",
+        "working" => "yes",
     ],
     "alyth" => [
         "name" => "Alyth",
@@ -783,6 +786,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "aberdeen",
+        "working" => "yes",
     ],
     "ballindalloch" => [
         "name" => "Ballindalloch",
@@ -824,6 +828,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "aberdeen",
+        "working" => "yes",
     ],
     "blairatholl" => [
         "name" => "Blair Atholl",
@@ -910,7 +915,8 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "aberdeen",
+        "working" => "yes",
     ],
     "burntisland" => [
         "name" => "Burntisland",
@@ -1110,7 +1116,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "highlands",
+        "region" => "aberdeen",
         "working" => "yes",
     ],
     "dunblanenew" => [
@@ -1151,7 +1157,8 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "aberdeen",
+        "working" => "yes",
     ],
     "cameronhouse" => [
         "name" => "Carrick at Loch Lomond",
@@ -1398,6 +1405,26 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "aberdeen",
+        "working" => "yes",
+        "courses" => [
+            "MacKenzie" => [
+                "courseId" => 1,
+            ],
+            "Pines" => [
+                "courseId" => 3,
+            ],
+        ],
+    ],
+    "hazlehead9" => [
+        "name" => "Hazlehead 9 Holer",
+        "bookingLink" => "https://visitors.brsgolf.com/hazlehead#/course/1",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "340",
+        "image" => "",
+        "bookingSystem" => "brs",
+        "region" => "aberdeen",
+        "working" => "yes",
     ],
     "helensburgh" => [
         "name" => "Helensburgh",
@@ -1427,7 +1454,8 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "aberdeen",
+        "working" => "yes",
     ],
     "innerleithen" => [
         "name" => "Innerleithen",
@@ -1447,7 +1475,8 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "aberdeen",
+        "working" => "yes",
     ],
     "inverness" => [
         "name" => "Inverness",
@@ -1468,7 +1497,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "highlands",
+        "region" => "aberdeen",
         "working" => "yes",
     ],
     "jedburgh" => [
@@ -1530,7 +1559,8 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "aberdeen",
+        "working" => "yes",
     ],
     "kirkhill" => [
         "name" => "Kirkhill",
@@ -1763,6 +1793,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "aberdeen",
+        "working" => "yes",
     ],
     "powfoot" => [
         "name" => "Powfoot",
@@ -1788,16 +1819,6 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "",
-    ],
-    "royalaberdeen" => [
-        "name" => "Royalaberdeen",
-        "bookingLink" => "https://visitors.brsgolf.com/royalaberdeen#/course/1",
-        "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
-        "greenFee" => "340",
-        "image" => "",
-        "bookingSystem" => "brs",
-        "region" => "aberdeen",
     ],
     "royalmusselburgh" => [
         "name" => "Royal Musselburgh",
@@ -1873,6 +1894,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "aberdeen",
+        "working" => "yes",
     ],
     "stranraer" => [
         "name" => "Stranraer",
@@ -1938,7 +1960,8 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "aberdeen",
+        "working" => "yes",
     ],
     "thornhill" => [
         "name" => "Thornhill",
@@ -1973,7 +1996,8 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "aberdeen",
+        "working" => "yes",
     ],
     "tulliallan" => [
         "name" => "Tulliallan",
@@ -1993,7 +2017,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "highlands",
+        "region" => "aberdeen",
         "working" => "no",
     ],
     "uphall" => [
@@ -2024,7 +2048,8 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "aberdeen",
+        "working" => "yes",
     ],
     "windyhill" => [
         "name" => "Windyhill",
@@ -2118,7 +2143,8 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "aberdeen",
+        "working" => "yes",
     ],
     "newburghonythan" => [
         "name" => "Newburgh on Ythan",
@@ -2130,6 +2156,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "aberdeen",
+        "working" => "yes",
     ],
     "oldranfurly" => [
         "name" => "Oldranfurly",
@@ -2275,19 +2302,21 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "clubv1",
-        "region" => "",
-        "courseId" => 0,
+        "region" => "aberdeen",
+        "courseId" => 1987,
+        "working" => "yes",
     ],
     "cullenlinks" => [
-        "name" => "Cullenlinks",
+        "name" => "Cullen Links",
         "bookingLink" => "https://cullenlinks.hub.clubv1.com/Visitors/TeeSheet",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "clubv1",
-        "region" => "",
+        "region" => "aberdeen",
         "courseId" => 520,
+        "working" => "yes",
     ],
     "deeside" => [
         "name" => "Deeside",
@@ -2297,11 +2326,12 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "clubv1",
-        "region" => "",
+        "region" => "aberdeen",
         "courseId" => 524,
+        "working" => "yes",
     ],
     "duffhouseroyal" => [
-        "name" => "Duffhouseroyal",
+        "name" => "Duff House Royal",
         "bookingLink" =>
             "https://duffhouseroyal.hub.clubv1.com/Visitors/TeeSheet",
         "onlineBooking" => "Yes",
@@ -2309,8 +2339,9 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "clubv1",
-        "region" => "",
+        "region" => "aberdeen",
         "courseId" => 535,
+        "working" => "yes",
     ],
     "dullatur" => [
         "name" => "Dullatur",
@@ -2357,15 +2388,16 @@ $golfCourses = [
         "courseId" => 2312,
     ],
     "gandkgc" => [
-        "name" => "Gandkgc",
+        "name" => "Garmouth and Kingston",
         "bookingLink" => "https://gandkgc.hub.clubv1.com/Visitors/TeeSheet",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "clubv1",
-        "region" => "",
+        "region" => "aberdeen",
         "courseId" => 2312,
+        "working" => "yes",
     ],
     "gogarburn" => [
         "name" => "Gogarburn",
@@ -2408,8 +2440,9 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "clubv1",
-        "region" => "",
+        "region" => "aberdeen",
         "courseId" => 1743,
+        "working" => "yes",
     ],
     "kelso" => [
         "name" => "Kelso",
@@ -2452,8 +2485,9 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "clubv1",
-        "region" => "",
+        "region" => "aberdeen",
         "courseId" => 4151,
+        "working" => "yes",
     ],
     "newmachar" => [
         "name" => "Newmachar",
@@ -2465,6 +2499,7 @@ $golfCourses = [
         "bookingSystem" => "clubv1",
         "region" => "aberdeen",
         "courseId" => 1357,
+        "working" => "yes",
     ],
     "prestwickstcuthbert" => [
         "name" => "Prestwickstcuthbert",
@@ -2520,7 +2555,7 @@ $golfCourses = [
         "greenFee" => "205",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "highlands",
+        "region" => "aberdeen",
         "working" => "yes",
     ],
     "mortonhall" => [
@@ -2616,6 +2651,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "aberdeen",
+        "working" => "yes",
     ],
     "glenisla9" => [
         "name" => "Glen Isla",
@@ -2648,6 +2684,7 @@ $golfCourses = [
         "bookingSystem" => "clubv1",
         "region" => "aberdeen",
         "courseId" => 2832,
+        "working" => "yes",
     ],
     "braes" => [
         "name" => "Braes",
@@ -2756,6 +2793,52 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "angus",
         "working" => "yes",
+    ],
+    "oldmeldrumgolf" => [
+        "name" => "Old Meldrum",
+        "bookingLink" =>
+            "https://visitors.brsgolf.com/oldmeldrumgolf#/course/1",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "340",
+        "image" => "",
+        "bookingSystem" => "brs",
+        "region" => "aberdeen",
+        "working" => "no",
+    ],
+    "kingslinks" => [
+        "name" => "Kings Links",
+        "bookingLink" => "https://visitors.brsgolf.com/kingslinks#/course/1",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "340",
+        "image" => "",
+        "bookingSystem" => "brs",
+        "region" => "aberdeen",
+        "working" => "yes",
+    ],
+    "balnagask" => [
+        "name" => "Balnagask",
+        "bookingLink" => "https://visitors.brsgolf.com/balnagask#/course/1",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "340",
+        "image" => "",
+        "bookingSystem" => "brs",
+        "region" => "aberdeen",
+        "working" => "yes",
+    ],
+    "keith" => [
+        "name" => "Keith",
+        "bookingLink" => "https://keith.hub.clubv1.com/Visitors/TeeSheet",
+        "onlineBooking" => "No",
+        "openBooking" => "Yes",
+        "greenFee" => "340",
+        "image" => "",
+        "bookingSystem" => "clubv1",
+        "region" => "aberdeen",
+        "courseId" => 840,
+        "working" => "no",
     ],
 ];
 

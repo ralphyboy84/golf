@@ -300,8 +300,8 @@ async function getCoursesForDropDown() {
   // document.getElementById("dropDownDiv").innerHTML =
   //   "Please wait whilst we load your courses...";
 
-  let courses = await fetch(`../api/getCourses.php?region=angus`).then((res) =>
-    res.json(),
+  let courses = await fetch(`../api/getCourses.php?region=highlands`).then(
+    (res) => res.json(),
   );
 
   const select = document.getElementById("clubsSelect");
