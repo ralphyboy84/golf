@@ -8,6 +8,8 @@ $args = explode(" ", $_GET["from"]);
 
 $toArgs = explode(",", $_GET["to"]);
 
+$locations = "";
+
 foreach ($toArgs as $course) {
     if (
         isset($golfCourses[$course]["location"]) &&
@@ -22,6 +24,9 @@ foreach ($toArgs as $course) {
 
 if ($locations) {
     $locationString = implode(",", $locations);
+} else {
+    echo json_encode([]);
+    return;
 }
 
 $url = "https://api.traveltimeapp.com/v4/time-filter?type=driving&arrival_time=2027-01-20T20:00:00Z&search_lat={$args[0]}&search_lng={$args[1]}&locations={$locationString}&app_id=65f59572&api_key=48fae2082ab3ed993535eac4ff353a4d";

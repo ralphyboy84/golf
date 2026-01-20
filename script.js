@@ -17,7 +17,7 @@ async function findTrip() {
     child.id = selectBoxValues[x].course;
 
     // 3. Set some content for the child
-    // child.textContent = "Please wait.... loading.....";
+    child.textContent = "Please wait.... loading.....";
 
     // 4. Optionally add styles or attributes
     child.classList.add("col-4");
@@ -106,7 +106,7 @@ async function fetchAllResults2(selectBoxValues, tripStart, travelInfo) {
         .then((res) => res.json())
         .then(
           (fetchPromise) =>
-            (document.getElementById(selectBoxValues[x].course).innerHTML +=
+            (document.getElementById(selectBoxValues[x].course).innerHTML =
               displayContent(
                 fetchPromise,
                 travelInfo,
@@ -195,8 +195,15 @@ function displayContent(msg, travelInfo, courseId) {
       "Available Slots",
       "bi-balloon",
     );
+
+    let driveTime = "Currently Unavailable";
+
+    if (travelInfo[courseId]) {
+      driveTime = travelInfo[courseId];
+    }
+
     timesAvailable += returnCardList(
-      travelInfo[courseId],
+      driveTime,
       "Drive to Course",
       "bi-car-front",
     );
@@ -221,7 +228,7 @@ function displayContent(msg, travelInfo, courseId) {
       openText += `<a href="${msg.openBookingUrl}" class="btn btn-primary" target="_blank">Click here for more info</a>`;
     }
   } else {
-    temp = "Sorry - there are tee times available on this day";
+    temp = "Sorry - there are no tee times available on this day";
   }
 
   return `
@@ -293,7 +300,7 @@ async function getCoursesForDropDown() {
   // document.getElementById("dropDownDiv").innerHTML =
   //   "Please wait whilst we load your courses...";
 
-  let courses = await fetch(`../api/getCourses.php?region=south`).then((res) =>
+  let courses = await fetch(`../api/getCourses.php?region=angus`).then((res) =>
     res.json(),
   );
 

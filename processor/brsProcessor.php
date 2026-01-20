@@ -4,13 +4,14 @@ require_once "Processor.php";
 
 class BRSProcessor extends Processor
 {
-    public function processTeeTimeForDay($club, $json, $info)
+    public function processTeeTimeForDay($club, $json, $info, $date)
     {
         $data = json_decode($json, true);
 
         if (isset($data["message"]) && !empty($data["message"])) {
             return [
                 "teeTimesAvailable" => "No",
+                "date" => $this->_format_date($date),
             ];
         }
 
@@ -26,7 +27,7 @@ class BRSProcessor extends Processor
             sort($uniqueFees);
 
             return [
-                "date" => $this->_format_date($data["data"]["tee_date"]),
+                "date" => $this->_format_date($date),
                 "teeTimesAvailable" => "Yes",
                 "timesAvailable" => $x,
                 "firstTime" => $start,
@@ -34,7 +35,7 @@ class BRSProcessor extends Processor
             ];
         } else {
             return [
-                "date" => $this->_format_date($data["data"]["tee_date"]),
+                "date" => $this->_format_date($date),
                 "teeTimesAvailable" => "No",
             ];
         }

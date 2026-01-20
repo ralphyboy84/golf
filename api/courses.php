@@ -277,6 +277,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "angus",
+        "working" => "yes",
     ],
     "Lundin Links" => [
         "name" => "Lundin Links",
@@ -441,6 +442,7 @@ $golfCourses = [
                 "courseId" => 3,
             ],
         ],
+        "working" => "yes",
     ],
     "Askernish" => [
         "name" => "Askernish",
@@ -564,6 +566,7 @@ $golfCourses = [
                 "courseId" => 3,
             ],
         ],
+        "working" => "yes",
     ],
     "Crail" => [
         "name" => "Crail",
@@ -608,6 +611,7 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "angus",
         "courseId" => 531,
+        "working" => "no",
     ],
     "lanark" => [
         "name" => "Lanark",
@@ -799,6 +803,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "angus",
+        "working" => "yes",
     ],
     "balmore" => [
         "name" => "Balmore",
@@ -875,6 +880,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "angus",
+        "working" => "yes",
     ],
     "bridgeofallan" => [
         "name" => "Bridge of Allan",
@@ -1259,6 +1265,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "angus",
+        "working" => "yes",
     ],
     "elderslie" => [
         "name" => "Elderslie",
@@ -2714,7 +2721,7 @@ $golfCourses = [
         "bookingSystem" => "intelligent",
         "region" => "eastlothian",
     ],
-    "kingennie" => [
+    "forbesofkingennie" => [
         "name" => "Forbes of Kingennie",
         "bookingLink" =>
             "https://visitors.brsgolf.com/forbesofkingennie#/course/1",
@@ -2724,6 +2731,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "angus",
+        "working" => "yes",
     ],
     "kingsacre" => [
         "name" => "Kings Acre",
@@ -2736,6 +2744,18 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "intelligent",
         "region" => "edinburgh",
+    ],
+    "piperdamnewcourse" => [
+        "name" => "Piperdam",
+        "bookingLink" =>
+            "https://visitors.brsgolf.com/piperdamnewcourse#/course/1",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "340",
+        "image" => "",
+        "bookingSystem" => "brs",
+        "region" => "angus",
+        "working" => "yes",
     ],
 ];
 
