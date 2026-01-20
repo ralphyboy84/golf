@@ -42,11 +42,18 @@ async function findTrip() {
   //   });
   // });
 
-  const info = await fetch(
-    `map/getDistance.php?from=Inverness&to=Dornoch`,
-  ).then((res) => res.text());
+  let coruseList = [];
 
-  fetchAllResults2(selectBoxValues, tripStart);
+  for (let x in selectBoxValues) {
+    coruseList.push(selectBoxValues[x].course);
+  }
+
+  const whereStaying = await getWhereStayingLatLong();
+  const info = await fetch(
+    `map/getDistance.php?from=${whereStaying}&to=${coruseList}`,
+  ).then((res) => res.json());
+
+  fetchAllResults2(selectBoxValues, tripStart, info);
 
   // document.getElementById("travelInfo").innerHTML = "";
   // document.getElementById("travelInfo").innerHTML += info + "<br />";
@@ -83,7 +90,7 @@ async function fetchAllResults(selectBoxValues, tripStart) {
   return results;
 }
 
-async function fetchAllResults2(selectBoxValues, tripStart) {
+async function fetchAllResults2(selectBoxValues, tripStart, travelInfo) {
   const results = {};
 
   for (let x in selectBoxValues) {
@@ -100,7 +107,11 @@ async function fetchAllResults2(selectBoxValues, tripStart) {
         .then(
           (fetchPromise) =>
             (document.getElementById(selectBoxValues[x].course).innerHTML +=
-              displayContent(fetchPromise)) + "<br />",
+              displayContent(
+                fetchPromise,
+                travelInfo,
+                selectBoxValues[x].course,
+              )) + "<br />",
         );
     }
   }
@@ -151,8 +162,7 @@ function addDays(date, days) {
   return tomorrow.getFullYear() + "-" + month + "-" + day;
 }
 
-function displayContent(msg) {
-  console.log(msg);
+function displayContent(msg, travelInfo, courseId) {
   if (msg.onlineBooking == "No") {
     return `
     <div>
@@ -186,7 +196,7 @@ function displayContent(msg) {
       "bi-balloon",
     );
     timesAvailable += returnCardList(
-      "31 minute",
+      travelInfo[courseId],
       "Drive to Course",
       "bi-car-front",
     );
@@ -227,6 +237,7 @@ function displayContent(msg) {
         ${openText}
       </div>
     </div>
+    <br />
   `;
 }
 
@@ -282,8 +293,8 @@ async function getCoursesForDropDown() {
   // document.getElementById("dropDownDiv").innerHTML =
   //   "Please wait whilst we load your courses...";
 
-  let courses = await fetch(`../api/getCourses.php?region=highlands`).then(
-    (res) => res.json(),
+  let courses = await fetch(`../api/getCourses.php?region=south`).then((res) =>
+    res.json(),
   );
 
   const select = document.getElementById("clubsSelect");
@@ -312,10 +323,13 @@ async function getCoursesForDropDown() {
 
 getCoursesForDropDown();
 
-// const params = new URLSearchParams({
-//   q: "DD7 7SS",
-//   max: 10,
-// });
-// fetch("https://api.geodojo.net/locate/find?" + params)
-//   .then((response) => response.json())
-//   .then((data) => console.log(data));
+async function getWhereStayingLatLong() {
+  const params = new URLSearchParams({
+    q: document.getElementById("staying").value,
+    max: 10,
+  });
+
+  return await fetch("https://api.geodojo.net/locate/find?" + params)
+    .then((response) => response.json())
+    .then((data) => data.result[0].latlng);
+}

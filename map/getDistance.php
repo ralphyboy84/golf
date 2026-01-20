@@ -1,37 +1,31 @@
 <?php
 
-// Dornoch Station
-$dornochStartLat = 57.8812;
-$dornochStartLon = -4.0232;
+header("Content-Type: application/json; charset=utf-8");
 
-if ($_GET["from"] == "Inverness") {
-    // Inverness Airport
-    $startLat = 57.543796168503754;
-    $startLon = -4.052575827192105;
+require_once "../api/courses.php";
 
-    $url = "https://api.traveltimeapp.com/v4/time-filter?type=driving&arrival_time=2026-01-20T20:00:00Z&search_lat=$startLat&search_lng=$startLon&locations={$dornochStartLat}_{$dornochStartLon}&app_id=65f59572&api_key=48fae2082ab3ed993535eac4ff353a4d";
-} else {
-    $locations = [
-        // Tain
-        0 => [
-            "lat" => 57.8144,
-            "lon" => -4.03073,
-        ],
-        // Golspie
-        1 => [
-            "lat" => 57.9682,
-            "lon" => -4.0181,
-        ],
-    ];
+$args = explode(" ", $_GET["from"]);
 
-    foreach ($locations as $location) {
-        $locationParams[] = $location["lat"] . "_" . $location["lon"];
+$toArgs = explode(",", $_GET["to"]);
+
+foreach ($toArgs as $course) {
+    if (
+        isset($golfCourses[$course]["location"]) &&
+        !empty($golfCourses[$course]["location"])
+    ) {
+        $locations[] =
+            $golfCourses[$course]["location"]["lat"] .
+            "_" .
+            $golfCourses[$course]["location"]["lon"];
     }
-
-    $locationString = implode(",", $locationParams);
-
-    $url = "https://api.traveltimeapp.com/v4/time-filter?type=driving&arrival_time=2026-01-20T20:00:00Z&search_lat=$dornochStartLat&search_lng=$dornochStartLon&locations=$locationString&app_id=65f59572&api_key=48fae2082ab3ed993535eac4ff353a4d";
 }
+
+if ($locations) {
+    $locationString = implode(",", $locations);
+}
+
+$url = "https://api.traveltimeapp.com/v4/time-filter?type=driving&arrival_time=2027-01-20T20:00:00Z&search_lat={$args[0]}&search_lng={$args[1]}&locations={$locationString}&app_id=65f59572&api_key=48fae2082ab3ed993535eac4ff353a4d";
+
 $ch = curl_init($url);
 
 curl_setopt_array($ch, [
@@ -53,32 +47,39 @@ curl_close($ch);
 $responseData = json_decode($response, true);
 
 if (count($responseData["results"][0]["locations"]) == 1) {
-    echo "time from " .
-        $_GET["from"] .
-        " to " .
-        $_GET["to"] .
-        " " .
-        gmdate(
-            "H:i:s",
-            $responseData["results"][0]["locations"][0]["properties"][0][
-                "travel_time"
-            ],
-        ) .
-        "<br />";
+    $returnResult[$_GET["to"]] = gmdate(
+        "H:i:s",
+        $responseData["results"][0]["locations"][0]["properties"][0][
+            "travel_time"
+        ],
+    );
 } elseif (count($responseData["results"][0]["locations"]) > 1) {
     $dests = explode(",", $_GET["to"]);
 
     $x = 0;
 
     foreach ($responseData["results"][0]["locations"] as $result) {
-        echo "time from " .
-            $_GET["from"] .
-            " to " .
-            $dests[$x] .
-            " " .
-            gmdate("H:i:s", $result["properties"][0]["travel_time"]) .
-            "<br />";
+        $returnResult[$result["id"]] = gmdate(
+            "H:i:s",
+            $result["properties"][0]["travel_time"],
+        );
 
         $x++;
     }
+
+    $newArray = [];
+
+    foreach ($golfCourses as $key => $club) {
+        if (in_array($key, $dests)) {
+            $latlon = $club["location"]["lat"] . "," . $club["location"]["lon"];
+
+            foreach ($returnResult as $id => $result) {
+                if ($id == $latlon) {
+                    $newArray[$key] = $result;
+                }
+            }
+        }
+    }
 }
+
+echo json_encode($newArray);

@@ -377,6 +377,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "south",
+        "working" => "yes",
     ],
     "Luffness" => [
         "name" => "Luffness",
@@ -659,7 +660,7 @@ $golfCourses = [
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "south",
+        "region" => "glasgow",
     ],
     "shiskine" => [
         "name" => "Shiskine",
@@ -1124,7 +1125,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "south",
+        "region" => "borders",
     ],
     "balbirniepark" => [
         "name" => "Balbirnie Park",
@@ -1207,6 +1208,11 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "south",
+        "working" => "yes",
+        "location" => [
+            "lat" => 55.08056,
+            "lon" => -3.60151,
+        ],
     ],
     "dumfriesandgalloway" => [
         "name" => "Dumfries and Galloway",
@@ -1218,6 +1224,11 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "south",
+        "working" => "yes",
+        "location" => [
+            "lat" => 55.06534,
+            "lon" => -3.6262,
+        ],
     ],
     "eastkilbride" => [
         "name" => "Eastkilbride",
@@ -1461,7 +1472,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "south",
+        "region" => "borders",
     ],
     "kilsythlennox" => [
         "name" => "Kilsythlennox",
@@ -1542,7 +1553,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "south",
+        "region" => "glasgow",
     ],
     "linlithgow" => [
         "name" => "Linlithgow",
@@ -1724,7 +1735,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "south",
+        "region" => "borders",
     ],
     "pitreavie" => [
         "name" => "Pitreavie",
@@ -1746,16 +1757,6 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "aberdeen",
     ],
-    "portpatrick" => [
-        "name" => "Portpatrick",
-        "bookingLink" => "https://visitors.brsgolf.com/portpatrick#/course/1",
-        "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
-        "greenFee" => "340",
-        "image" => "",
-        "bookingSystem" => "brs",
-        "region" => "",
-    ],
     "powfoot" => [
         "name" => "Powfoot",
         "bookingLink" => "https://visitors.brsgolf.com/powfoot#/course/1",
@@ -1765,6 +1766,11 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "south",
+        "working" => "yes",
+        "location" => [
+            "lat" => 54.97843,
+            "lon" => -3.34308,
+        ],
     ],
     "pumpherston" => [
         "name" => "Pumpherston",
@@ -1826,6 +1832,10 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "south",
+        "location" => [
+            "lat" => 54.87896,
+            "lon" => -3.60734,
+        ],
     ],
     "stmichaels" => [
         "name" => "Stmichaels",
@@ -1865,7 +1875,12 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "south",
+        "working" => "yes",
+        "location" => [
+            "lat" => 54.92511,
+            "lon" => -5.06835,
+        ],
     ],
     "strathendrick" => [
         "name" => "Strathendrick",
@@ -1926,7 +1941,12 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "south",
+        "working" => "yes",
+        "location" => [
+            "lat" => 55.24585,
+            "lon" => -3.74876,
+        ],
     ],
     "thornton" => [
         "name" => "Thornton",
@@ -2122,7 +2142,42 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
+        "region" => "south",
+        "working" => "yes",
+        "location" => [
+            "lat" => 54.84654,
+            "lon" => -5.11491,
+        ],
+    ],
+    "lockerbie" => [
+        "name" => "Lockerbie",
+        "bookingLink" => "https://visitors.brsgolf.com/lockerbie#/course/1",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "340",
+        "image" => "",
+        "bookingSystem" => "brs",
+        "region" => "south",
+        "working" => "yes",
+        "location" => [
+            "lat" => 55.12499,
+            "lon" => -3.34606,
+        ],
+    ],
+    "lochmaben" => [
+        "name" => "Lochmaben",
+        "bookingLink" => "https://visitors.brsgolf.com/lochmaben#/course/1",
+        "onlineBooking" => "Yes",
+        "openBooking" => "Yes",
+        "greenFee" => "340",
+        "image" => "",
+        "bookingSystem" => "brs",
+        "region" => "south",
+        "working" => "yes",
+        "location" => [
+            "lat" => 55.12753,
+            "lon" => -3.44114,
+        ],
     ],
     "rowallancastle" => [
         "name" => "Rowallan Castle",
