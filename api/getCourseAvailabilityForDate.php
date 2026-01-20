@@ -16,10 +16,11 @@ if (
     require_once "getCourseAvailabilityForDate/{$golfCourses[$_GET["club"]]["bookingSystem"]}.php";
 
     $additionalArray = [
-        "bookingUrl" =>
-            $golfCourses[$_GET["club"]]["bookingLink"] .
-            "?date=" .
+        "bookingUrl" => get_booking_url(
+            $golfCourses[$_GET["club"]],
             $_GET["date"],
+            $_GET["courseId"],
+        ),
         "courseName" => get_course_name(
             $_GET["club"],
             $golfCourses,

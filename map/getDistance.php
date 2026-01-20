@@ -8,7 +8,7 @@ $args = explode(" ", $_GET["from"]);
 
 $toArgs = explode(",", $_GET["to"]);
 
-$locations = "";
+$locations = [];
 
 foreach ($toArgs as $course) {
     if (
@@ -51,8 +51,10 @@ curl_close($ch);
 // Optional: decode JSON response
 $responseData = json_decode($response, true);
 
+$newArray = [];
+
 if (count($responseData["results"][0]["locations"]) == 1) {
-    $returnResult[$_GET["to"]] = gmdate(
+    $newArray[$_GET["to"]] = gmdate(
         "H:i:s",
         $responseData["results"][0]["locations"][0]["properties"][0][
             "travel_time"
@@ -71,8 +73,6 @@ if (count($responseData["results"][0]["locations"]) == 1) {
 
         $x++;
     }
-
-    $newArray = [];
 
     foreach ($golfCourses as $key => $club) {
         if (in_array($key, $dests)) {

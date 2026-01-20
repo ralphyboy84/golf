@@ -300,7 +300,7 @@ async function getCoursesForDropDown() {
   // document.getElementById("dropDownDiv").innerHTML =
   //   "Please wait whilst we load your courses...";
 
-  let courses = await fetch(`../api/getCourses.php?region=highlands`).then(
+  let courses = await fetch(`../api/getCourses.php?region=aberdeen`).then(
     (res) => res.json(),
   );
 

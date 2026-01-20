@@ -246,6 +246,10 @@ $golfCourses = [
         "bookingSystem" => "intelligent",
         "region" => "highlands",
         "working" => "yes",
+        "location" => [
+            "lat" => 58.01214,
+            "lon" => -3.84582,
+        ],
     ],
     "elie" => [
         "name" => "Elie",
@@ -392,16 +396,26 @@ $golfCourses = [
         "region" => "eastlothian",
         "availabilityDays" => ["mon", "tue", "wed", "thu", "fri", "sun"],
     ],
-    "Fraserburgh" => [
+    "fraserburgh" => [
         "name" => "Fraseburgh",
         "bookingLink" =>
-            "https://fraserburghgolfclub.org/Teebooking/SearchClubDay.aspx",
+            "https://fraserburghgolfclub.org/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
         "greenFee" => "150",
         "image" => "",
-        "bookingSystem" => "",
+        "bookingSystem" => "dotgolf",
         "region" => "aberdeen",
+        "clubId" => 2262,
+        "courses" => [
+            "Corbiehill" => [
+                "courseId" => 2060,
+            ],
+            "Rosehill" => [
+                "courseId" => 2061,
+            ],
+        ],
+        "working" => "yes",
     ],
     "glasgow" => [
         "name" => "Glasgow Gailes",
@@ -538,6 +552,10 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "highlands",
         "working" => "yes",
+        "location" => [
+            "lat" => 57.96487,
+            "lon" => -3.99021,
+        ],
     ],
     "kilspindie" => [
         "name" => "Kilspindie",
@@ -2863,4 +2881,14 @@ function get_course_name($course, $golfCourses, $courseId = false)
     }
 
     return $golfCourses[$course]["name"];
+}
+
+function get_booking_url($courseInfo, $date, $courseId)
+{
+    if ($courseInfo["bookingSystem"] != "dotgolf") {
+        return $courseInfo["bookingLink"] . "?date=" . $date;
+    }
+
+    return $courseInfo["bookingLink"] .
+        "?date=$date&ClubId={$courseInfo["clubId"]}&CourseId=$courseId";
 }
