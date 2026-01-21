@@ -163,19 +163,14 @@ function addDays(date, days) {
 }
 
 function displayContent(msg, travelInfo, courseId) {
-  if (msg.onlineBooking == "No") {
-    return `
-    <div>
-    Date: ${msg.date}<br />
-    Unfortunately, Online Booking is not available at ${msg.courseName} but they do allow visitors on this day. For more information please <a hre='${msg.bookingInfo}' target='_blank'>click here</a>
-    </div>
-  `;
-  }
-
   let temp = "";
   let timesAvailable = "";
   let openText = "";
   let openTimesAvailable = "";
+
+  if (msg.onlineBooking == "No") {
+    temp = `Unfortunately, Online Booking is not available but they do allow visitors on this day`;
+  }
 
   if (msg.teeTimesAvailable == "Yes") {
     temp = "Good news! There are tee times available on this day";
@@ -227,7 +222,7 @@ function displayContent(msg, travelInfo, courseId) {
 
       openText += `<a href="${msg.openBookingUrl}" class="btn btn-primary" target="_blank">Click here for more info</a>`;
     }
-  } else {
+  } else if (!temp) {
     temp = "Sorry - there are no tee times available on this day";
   }
 
@@ -315,7 +310,7 @@ async function getCoursesForDropDown() {
         for (const [key2, value] of Object.entries(courses[key].courses)) {
           const option = document.createElement("option");
           option.value = key; // key as value
-          option.textContent = courses[key].name + " " + key2; // display name
+          option.textContent = courses[key].name + " - " + key2; // display name
           option.setAttribute("data-courseId", value.courseId || "");
           select.appendChild(option);
         }

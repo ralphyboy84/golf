@@ -30,6 +30,8 @@ if (
 } else {
     $day = strtolower(date("D", strtotime($_GET["date"])));
 
+    $df = explode("-", $_GET["date"]);
+
     if (in_array($day, $golfCourses[$_GET["club"]]["availabilityDays"])) {
         $additionalArray = [
             "courseName" => get_course_name(
@@ -39,8 +41,8 @@ if (
             ),
             "onlineBooking" => "No",
             "visitorsAvailable" => "Yes",
-            "date" => $_GET["date"],
-            "bookingInfo" => $golfCourses[$_GET["club"]]["bookingLink"],
+            "date" => $df[2] . "/" . $df[1] . "/" . $df[0],
+            "bookingUrl" => $golfCourses[$_GET["club"]]["bookingLink"],
         ];
     } else {
         $additionalArray = [
@@ -51,8 +53,8 @@ if (
             ),
             "onlineBooking" => "No",
             "visitorsAvailable" => "No",
-            "date" => $_GET["date"],
-            "bookingInfo" => $golfCourses[$_GET["club"]]["bookingLink"],
+            "date" => $df[2] . "/" . $df[1] . "/" . $df[0],
+            "bookingUrl" => $golfCourses[$_GET["club"]]["bookingLink"],
         ];
     }
 }

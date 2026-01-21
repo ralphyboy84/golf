@@ -2,9 +2,9 @@
 
 $golfCourses = [
     "carnoustie" => [
-        "name" => "Carnoustie Golf Links",
+        "name" => "Carnoustie",
         "bookingLink" => "https://booking.carnoustie.com/",
-        "onlineBooking" => "Yes",
+        "onlineBooking" => "No",
         "openBooking" => "No",
         "greenFee" => "360",
         "image" => "images/carnoustie/general/DJI_0678-Enhanced-NR.jpg",
@@ -19,7 +19,8 @@ $golfCourses = [
                 "courseId" => 3,
             ],
         ],
-        "bookingSystem" => "carnoustie",
+        "bookingSystem" => "",
+        "availabilityDays" => ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
         "region" => "angus",
     ],
     "muirfield" => [
