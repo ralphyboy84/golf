@@ -310,8 +310,6 @@ async function getCoursesForDropDown(region) {
 
   const select = document.getElementById("clubsSelect");
 
-  console.log(Object.keys(courses).length);
-
   // Loop through the object and add options
   for (const key in courses) {
     if (courses.hasOwnProperty(key)) {
@@ -337,26 +335,53 @@ async function getCoursesForDropDown(region) {
 async function getRegionsForDropDrown() {
   let courses = await fetch(`../api/getRegions.php`).then((res) => res.json());
 
-  console.log(courses);
-
   const select = document.getElementById("regionSelect");
 
   // Loop through the object and add options
   for (let key in courses) {
     const option = document.createElement("option");
+
     option.value = courses[key]; // key as value
     option.textContent = capitalizeFirstChar(courses[key]); // display name
     select.appendChild(option);
   }
 }
 
+function setDate() {
+  const today = new Date();
+
+  // Create a new date for tomorrow by adding 1 day (in milliseconds)
+  const tomorrow = new Date(today);
+  tomorrow.setDate(today.getDate() + 1);
+  document.getElementById("start").value = formatDateYYYYMMDD(tomorrow);
+}
+
+function formatDateYYYYMMDD(date) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0"); // Months are 0-indexed
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
 async function loadPage() {
   await getRegionsForDropDrown();
   await getCoursesForDropDown();
+  await getActiveCourseInfo();
+  setDate();
   loadSelectBoxes();
 }
 
 loadPage();
+
+async function getActiveCourseInfo() {
+  let courses = await fetch(`../api/getActiveCourses.php`).then((res) =>
+    res.json(),
+  );
+
+  document.getElementById("infoBar").innerHTML = `
+    Confirmed Working: ${courses.working} - Online Booking: ${courses.onlineBooking} - Open Booking: ${courses.openBooking}
+  `;
+}
 
 async function getWhereStayingLatLong() {
   return;
@@ -372,6 +397,11 @@ async function getWhereStayingLatLong() {
 
 function capitalizeFirstChar(str) {
   if (!str) return ""; // handle empty string
+
+  if (str == "eastlothian") {
+    str = "East Lothian";
+  }
+
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
