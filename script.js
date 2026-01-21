@@ -29,7 +29,8 @@ async function findTrip() {
     child.textContent = "Please wait.... loading.....";
 
     // 4. Optionally add styles or attributes
-    child.classList.add("col-4");
+    child.classList.add("col-sm-12");
+    child.classList.add("col-md-4");
     // child.style.marginTop = "10px";
     // child.style.padding = "5px";
 
@@ -301,9 +302,6 @@ async function findOpenForDropDown(selectBoxValues) {
 }
 
 async function getCoursesForDropDown(region) {
-  // document.getElementById("dropDownDiv").innerHTML =
-  //   "Please wait whilst we load your courses...";
-
   let courses = await fetch(`../api/getCourses.php?region=${region}`).then(
     (res) => res.json(),
   );
@@ -339,6 +337,8 @@ async function getCoursesForDropDown(region) {
 async function getRegionsForDropDrown() {
   let courses = await fetch(`../api/getRegions.php`).then((res) => res.json());
 
+  console.log(courses);
+
   const select = document.getElementById("regionSelect");
 
   // Loop through the object and add options
@@ -350,8 +350,13 @@ async function getRegionsForDropDrown() {
   }
 }
 
-getRegionsForDropDrown();
-getCoursesForDropDown();
+async function loadPage() {
+  await getRegionsForDropDrown();
+  await getCoursesForDropDown();
+  loadSelectBoxes();
+}
+
+loadPage();
 
 async function getWhereStayingLatLong() {
   return;
@@ -370,7 +375,7 @@ function capitalizeFirstChar(str) {
   return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-function updateCourseList() {
+async function updateCourseList() {
   var region = getSelectValues(document.getElementById("regionSelect"));
 
   let regionArray = [];
@@ -379,5 +384,7 @@ function updateCourseList() {
     regionArray.push(region[x].course);
   }
 
-  getCoursesForDropDown(regionArray);
+  await getCoursesForDropDown(regionArray);
+  $("#multiple-checkboxes, #regionSelect, #clubsSelect").multiselect("destroy");
+  loadSelectBoxes();
 }
