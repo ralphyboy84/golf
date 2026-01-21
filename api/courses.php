@@ -204,6 +204,8 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "",
         "region" => "islands",
+        "working" => "no",
+        "availabilityDays" => ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
     ],
     "Gullane" => [
         "name" => "Gullane",
@@ -485,6 +487,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "intelligent",
         "region" => "fife",
+        "working" => "yes",
     ],
     "levenlinks" => [
         "name" => "Leven",
@@ -494,7 +497,8 @@ $golfCourses = [
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "leven",
+        "region" => "fife",
+        "working" => "yes",
     ],
     "irvine" => [
         "name" => "Irvine",
@@ -505,6 +509,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "ayrshire",
+        "working" => "yes",
     ],
     "ladybank" => [
         "name" => "Ladybank",
@@ -515,6 +520,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "fife",
+        "working" => "yes",
     ],
     "prestwickstnicholas" => [
         "name" => "Prestwick St Nicholas",
@@ -525,6 +531,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "ayrshire",
+        "working" => "yes",
     ],
     "westkilbride" => [
         "name" => "West Kilbride",
@@ -535,6 +542,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "ayrshire",
+        "working" => "yes",
     ],
     "longniddry" => [
         "name" => "Longniddry",
@@ -668,7 +676,7 @@ $golfCourses = [
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "highlands",
+        "region" => "perthshire",
         "working" => "yes",
     ],
     "Kilmarnock Barassie" => [
@@ -868,7 +876,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "highlands",
+        "region" => "perthshire",
         "location" => [
             "lat" => 56.76374,
             "lon" => -3.8403,
@@ -2538,7 +2546,7 @@ $golfCourses = [
         "working" => "yes",
     ],
     "prestwickstcuthbert" => [
-        "name" => "Prestwickstcuthbert",
+        "name" => "Prestwick St Cuthbert",
         "bookingLink" =>
             "https://prestwickstcuthbert.hub.clubv1.com/Visitors/TeeSheet",
         "onlineBooking" => "Yes",

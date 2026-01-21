@@ -37,17 +37,34 @@
         value="IV25 3LD"
       /><br /><br />
 
-      <select
-        id="clubsSelect"
-        multiple="multiple"
-        style="height: 200px"
-      ></select
-      ><br />
-      <a class="btn btn-primary" onclick="findTrip()">Check Availability</a>
+      <div class="row p-3">
+        <div class="col-6 text-center">
+          <h3>Region List</h3>
+          <select
+            id="regionSelect"
+            multiple="multiple"
+            style="height: 200px"
+          ></select
+          ><br />
+          <a class="btn btn-primary" onclick="updateCourseList()"
+            >Update Course List</a
+          >
+        </div>
+        <div class="col-6 text-center">
+          <h3>Course List</h3>
+          <select
+            id="clubsSelect"
+            multiple="multiple"
+            style="height: 200px"
+          ></select
+          ><br />
+          <a class="btn btn-primary" onclick="findTrip()">Check Availability</a>
+        </div>
+      </div>
       <div class="row p-3" id="resultsDiv"></div>
     </div>
     <script
-      src="js/bootstrap.bundle.min.js"
+      src="bootstrap/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
       crossorigin="anonymous"
     ></script>

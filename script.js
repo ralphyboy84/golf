@@ -7,6 +7,15 @@ async function findTrip() {
     return;
   }
 
+  const courseLimit = 5;
+
+  if (selectBoxValues.length > courseLimit) {
+    alert(
+      `Sorry you can only search for a maximum of ${courseLimit} courses just now`,
+    );
+    return;
+  }
+
   document.getElementById("resultsDiv").innerHTML = "";
 
   for (let x in selectBoxValues) {
@@ -291,13 +300,15 @@ async function findOpenForDropDown(selectBoxValues) {
   return results;
 }
 
-async function getCoursesForDropDown() {
+async function getCoursesForDropDown(region) {
   // document.getElementById("dropDownDiv").innerHTML =
   //   "Please wait whilst we load your courses...";
 
-  let courses = await fetch(`../api/getCourses.php?region=`).then((res) =>
-    res.json(),
+  let courses = await fetch(`../api/getCourses.php?region=${region}`).then(
+    (res) => res.json(),
   );
+
+  document.getElementById("clubsSelect").innerHTML = "";
 
   const select = document.getElementById("clubsSelect");
 
@@ -325,6 +336,23 @@ async function getCoursesForDropDown() {
   }
 }
 
+async function getRegionsForDropDrown() {
+  let courses = await fetch(`../api/getRegions.php`).then((res) => res.json());
+
+  const select = document.getElementById("regionSelect");
+
+  console.log(courses);
+
+  // Loop through the object and add options
+  for (let key in courses) {
+    const option = document.createElement("option");
+    option.value = courses[key]; // key as value
+    option.textContent = capitalizeFirstChar(courses[key]); // display name
+    select.appendChild(option);
+  }
+}
+
+getRegionsForDropDrown();
 getCoursesForDropDown();
 
 async function getWhereStayingLatLong() {
@@ -336,4 +364,21 @@ async function getWhereStayingLatLong() {
   return await fetch("https://api.geodojo.net/locate/find?" + params)
     .then((response) => response.json())
     .then((data) => data.result[0].latlng);
+}
+
+function capitalizeFirstChar(str) {
+  if (!str) return ""; // handle empty string
+  return str.charAt(0).toUpperCase() + str.slice(1);
+}
+
+function updateCourseList() {
+  var region = getSelectValues(document.getElementById("regionSelect"));
+
+  let regionArray = [];
+
+  for (let x in region) {
+    regionArray.push(region[x].course);
+  }
+
+  getCoursesForDropDown(regionArray);
 }

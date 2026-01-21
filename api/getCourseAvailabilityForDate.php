@@ -32,7 +32,10 @@ if (
 
     $df = explode("-", $_GET["date"]);
 
-    if (in_array($day, $golfCourses[$_GET["club"]]["availabilityDays"])) {
+    if (
+        isset($golfCourses[$_GET["club"]]["availabilityDays"]) &&
+        in_array($day, $golfCourses[$_GET["club"]]["availabilityDays"])
+    ) {
         $additionalArray = [
             "courseName" => get_course_name(
                 $_GET["club"],
