@@ -341,8 +341,6 @@ async function getRegionsForDropDrown() {
 
   const select = document.getElementById("regionSelect");
 
-  console.log(courses);
-
   // Loop through the object and add options
   for (let key in courses) {
     const option = document.createElement("option");
@@ -356,6 +354,7 @@ getRegionsForDropDrown();
 getCoursesForDropDown();
 
 async function getWhereStayingLatLong() {
+  return;
   const params = new URLSearchParams({
     q: document.getElementById("staying").value,
     max: 10,
