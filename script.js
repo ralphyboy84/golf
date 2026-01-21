@@ -2,7 +2,7 @@ async function findTrip() {
   var selectBoxValues = getSelectValues(document.getElementById("clubsSelect"));
 
   if (!selectBoxValues.length) {
-    document.getElementById("loadingDiv").innerHTML =
+    document.getElementById("resultsDiv").innerHTML =
       "You have not selected any courses";
     return;
   }
