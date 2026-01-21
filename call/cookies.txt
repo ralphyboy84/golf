@@ -6,3 +6,5 @@
 www.broragolfclub.co.uk	FALSE	/visitorbooking/	FALSE	0	tee_target	%3Fdate%3D27-03-2026%26course%3D2%26group%3D1
 #HttpOnly_www.hopemangolf.club	FALSE	/	TRUE	0	PHPSESSID	gmusrodp7bhgo6ncpljfi7834m
 www.hopemangolf.club	FALSE	/visitorbooking/	FALSE	0	tee_target	%3Fdate%3D04-04-2026%26course%3D1%26group%3D1
+#HttpOnly_blairgowrie.intelligentgolf.co.uk	FALSE	/	TRUE	0	PHPSESSID	2vie5clk972dmtl0bl1pbcps5j
+blairgowrie.intelligentgolf.co.uk	FALSE	/visitorbooking/	FALSE	0	tee_target	%3Fdate%3D21-01-2026%26course%3D114%26group%3D1

@@ -300,11 +300,13 @@ async function getCoursesForDropDown() {
   // document.getElementById("dropDownDiv").innerHTML =
   //   "Please wait whilst we load your courses...";
 
-  let courses = await fetch(`../api/getCourses.php?region=aberdeen`).then(
-    (res) => res.json(),
+  let courses = await fetch(`../api/getCourses.php?region=`).then((res) =>
+    res.json(),
   );
 
   const select = document.getElementById("clubsSelect");
+
+  console.log(Object.keys(courses).length);
 
   // Loop through the object and add options
   for (const key in courses) {

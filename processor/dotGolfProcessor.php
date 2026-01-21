@@ -44,6 +44,13 @@ class DotGolfProcessor extends Processor
             }
         }
 
+        if ($count == 0) {
+            return [
+                "date" => $this->_format_date($date),
+                "teeTimesAvailable" => "No",
+            ];
+        }
+
         return [
             "date" => $this->_format_date($date),
             "teeTimesAvailable" => "Yes",
