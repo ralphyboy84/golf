@@ -268,6 +268,8 @@ function displayContent(msg, travelInfo, courseId, weather) {
   } else if (!temp) {
     if (msg.openBookingUrl && isFutureDate(msg.bookingsOpenDate)) {
       temp = `There is an Open Competition on on this day and bookings for this will become available at ${msg.bookingsOpenDate}`;
+    } else if (msg.bookingsOpenDate == "TBC") {
+      temp = `There is an Open Competition on on this day but it is not available for booking yet`;
     } else {
       temp = "Sorry - there are no tee times available on this day";
     }

@@ -80,26 +80,51 @@ class ClubV1Processor extends Processor
         ];
     }
 
-    public function checkForOpenOnDay($opens, $date)
+    public function checkForOpenOnDay($opens, $date, $courseId)
     {
         $competition_id = "";
+        $openExists = "";
+        $greenFee = "";
+        $token = "";
+        $bookingOpen = "";
+        $openBookingUrl = "";
 
         if ($opens) {
             foreach ($opens as $open) {
                 if ($open["date"] == $this->_format_date($date)) {
-                    $competition_id = $open["competition_id"];
-                    $greenFee = $open["visitor_green_fee"];
-                    $token = $open["token"];
+                    if (isset($open["competition_id"])) {
+                        $competition_id = $open["competition_id"];
+                    }
+
+                    if (isset($open["visitor_green_fee"])) {
+                        $greenFee = $open["visitor_green_fee"];
+                    }
+
+                    if (isset($open["token"])) {
+                        $token = $open["token"];
+                    }
+
+                    if (isset($open["bookingOpen"])) {
+                        $bookingOpen = $open["bookingOpen"];
+
+                        if ($bookingOpen == "No") {
+                            $openBookingUrl = "https://hub.howdidido.com/directory/OpenCompetitions?id=$courseId";
+                        }
+                    }
+
+                    $openExists = true;
                 }
             }
         }
 
-        if ($competition_id) {
+        if ($openExists) {
             return [
                 "competitionId" => $competition_id,
                 "openGreenFee" => $greenFee,
                 "bookingsOpenDate" => "TBC",
                 "token" => $token,
+                "bookingOpen" => $bookingOpen,
+                "openBookingUrl" => $openBookingUrl,
             ];
         }
 

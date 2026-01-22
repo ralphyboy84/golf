@@ -77,26 +77,60 @@ class ClubV1Call extends Call
         if (isset($tmp["div"]["div"]["div"])) {
             foreach ($tmp["div"]["div"]["div"] as $open) {
                 if (isset($open["div"]["div"]["div"])) {
-                    $token = $this->_format_token(
-                        $open["div"]["div"]["div"][2]["span"][1]["a"][
-                            "@attributes"
-                        ]["href"],
-                    );
-                    $memberGreenFee = str_replace(
-                        "£",
-                        "",
-                        $open["div"]["div"]["div"][1]["span"][7],
-                    );
-                    $visitorGreenFee = str_replace(
-                        "£",
-                        "",
-                        $open["div"]["div"]["div"][1]["span"][9],
-                    );
-                    $competitionId = $this->_format_course_id(
-                        $open["div"]["div"]["div"][2]["span"][1]["a"][
-                            "@attributes"
-                        ]["href"],
-                    );
+                    $token = "";
+                    $memberGreenFee = "";
+                    $visitorGreenFee = "";
+                    $competitionId = "";
+                    $bookingOpen = "Yes";
+
+                    if (isset($open["div"]["div"]["div"][2])) {
+                        $bookingOpen = "No";
+                    }
+
+                    if (
+                        isset(
+                            $open["div"]["div"]["div"][2]["span"][1]["a"][
+                                "@attributes"
+                            ]["href"],
+                        )
+                    ) {
+                        $token = $this->_format_token(
+                            $open["div"]["div"]["div"][2]["span"][1]["a"][
+                                "@attributes"
+                            ]["href"],
+                        );
+                    }
+
+                    if (isset($open["div"]["div"]["div"][1]["span"][7])) {
+                        $memberGreenFee = str_replace(
+                            "£",
+                            "",
+                            $open["div"]["div"]["div"][1]["span"][7],
+                        );
+                    }
+
+                    if (isset($open["div"]["div"]["div"][1]["span"][9])) {
+                        $visitorGreenFee = str_replace(
+                            "£",
+                            "",
+                            $open["div"]["div"]["div"][1]["span"][9],
+                        );
+                    }
+
+                    if (
+                        isset(
+                            $open["div"]["div"]["div"][2]["span"][1]["a"][
+                                "@attributes"
+                            ]["href"],
+                        )
+                    ) {
+                        $competitionId = $this->_format_course_id(
+                            $open["div"]["div"]["div"][2]["span"][1]["a"][
+                                "@attributes"
+                            ]["href"],
+                        );
+                    }
+
                     $date = $open["div"]["div"]["div"][1]["span"][1];
                     $name = $open["div"]["div"]["div"][0]["a"];
 
@@ -107,6 +141,7 @@ class ClubV1Call extends Call
                         "token" => $token,
                         "date" => $date,
                         "name" => $name,
+                        "bookingOpen" => $bookingOpen,
                     ];
                 }
             }

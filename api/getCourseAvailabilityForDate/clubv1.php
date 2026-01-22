@@ -18,9 +18,16 @@ if ($golfCourses[$_GET["club"]]["onlineBooking"]) {
 
 if ($golfCourses[$_GET["club"]]["openBooking"]) {
     $opens = $ClubV1Call->getAllOpensForCourse($_GET["courseId"]);
-    $openOnDay = $ClubV1Processor->checkForOpenOnDay($opens, $_GET["date"]);
+    $openOnDay = $ClubV1Processor->checkForOpenOnDay(
+        $opens,
+        $_GET["date"],
+        $_GET["courseId"],
+    );
 
-    if (isset($openOnDay["competitionId"])) {
+    if (
+        isset($openOnDay["bookingOpen"]) &&
+        $openOnDay["bookingOpen"] == "Yes"
+    ) {
         $openField = false;
         $openField = $ClubV1Call->checkOpenAvailability(
             $openOnDay["token"],

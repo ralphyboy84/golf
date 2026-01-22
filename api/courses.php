@@ -172,7 +172,7 @@ $golfCourses = [
         "courseId" => 7910,
         "working" => "Yes",
     ],
-    "Gleneagles" => [
+    "gleneagles" => [
         "name" => "Gleneagles",
         "bookingLink" =>
             "https://pursuits.gleneagles.com/reservations/template/21459/?course=The+King%27s",
@@ -315,7 +315,7 @@ $golfCourses = [
         "region" => "angus",
         "working" => "Yes",
     ],
-    "Lundin Links" => [
+    "lundinlinks" => [
         "name" => "Lundin Links",
         "bookingLink" => "https://visitors.brsgolf.com/lundingc#/course/1",
         "onlineBooking" => "Yes",
@@ -325,6 +325,7 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "fife",
         "working" => "no",
+        "reason" => "no data",
     ],
     "moray" => [
         "name" => "Moray",
@@ -501,7 +502,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.askernishgolfclub.com/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -718,7 +719,7 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "",
         "region" => "ayrshire",
-        "working" => "no",
+        "working" => "Yes",
     ],
     "eastrenfrewshire" => [
         "name" => "East Renfrewshire",
@@ -1668,6 +1669,7 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "perthshire",
         "working" => "no",
+        "reason" => "no data",
     ],
     "kintore" => [
         "name" => "Kintore",
@@ -2172,6 +2174,7 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "aberdeen",
         "working" => "no",
+        "reason" => "no data",
     ],
     "uphall" => [
         "name" => "Uphall",
@@ -2194,6 +2197,7 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "",
         "working" => "no",
+        "reason" => "old brs",
     ],
     "westhill" => [
         "name" => "Westhill",
@@ -2208,14 +2212,17 @@ $golfCourses = [
     ],
     "windyhill" => [
         "name" => "Windyhill",
-        "bookingLink" => "https://visitors.brsgolf.com/windyhill#/course/1",
+        "bookingLink" =>
+            "https://windyhillgolfclub.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
-        "greenFee" => "340",
+        "openBooking" => "No",
+        "greenFee" => "330",
         "image" => "",
-        "bookingSystem" => "brs",
-        "region" => "",
-        "working" => "no",
+        "bookingSystem" => "dotgolf",
+        "region" => "glasgow",
+        "clubId" => 2699,
+        "courseId" => "null",
+        "working" => "Yes",
     ],
     "wishaw" => [
         "name" => "Wishaw",
@@ -2251,18 +2258,18 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "fife",
         "working" => "no",
+        "reason" => "old brs",
     ],
-    "oatridge-alsoknownasbinny" => [
-        "name" => "Oatridge-alsoknownasbinny",
-        "bookingLink" =>
-            "https://visitors.brsgolf.com/oatridge-alsoknownasbinny#/course/1",
+    "oatridge" => [
+        "name" => "Oatridge and Binny",
+        "bookingLink" => "https://visitors.brsgolf.com/oatridge#/course/1",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "",
-        "working" => "no",
+        "region" => "edinburgh",
+        "working" => "Yes",
     ],
     "dunkeldbirnam" => [
         "name" => "Dunkeld and Birnam",
@@ -2330,6 +2337,7 @@ $golfCourses = [
         "bookingSystem" => "brs",
         "region" => "",
         "working" => "no",
+        "reason" => "no data",
     ],
     "portpatrick" => [
         "name" => "Portpatrick Dunskey",
@@ -2645,7 +2653,7 @@ $golfCourses = [
         "working" => "Yes",
     ],
     "loudoungowf" => [
-        "name" => "Loudoungowf",
+        "name" => "Loudoun Gowf",
         "bookingLink" => "https://loudoungowf.hub.clubv1.com/Visitors/TeeSheet",
         "onlineBooking" => "Yes",
         "openBooking" => "Yes",
@@ -2653,8 +2661,8 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "clubv1",
         "region" => "",
-        "courseId" => 255,
-        "working" => "no",
+        "courseId" => 132,
+        "working" => "Yes",
     ],
     "maverston" => [
         "name" => "Maverston",
@@ -2729,6 +2737,7 @@ $golfCourses = [
         "region" => "",
         "courseId" => 686,
         "working" => "no",
+        "reason" => "opens not showing for some reason",
     ],
     "speybay" => [
         "name" => "Spey Bay",
@@ -2753,6 +2762,7 @@ $golfCourses = [
         "region" => "edinburgh",
         "courseId" => 3007,
         "working" => "no",
+        "reason" => "opens not loading properly for some reason",
     ],
     "turnhouse" => [
         "name" => "Turnhouse",
@@ -3030,7 +3040,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://ballochmylegolfclub.com/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3044,7 +3054,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.cardrossgolfclub.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3058,7 +3068,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.carradalegolf.com/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3072,7 +3082,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://carrbridgegolf.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3086,7 +3096,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://cochranecastle.com/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3100,7 +3110,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://comriegolf.cw.sct.dotgolf.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3114,7 +3124,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://winterfield.cw.sct.dotgolf.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3128,7 +3138,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://wigtownshirecountygolfclub.com/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3142,7 +3152,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.wandbgc.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3156,7 +3166,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.stmedangolfclub.com/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3170,7 +3180,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.newtonstewartgolfclub.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3184,7 +3194,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.moffatgolfclub.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3198,7 +3208,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://royaltarlair.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3212,7 +3222,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.petercultergolfclub.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3226,7 +3236,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.lumphanangolfclub.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3240,7 +3250,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.longsidegolfclub.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3254,7 +3264,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.inverallochygolfclub.com/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3268,7 +3278,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.dunechthousegolfclub.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3293,7 +3303,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.strathlenegolfclub.com/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3307,7 +3317,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.alnessgolf.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3321,7 +3331,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.elmwoodgolf.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3334,7 +3344,7 @@ $golfCourses = [
         "name" => "Glencruitten",
         "bookingLink" => "https://www.golfoban.com/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3348,7 +3358,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.hawickgolfclub.com/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3362,7 +3372,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.gourockgolfclub.com/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3376,7 +3386,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.invergordongolf.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "YNoes",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3390,7 +3400,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://kirkcaldygolfclub.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3404,7 +3414,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.portglasgowgolfclub.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3428,13 +3438,14 @@ $golfCourses = [
             "lon" => -4.04313,
         ],
         "working" => "no",
+        "reason" => "opens not yet live",
     ],
     "rothes" => [
         "name" => "Rothes",
         "bookingLink" =>
             "https://www.rothesgolfclub.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
@@ -3448,7 +3459,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.stboswellsgolfclub.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "Yes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",
