@@ -6,6 +6,10 @@ class DotGolfCall extends Call
 {
     public function getTeeTimesForDay($date, $baseUrl, $clubId, $courseId)
     {
+        if ($courseId === "0") {
+            $courseId = "";
+        }
+
         $ch = curl_init(
             "$baseUrl?ClubId=$clubId&CourseId=$courseId&Date=$date",
         );

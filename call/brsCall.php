@@ -63,6 +63,10 @@ class BRSCall extends Call
 
     public function getTeeTimesForDay($date, $club, $courseId)
     {
+        if ($courseId == "0") {
+            $courseId = 1;
+        }
+
         return $this->_doCorsCall(
             "https://visitors.brsgolf.com/api/casualBooking/teesheet?date=$date&course_id=$courseId",
             $club,

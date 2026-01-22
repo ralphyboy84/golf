@@ -3,7 +3,7 @@
 require_once "api/courses.php";
 
 foreach ($golfCourses as $key => $course) {
-    if ($course["working"] == "no") {
+    if ($course["working"] == "No") {
         echo $key . "-" . $course["bookingSystem"];
 
         if (isset($course["reason"])) {
