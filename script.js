@@ -233,7 +233,11 @@ function displayContent(msg, travelInfo, courseId) {
       openText += `<a href="${msg.openBookingUrl}" class="btn btn-primary" target="_blank">Click here for more info</a>`;
     }
   } else if (!temp) {
-    temp = "Sorry - there are no tee times available on this day";
+    if (msg.openBookingUrl && isFutureDate(msg.bookingsOpenDate)) {
+      temp = `There is an Open Competition on on this day and bookings for this will become available at ${msg.bookingsOpenDate}`;
+    } else {
+      temp = "Sorry - there are no tee times available on this day";
+    }
   }
 
   return `
@@ -417,4 +421,14 @@ async function updateCourseList() {
   await getCoursesForDropDown(regionArray);
   $("#multiple-checkboxes, #regionSelect, #clubsSelect").multiselect("destroy");
   loadSelectBoxes();
+}
+
+function isFutureDate(dateString) {
+  const inputDate = new Date(dateString); // Convert input to Date
+  const today = new Date();
+
+  // Set time of today to 00:00:00 if you want to ignore time
+  today.setHours(0, 0, 0, 0);
+
+  return inputDate > today;
 }
