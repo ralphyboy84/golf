@@ -19,7 +19,7 @@ $golfCourses = [
                 "courseId" => 3,
             ],
         ],
-        "bookingSystem" => "",
+        "bookingSystem" => "carnoustie",
         "availabilityDays" => ["mon", "tue", "wed", "thu", "fri", "sat", "sun"],
         "region" => "angus",
         "working" => "no",
@@ -1901,7 +1901,7 @@ $golfCourses = [
         "greenFee" => "340",
         "image" => "",
         "bookingSystem" => "brs",
-        "region" => "Aberdeen",
+        "region" => "aberdeen",
         "working" => "Yes",
     ],
     "peebles" => [
@@ -3386,7 +3386,7 @@ $golfCourses = [
         "bookingLink" =>
             "https://www.invergordongolf.co.uk/Teebooking/SearchSlots.aspx",
         "onlineBooking" => "Yes",
-        "openBooking" => "YNoes",
+        "openBooking" => "No",
         "greenFee" => "330",
         "image" => "",
         "bookingSystem" => "dotgolf",

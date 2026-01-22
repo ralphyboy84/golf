@@ -97,41 +97,39 @@
 
 // 57.968528102410566, -4.0109028539878295
 
-// require_once "api/courses.php";
-
-// require_once "call/carnoustieCall.php";
-// require_once "processor/carnoustieProcessor.php";
-
-// $CarnoustieProcessor = new CarnoustieProcessor();
-
-// $CarnoustieCall = new CarnoustieCall();
-// $teeTimes = $CarnoustieCall->getTeeTimesForDay("2026-09-21", 1);
-
-// print_r($teeTimes);
-// $tmp = $CarnoustieProcessor->processTeeTimeForDay(
-//     $teeTimes,
-//     $golfCourses["broragolfclub"],
-//     "2026-09-21",
-// );
-
-// print_r($tmp);
-
 require_once "api/courses.php";
 
-require_once "call/dotGolfCall.php";
-require_once "processor/dotGolfProcessor.php";
+require_once "call/carnoustieCall.php";
+require_once "processor/carnoustieProcessor.php";
 
-$DotGolfCall = new DotGolfCall();
-$DotGolfProcessor = new DotGolfProcessor();
+$CarnoustieProcessor = new CarnoustieProcessor();
 
-$teeTimes = $DotGolfCall->getTeeTimesForDay(
-    "2026-01-21",
-    $golfCourses["fraserburgh"]["bookingLink"],
-    $golfCourses["fraserburgh"]["courseId"],
+$CarnoustieCall = new CarnoustieCall();
+$teeTimes = $CarnoustieCall->getTeeTimesForDay("2026-04-08", 1);
+
+$tmp = $CarnoustieProcessor->processTeeTimeForDay(
+    $teeTimes,
+    $golfCourses["broragolfclub"],
+    "2026-09-21",
 );
-
-echo "<pre>";
-
-$tmp = $DotGolfProcessor->processTeeTimeForDay($teeTimes, "2026-09-21");
-
 print_r($tmp);
+
+// require_once "api/courses.php";
+
+// require_once "call/dotGolfCall.php";
+// require_once "processor/dotGolfProcessor.php";
+
+// $DotGolfCall = new DotGolfCall();
+// $DotGolfProcessor = new DotGolfProcessor();
+
+// $teeTimes = $DotGolfCall->getTeeTimesForDay(
+//     "2026-01-21",
+//     $golfCourses["fraserburgh"]["bookingLink"],
+//     $golfCourses["fraserburgh"]["courseId"],
+// );
+
+// echo "<pre>";
+
+// $tmp = $DotGolfProcessor->processTeeTimeForDay($teeTimes, "2026-09-21");
+
+// print_r($tmp);

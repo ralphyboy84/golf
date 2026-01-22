@@ -14,7 +14,6 @@ if ($golfCourses[$_GET["club"]]["onlineBooking"]) {
 
     $teeTimeInfo = $CarnoustieProcessor->processTeeTimeForDay(
         $teeTimes,
-        $golfCourses[$_GET["club"]],
         $_GET["date"],
     );
 }

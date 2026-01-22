@@ -240,11 +240,13 @@ function displayContent(msg, travelInfo, courseId, weather) {
       driveTime = travelInfo[courseId];
     }
 
-    timesAvailable += returnCardList(
-      driveTime,
-      "Drive to Course",
-      "bi-car-front",
-    );
+    if (driveTime != "Currently Unavailable") {
+      timesAvailable += returnCardList(
+        driveTime,
+        "Drive to Course",
+        "bi-car-front",
+      );
+    }
 
     if (msg.openBookingUrl) {
       openText = `
@@ -294,9 +296,15 @@ function displayContent(msg, travelInfo, courseId, weather) {
 }
 
 function returnCardList(title, message, icon) {
-  return `
-    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true"> 
+  let mobileTitle = title;
 
+  if (mobileTitle == "Unknown") {
+    mobileTitle = "NA";
+  }
+
+  return `
+  <div class="d-none d-sm-block">
+    <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3 " aria-current="true"> 
       <i class="bi ${icon}"></i>
       <div class="d-flex gap-2 w-100 justify-content-between"> 
         <div> 
@@ -305,6 +313,17 @@ function returnCardList(title, message, icon) {
         </div> 
       </div> 
     </a>
+    </div>
+    <div class="col d-block d-sm-none">
+    <a href="#" class="list-group-item list-group-item-action d-flex gap-1 py-1" aria-current="true"> 
+      <i class="bi ${icon}"></i>
+      <div class="d-flex gap-1 w-100 justify-content-between"> 
+        <div> 
+          <h6 class="mb-0">${mobileTitle}</h6> 
+        </div> 
+      </div> 
+    </a>
+    </div>
     `;
 }
 
