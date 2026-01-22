@@ -508,6 +508,10 @@ $golfCourses = [
         "region" => "islands",
         "clubId" => 2032,
         "courseId" => "null",
+        "location" => [
+            "lat" => 57.1895,
+            "lon" => -7.41299,
+        ],
         "working" => "Yes",
     ],
     "scotscraiggolfclub" => [
@@ -808,6 +812,10 @@ $golfCourses = [
         "image" => "",
         "bookingSystem" => "brs",
         "region" => "perthshire",
+        "location" => [
+            "lat" => 56.62131,
+            "lon" => -3.2052,
+        ],
         "working" => "Yes",
     ],
     "auchterarder" => [

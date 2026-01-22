@@ -52,18 +52,22 @@ async function findTrip() {
   //   });
   // });
 
-  let coruseList = [];
+  let courseList = [];
 
   for (let x in selectBoxValues) {
-    coruseList.push(selectBoxValues[x].course);
+    courseList.push(selectBoxValues[x].course);
   }
 
   const whereStaying = await getWhereStayingLatLong();
   const info = await fetch(
-    `map/getDistance.php?from=${whereStaying}&to=${coruseList}`,
+    `map/getDistance.php?from=${whereStaying}&to=${courseList}`,
   ).then((res) => res.json());
 
-  fetchAllResults2(selectBoxValues, tripStart, info);
+  const weather = await fetch(
+    `weather/getWeather.php?to=${courseList}&date=${document.getElementById("start").value}`,
+  ).then((res) => res.json());
+
+  fetchAllResults2(selectBoxValues, tripStart, info, weather);
 
   // document.getElementById("travelInfo").innerHTML = "";
   // document.getElementById("travelInfo").innerHTML += info + "<br />";
@@ -100,7 +104,12 @@ async function fetchAllResults(selectBoxValues, tripStart) {
   return results;
 }
 
-async function fetchAllResults2(selectBoxValues, tripStart, travelInfo) {
+async function fetchAllResults2(
+  selectBoxValues,
+  tripStart,
+  travelInfo,
+  weather,
+) {
   const results = {};
 
   for (let x in selectBoxValues) {
@@ -121,6 +130,7 @@ async function fetchAllResults2(selectBoxValues, tripStart, travelInfo) {
                 fetchPromise,
                 travelInfo,
                 selectBoxValues[x].course,
+                weather,
               )) + "<br />",
         );
     }
@@ -172,11 +182,12 @@ function addDays(date, days) {
   return tomorrow.getFullYear() + "-" + month + "-" + day;
 }
 
-function displayContent(msg, travelInfo, courseId) {
+function displayContent(msg, travelInfo, courseId, weather) {
   let temp = "";
   let timesAvailable = "";
   let openText = "";
   let openTimesAvailable = "";
+  let weatherInfo = "";
 
   if (msg.onlineBooking == "No") {
     temp = `Unfortunately, Online Booking is not available but they do allow visitors on this day`;
@@ -202,6 +213,28 @@ function displayContent(msg, travelInfo, courseId) {
     );
 
     let driveTime = "Currently Unavailable";
+
+    if (weather[courseId]) {
+      weatherInfo = returnCardList(
+        weather[courseId].generalForecast,
+        "General Forecast",
+        weather[courseId].generalForecastIcon,
+      );
+
+      weatherInfo += returnCardList(
+        weather[courseId].chanceOfRain,
+        "Chance of Rain",
+        "bi-cloud-rain",
+      );
+
+      weatherInfo += returnCardList(
+        weather[courseId].tmeperature,
+        "Daily High",
+        "bi-thermometer",
+      );
+
+      weatherInfo += returnCardList(weather[courseId].wind, "Wind", "bi-wind");
+    }
 
     if (travelInfo[courseId]) {
       driveTime = travelInfo[courseId];
@@ -249,6 +282,7 @@ function displayContent(msg, travelInfo, courseId) {
         <h5 class="card-title">${msg.courseName}</h5>
         <p class="card-text">${temp}</p>
         ${timesAvailable}
+        ${weatherInfo}
         <a href="${msg.bookingUrl}" class="btn btn-primary" target="_blank">Click here for more info</a>
         ${openText}
       </div>
