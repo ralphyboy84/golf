@@ -23,7 +23,7 @@ class BRSProcessor extends Processor
                 $greenFees[] = $this->_get_green_fee($teeTime["green_fees"]);
             }
 
-            $uniqueFees = array_unique($greenFees);
+            $uniqueFees = array_unique(array_filter($greenFees));
             sort($uniqueFees);
 
             return [
@@ -45,26 +45,35 @@ class BRSProcessor extends Processor
     {
         $data = json_decode($opens, true);
 
-        $openFlag = false;
+        $competitionId = false;
         $greenFee = false;
         $availableDate = false;
+        $bookingOpen = "No";
+        $name = "";
 
         if (isset($data["data"])) {
             foreach ($data["data"] as $open) {
                 if ($open["date"] == $date) {
-                    $openFlag = $open["competition_id"];
+                    $competitionId = $open["competition_id"];
                     $greenFee = $open["visitor_green_fee"];
                     $availableDate = $open["available_date"];
+                    $name = $open["name"];
+
+                    if ($this->_check_past_date($availableDate)) {
+                        $bookingOpen = "Yes";
+                    }
                 }
             }
         }
 
-        if ($openFlag) {
-            return [
-                "competitionId" => $openFlag,
-                "openGreenFee" => $greenFee,
-                "bookingsOpenDate" => $availableDate,
-            ];
+        if ($competitionId) {
+            return $this->returnCheckForOpenOnDayParams(
+                $competitionId,
+                $greenFee,
+                $this->_format_date($availableDate),
+                $bookingOpen,
+                $name,
+            );
         }
 
         return [];
@@ -120,8 +129,16 @@ class BRSProcessor extends Processor
         return $returnArray;
     }
 
-    private function _get_green_fee($fees)
+    protected function _get_green_fee($fees)
     {
         return $fees[0]["green_fee1_ball"];
+    }
+
+    protected function _check_past_date($date)
+    {
+        $givenDate = new DateTime($date);
+        $today = new DateTime("today");
+
+        return $givenDate < $today;
     }
 }

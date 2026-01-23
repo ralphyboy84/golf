@@ -188,6 +188,7 @@ function displayContent(msg, travelInfo, courseId, weather) {
   let openText = "";
   let openTimesAvailable = "";
   let weatherInfo = "";
+  let moreInfoButton = getClickHereForMoreInfoButton(msg);
 
   if (msg.onlineBooking == "No") {
     temp = `Unfortunately, Online Booking is not available but they do allow visitors on this day`;
@@ -248,28 +249,15 @@ function displayContent(msg, travelInfo, courseId, weather) {
       );
     }
 
-    if (msg.openBookingUrl) {
-      openText = `
-      <br /><br /><p class="card-text">There is also an Open Competition on this day</p>
-      `;
-
-      openText += returnCardList(
-        msg.openGreenFee,
-        "Open Entry Fee",
-        "bi-currency-pound",
-      );
-
-      openText += returnCardList(
-        msg.slotsAvailable,
-        "Available Slots",
-        "bi-balloon",
-      );
-
-      openText += `<a href="${msg.openBookingUrl}" class="btn btn-primary" target="_blank">Click here for more info</a>`;
+    if (msg.competitionId) {
+      openText = "<br /><br />" + getOpenText(msg);
     }
   } else if (!temp) {
-    if (msg.openBookingUrl && isFutureDate(msg.bookingsOpenDate)) {
+    if (msg.competitionId && isFutureDate(msg.bookingsOpenDate)) {
       temp = `There is an Open Competition on on this day and bookings for this will become available at ${msg.bookingsOpenDate}`;
+    } else if (msg.bookingOpen == "Yes") {
+      temp = getOpenText(msg);
+      moreInfoButton = "";
     } else if (msg.bookingsOpenDate == "TBC") {
       temp = `There is an Open Competition on on this day but it is not available for booking yet`;
     } else {
@@ -279,20 +267,47 @@ function displayContent(msg, travelInfo, courseId, weather) {
 
   return `
     <div class="card">
-      <div class="card-header">
-      ${msg.date}
+      <div class="card-header" style='font-size:20px'>
+      ${msg.courseName}
       </div>
       <div class="card-body">
-        <h5 class="card-title">${msg.courseName}</h5>
         <p class="card-text">${temp}</p>
         ${timesAvailable}
         ${weatherInfo}
-        <a href="${msg.bookingUrl}" class="btn btn-primary" target="_blank">Click here for more info</a>
+        ${moreInfoButton}
         ${openText}
       </div>
     </div>
     <br />
   `;
+}
+
+function getClickHereForMoreInfoButton(msg) {
+  return `<a href="${msg.bookingUrl}" class="btn btn-primary" target="_blank">Click here for more info</a>`;
+}
+
+function getOpenText(msg) {
+  let openText = `
+      <p class="card-text">There is an Open Competition on on this day</p>
+      `;
+
+  openText += returnCardList(
+    msg.openGreenFee,
+    "Open Entry Fee",
+    "bi-currency-pound",
+  );
+
+  openText += returnCardList(
+    msg.slotsAvailable,
+    "Available Slots",
+    "bi-balloon",
+  );
+
+  openText += returnCardList(msg.name, "Competition", "bi-card-list");
+
+  openText += `<a href="${msg.openBookingUrl}" class="btn btn-primary" target="_blank">Click here for more info</a>`;
+
+  return openText;
 }
 
 function returnCardList(title, message, icon) {
@@ -478,14 +493,24 @@ async function updateCourseList() {
   loadSelectBoxes();
 }
 
-function isFutureDate(dateString) {
-  const inputDate = new Date(dateString); // Convert input to Date
-  const today = new Date();
+function isFutureDate(dateStr) {
+  const [day, month, year] = dateStr.split("/").map(Number);
 
-  // Set time of today to 00:00:00 if you want to ignore time
+  // Create date at midnight to avoid time issues
+  const givenDate = new Date(year, month - 1, day);
+  const today = new Date();
   today.setHours(0, 0, 0, 0);
 
-  return inputDate > today;
+  // Guard against invalid dates (e.g. 32/13/2025)
+  if (
+    givenDate.getFullYear() !== year ||
+    givenDate.getMonth() !== month - 1 ||
+    givenDate.getDate() !== day
+  ) {
+    return false;
+  }
+
+  return givenDate > today;
 }
 
 navigator.geolocation.getCurrentPosition(function (location) {

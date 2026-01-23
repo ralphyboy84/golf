@@ -39,7 +39,7 @@ class checkForOpenOnDayTest extends TestCase
         $this->assertIsArray($result);
         $this->assertEquals(123, $result["competitionId"]);
         $this->assertEquals(75.5, $result["openGreenFee"]);
-        $this->assertEquals("2026-01-01", $result["bookingsOpenDate"]);
+        $this->assertEquals("01/01/2026", $result["bookingsOpenDate"]);
     }
 
     public function testReturnsEmptyArrayWhenNoMatch()
@@ -116,6 +116,6 @@ class checkForOpenOnDayTest extends TestCase
         // so the last one is returned
         $this->assertEquals(789, $result["competitionId"]);
         $this->assertEquals(85.0, $result["openGreenFee"]);
-        $this->assertEquals("2026-01-03", $result["bookingsOpenDate"]);
+        $this->assertEquals("03/01/2026", $result["bookingsOpenDate"]);
     }
 }

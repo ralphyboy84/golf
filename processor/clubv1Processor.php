@@ -53,11 +53,7 @@ class ClubV1Processor extends Processor
                                 $time;
                         }
 
-                        $greenFees[] = str_replace(
-                            "£",
-                            "",
-                            $xx["div"][1]["div"][0]["div"]["div"][0]["div"][1],
-                        );
+                        $greenFees[] = $this->_format_green_fees($xx);
                     }
                 }
 
@@ -88,6 +84,7 @@ class ClubV1Processor extends Processor
         $token = "";
         $bookingOpen = "";
         $openBookingUrl = "";
+        $name = "";
 
         if ($opens) {
             foreach ($opens as $open) {
@@ -98,6 +95,10 @@ class ClubV1Processor extends Processor
 
                     if (isset($open["visitor_green_fee"])) {
                         $greenFee = $open["visitor_green_fee"];
+                    }
+
+                    if (isset($open["name"])) {
+                        $name = $open["name"];
                     }
 
                     if (isset($open["token"])) {
@@ -118,14 +119,15 @@ class ClubV1Processor extends Processor
         }
 
         if ($openExists) {
-            return [
-                "competitionId" => $competition_id,
-                "openGreenFee" => $greenFee,
-                "bookingsOpenDate" => "TBC",
-                "token" => $token,
-                "bookingOpen" => $bookingOpen,
-                "openBookingUrl" => $openBookingUrl,
-            ];
+            return $this->returnCheckForOpenOnDayParams(
+                $competition_id,
+                $greenFee,
+                "TBC",
+                $bookingOpen,
+                $name,
+                $token,
+                $openBookingUrl,
+            );
         }
 
         return [];
@@ -215,5 +217,24 @@ class ClubV1Processor extends Processor
         }
 
         return $returnArray;
+    }
+
+    private function _format_green_fees($xx)
+    {
+        if (isset($xx["div"][1]["div"][0]["div"]["div"][0]["div"][1])) {
+            return str_replace(
+                "£",
+                "",
+                $xx["div"][1]["div"][0]["div"]["div"][0]["div"][1],
+            );
+        } elseif (isset($xx["div"][1]["div"][0]["div"]["div"]["div"][1])) {
+            return str_replace(
+                "£",
+                "",
+                $xx["div"][1]["div"][0]["div"]["div"]["div"][1],
+            );
+        }
+
+        return "UNK";
     }
 }

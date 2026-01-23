@@ -13,6 +13,8 @@ if (
     isset($golfCourses[$_GET["club"]]["bookingSystem"]) &&
     !empty($golfCourses[$_GET["club"]]["bookingSystem"])
 ) {
+    require_once "../database/database.php";
+    require_once "../opens/opens.php";
     require_once "getCourseAvailabilityForDate/{$golfCourses[$_GET["club"]]["bookingSystem"]}.php";
 
     $additionalArray = [

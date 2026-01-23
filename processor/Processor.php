@@ -17,4 +17,24 @@ abstract class Processor
         }
         return false;
     }
+
+    protected function returnCheckForOpenOnDayParams(
+        $competitionId,
+        $greenFee,
+        $bookingsOpenDate,
+        $bookingOpen,
+        $name,
+        $token = false,
+        $openBookingUrl = false,
+    ) {
+        return [
+            "competitionId" => $competitionId,
+            "openGreenFee" => $greenFee,
+            "bookingsOpenDate" => $bookingsOpenDate,
+            "bookingOpen" => $bookingOpen,
+            "name" => $name,
+            "token" => $token,
+            "openBookingUrl" => $openBookingUrl,
+        ];
+    }
 }

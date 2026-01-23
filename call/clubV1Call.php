@@ -83,7 +83,10 @@ class ClubV1Call extends Call
                     $competitionId = "";
                     $bookingOpen = "Yes";
 
-                    if (isset($open["div"]["div"]["div"][2])) {
+                    if (
+                        isset($open["div"]["div"]["div"][2]) &&
+                        !is_array($open["div"]["div"]["div"][2])
+                    ) {
                         $bookingOpen = "No";
                     }
 
