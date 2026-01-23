@@ -4,12 +4,12 @@ header("Content-Type: application/json; charset=utf-8");
 
 require_once "../api/courses.php";
 
-if ($_GET["from"] == "undefined") {
+if ($_GET["from"] == "undefined" || $_GET["from"] == "") {
     echo json_encode([]);
     return;
 }
 
-$args = explode(" ", $_GET["from"]);
+$args = explode(",", $_GET["from"]);
 
 $toArgs = explode(",", $_GET["to"]);
 

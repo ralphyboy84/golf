@@ -443,7 +443,7 @@ async function getActiveCourseInfo() {
 }
 
 async function getWhereStayingLatLong() {
-  return;
+  return document.getElementById("staying").value;
   const params = new URLSearchParams({
     q: document.getElementById("staying").value,
     max: 10,
@@ -487,3 +487,8 @@ function isFutureDate(dateString) {
 
   return inputDate > today;
 }
+
+navigator.geolocation.getCurrentPosition(function (location) {
+  document.getElementById("staying").value =
+    location.coords.latitude + "," + location.coords.longitude;
+});
