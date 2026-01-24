@@ -28,6 +28,8 @@ if ($golfCourses[$_GET["club"]]["onlineBooking"]) {
 }
 
 if ($golfCourses[$_GET["club"]]["openBooking"]) {
+    $slotsAvailable = "No";
+
     $opens = $IntelligentCall->getAllOpensForCourse(
         $golfCourses[$_GET["club"]]["baseUrl"],
         $_GET["club"],
@@ -37,7 +39,10 @@ if ($golfCourses[$_GET["club"]]["openBooking"]) {
         $_GET["date"],
     );
 
-    if (isset($openOnDay["competitionId"])) {
+    if (
+        isset($openOnDay["competitionId"]) &&
+        $openOnDay["bookingOpen"] == "Yes"
+    ) {
         $openField = $IntelligentCall->checkOpenAvailability(
             $golfCourses[$_GET["club"]]["baseUrl"],
             $_GET["club"],
@@ -47,6 +52,21 @@ if ($golfCourses[$_GET["club"]]["openBooking"]) {
             $openField,
             $_GET["club"],
             $openOnDay["competitionId"],
+        );
+    }
+
+    if (isset($openOnDay["competitionId"])) {
+        $database = new database();
+
+        $opens = new opens();
+        $opens->updateOpenInformation(
+            $database->getDatabaseConnection(),
+            $_GET["club"],
+            $openOnDay["competitionId"],
+            $_GET["courseId"],
+            $_GET["date"],
+            $openOnDay["name"],
+            $slotsAvailable,
         );
     }
 }

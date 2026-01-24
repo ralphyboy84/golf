@@ -1,5 +1,3 @@
-Find a Club V1 Open that is not ready for taking bookings - Mortonhall
-
 Find a Club V1 club with more than one course - newmachaer
 
 Haggs castle uses BRS for bookings and HDID for opens
@@ -25,3 +23,7 @@ mortonhall use both systems
 look at mearns castle as they have prices differently
 
 Need a better error message for courses that don't allow online booking but do allow opens
+
+intelligent golf opens not working
+
+Need to checking bookingOpen flag on intelligent golf opens

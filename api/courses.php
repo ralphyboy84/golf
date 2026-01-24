@@ -59,6 +59,7 @@ if ($result->num_rows > 0) {
             "courseId" => $row["courseId"],
             "clubId" => $row["clubId"],
             "reason" => $row["reason"],
+            "baseUrl" => $row["baseUrl"],
         ];
 
         if ($coursesArray) {

@@ -22,6 +22,8 @@ class Opens
         $result = $dbh->query($sql);
 
         if ($result->num_rows == 0) {
+            $openName = str_replace("'", "", $openName);
+
             $sql = "
             INSERT INTO opens(clubid, courseid, openid, name, date, availability, slots)
             VALUES

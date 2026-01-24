@@ -74,6 +74,7 @@ class IntelligentProcessor extends Processor
         $openFlag = false;
         $greenFee = false;
         $availableDate = false;
+        $name = "";
 
         if (isset($opens)) {
             foreach ($opens as $open) {
@@ -81,16 +82,19 @@ class IntelligentProcessor extends Processor
                     $openFlag = $open["competition_id"];
                     $greenFee = $open["visitor_green_fee"];
                     $availableDate = $open["available_date"];
+                    $name = $open["name"];
                 }
             }
         }
 
         if ($openFlag) {
-            return [
-                "competitionId" => $openFlag,
-                "openGreenFee" => $greenFee,
-                "bookingsOpenDate" => $availableDate,
-            ];
+            return $this->returnCheckForOpenOnDayParams(
+                $openFlag,
+                $greenFee,
+                $availableDate,
+                "Yes",
+                $name,
+            );
         }
 
         return [];
