@@ -100,7 +100,7 @@ class IntelligentProcessor extends Processor
         return [];
     }
 
-    public function processOpenAvailability($response, $club, $openId)
+    public function processOpenAvailability($response, $openId, $baseUrl)
     {
         if (json_last_error() !== JSON_ERROR_NONE) {
             throw new Exception("Invalid JSON: " . json_last_error_msg());
@@ -148,7 +148,7 @@ class IntelligentProcessor extends Processor
         return [
             "slotsAvailable" => $available,
             "numberOfSlotsAvailable" => $count,
-            "openBookingUrl" => "https://www.$club.co.uk/competition2.php?tab=details&compid=$openId",
+            "openBookingUrl" => "$baseUrl/competition2.php?tab=details&compid=$openId",
         ];
     }
 

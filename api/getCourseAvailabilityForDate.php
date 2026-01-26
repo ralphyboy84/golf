@@ -10,12 +10,12 @@ $openCompetitionInfo = [];
 $additionalArray = [];
 
 if (
-    isset($golfCourses[$_GET["club"]]["bookingSystem"]) &&
-    !empty($golfCourses[$_GET["club"]]["bookingSystem"])
+    (isset($golfCourses[$_GET["club"]]["bookingSystem"]) &&
+        !empty($golfCourses[$_GET["club"]]["bookingSystem"])) ||
+    (isset($golfCourses[$_GET["club"]]["openBookingSystem"]) &&
+        !empty($golfCourses[$_GET["club"]]["openBookingSystem"]))
 ) {
-    require_once "../database/database.php";
-    require_once "../opens/opens.php";
-    require_once "getCourseAvailabilityForDate/{$golfCourses[$_GET["club"]]["bookingSystem"]}.php";
+    require_once "getCourseAvailabilityForDate/teeTimes.php";
 
     $additionalArray = [
         "bookingUrl" => get_booking_url(

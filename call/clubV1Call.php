@@ -76,13 +76,15 @@ class ClubV1Call extends Call
 
         if (isset($tmp["div"]["div"]["div"])) {
             foreach ($tmp["div"]["div"]["div"] as $open) {
-                if (isset($open["div"]["div"]["div"])) {
-                    $token = "";
-                    $memberGreenFee = "";
-                    $visitorGreenFee = "";
-                    $competitionId = "";
-                    $bookingOpen = "Yes";
+                $token = "";
+                $memberGreenFee = "";
+                $visitorGreenFee = "";
+                $competitionId = "";
+                $bookingOpen = "Yes";
+                $date = "";
+                $name = "";
 
+                if (isset($open["div"]["div"]["div"])) {
                     if (
                         isset($open["div"]["div"]["div"][2]) &&
                         !is_array($open["div"]["div"]["div"][2])
@@ -136,13 +138,70 @@ class ClubV1Call extends Call
 
                     $date = $open["div"]["div"]["div"][1]["span"][1];
                     $name = $open["div"]["div"]["div"][0]["a"];
+                } elseif (isset($open["div"]["div"])) {
+                    if (
+                        isset($open["div"]["div"][2]) &&
+                        !is_array($open["div"]["div"][2])
+                    ) {
+                        $bookingOpen = "No";
+                    }
 
+                    if (
+                        isset(
+                            $open["div"]["div"][2]["span"][1]["a"][
+                                "@attributes"
+                            ]["href"],
+                        )
+                    ) {
+                        $token = $this->_format_token(
+                            $open["div"]["div"][2]["span"][1]["a"][
+                                "@attributes"
+                            ]["href"],
+                        );
+                    }
+
+                    if (isset($open["div"]["div"][1]["span"][7])) {
+                        $memberGreenFee = str_replace(
+                            "£",
+                            "",
+                            $open["div"]["div"][1]["span"][7],
+                        );
+                    }
+
+                    if (isset($open["div"]["div"][1]["span"][9])) {
+                        $visitorGreenFee = str_replace(
+                            "£",
+                            "",
+                            $open["div"]["div"][1]["span"][9],
+                        );
+                    }
+
+                    if (
+                        isset(
+                            $open["div"]["div"][2]["span"][1]["a"][
+                                "@attributes"
+                            ]["href"],
+                        )
+                    ) {
+                        $competitionId = $this->_format_course_id(
+                            $open["div"]["div"][2]["span"][1]["a"][
+                                "@attributes"
+                            ]["href"],
+                        );
+                    }
+
+                    $date = $open["div"]["div"][1]["span"][1];
+                    $name = $open["div"]["div"][0]["a"];
+                }
+
+                if ($date || $name) {
                     $openCompetitions[] = [
                         "competition_id" => $competitionId,
                         "member_green_fee" => $memberGreenFee,
                         "visitor_green_fee" => $visitorGreenFee,
                         "token" => $token,
                         "date" => $date,
+                        "date_formatted" => $this->_format_date($date),
                         "name" => $name,
                         "bookingOpen" => $bookingOpen,
                     ];
@@ -170,5 +229,16 @@ class ClubV1Call extends Call
     {
         preg_match("/[?&]token=([^&]+)/", $url, $matches);
         return $matches[1];
+    }
+
+    private function _format_date($date)
+    {
+        $dateTime = DateTime::createFromFormat("d/m/Y", $date);
+
+        if ($dateTime === false) {
+            return null; // invalid date format
+        }
+
+        return $dateTime->format("Y-m-d");
     }
 }

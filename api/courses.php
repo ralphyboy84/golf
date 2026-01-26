@@ -44,9 +44,11 @@ if ($result->num_rows > 0) {
         $golfCourses[$row["id"]] = [
             "name" => $row["name"],
             "bookingLink" => $row["bookingLink"],
+            "openBookingLink" => $row["openBookingLink"],
             "onlineBooking" => $row["onlineBooking"],
             "openBooking" => $row["openBooking"],
             "bookingSystem" => $row["bookingSystem"],
+            "openBookingSystem" => $row["openBookingSystem"],
             "availabilityDays" => format_availability_days(
                 $row["availabilityDays"],
             ),

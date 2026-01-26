@@ -6,22 +6,13 @@ require_once "../processor/brsProcessor.php";
 $BRSCall = new BRSCall();
 $BRSProcessor = new BRSProcessor();
 
-if ($golfCourses[$_GET["club"]]["onlineBooking"]) {
-    $teeTimes = $BRSCall->getTeeTimesForDay(
-        $_GET["date"],
-        $_GET["club"],
-        $_GET["courseId"],
-    );
-
-    $teeTimeInfo = $BRSProcessor->processTeeTimeForDay(
-        $_GET["club"],
-        $teeTimes,
-        $golfCourses[$_GET["club"]],
-        $_GET["date"],
-    );
-}
-
 if ($golfCourses[$_GET["club"]]["openBooking"]) {
+    $courseId = $_GET["courseId"];
+
+    if ($courseId > 5) {
+        $courseId = 0;
+    }
+
     $slotsAvailable = "No";
 
     $opens = $BRSCall->getAllOpensForCourse($_GET["club"]);
@@ -37,7 +28,7 @@ if ($golfCourses[$_GET["club"]]["openBooking"]) {
         );
         $openCompetitionInfo = $BRSProcessor->processOpenAvailability(
             $openField,
-            $golfCourses[$_GET["club"]]["bookingLink"],
+            $golfCourses[$_GET["club"]]["openBookingLink"],
         );
 
         $slotsAvailable = $openCompetitionInfo["slotsAvailable"];
@@ -51,7 +42,7 @@ if ($golfCourses[$_GET["club"]]["openBooking"]) {
             $database->getDatabaseConnection(),
             $_GET["club"],
             $openOnDay["competitionId"],
-            $_GET["courseId"],
+            $courseId,
             $_GET["date"],
             $openOnDay["name"],
             $slotsAvailable,

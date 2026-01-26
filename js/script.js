@@ -249,7 +249,7 @@ function displayContent(msg, travelInfo, courseId, weather) {
       );
     }
 
-    if (msg.competitionId) {
+    if (msg.competitionId || msg.name) {
       openText = "<br /><br />" + getOpenText(msg);
     }
   } else if (!temp) {

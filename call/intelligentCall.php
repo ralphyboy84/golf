@@ -117,6 +117,13 @@ class IntelligentCall extends Call
                 ->query('.//td[contains(@class, "comp-name-td")]//a', $tr)
                 ->item(0)->textContent;
 
+            if (!$compName) {
+                // Get the competition name
+                $compName = $xpath
+                    ->query('.//td[contains(@class, "comp-name-td")]//a', $tr)
+                    ->item(1)->textContent;
+            }
+
             // Get the date
             $compDate = $xpath
                 ->query('.//div[contains(@class, "comp-date")]', $tr)

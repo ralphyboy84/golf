@@ -57,6 +57,9 @@ class ClubV1Processor extends Processor
                     }
                 }
 
+                $greenFees = array_values(
+                    array_filter($greenFees, fn($v) => (float) $v !== 0.0),
+                );
                 $uniqueFees = array_unique($greenFees);
                 sort($uniqueFees);
 
@@ -219,7 +222,7 @@ class ClubV1Processor extends Processor
         return $returnArray;
     }
 
-    private function _format_green_fees($xx)
+    protected function _format_green_fees($xx)
     {
         if (isset($xx["div"][1]["div"][0]["div"]["div"][0]["div"][1])) {
             return str_replace(
