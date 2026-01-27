@@ -58,7 +58,6 @@ class Opens
         FROM opens, clubs
         WHERE opens.date >= NOW()
         AND opens.clubid = clubs.id
-       -- AND region=  'highlands'
         ";
 
         $result = $dbh->query($sql);

@@ -1,0 +1,58 @@
+meldrumhouse, Meldrum House
+Maybole,Maybole
+Woodlands,Woodlands
+Whitecraigs,Whitecraigs
+WeeBraids,Wee Braids
+TorranceHouse,Torrance House
+TheRenaissanceClub,Renaissance
+strathtay,Strathtay,https://www.strathtaygolfclub.com/
+StrathpefferSpa,Strathpeffer Spa,https://strathpefferspagolfclub.co.uk/,highlands
+Stornoway,Stornoway,https://stornowaygolfclub.co.uk/,islands,masters
+StrathclydePark,Strathclyde Park,https://www.slleisureandculture.co.uk/info/244/strathclyde_park_golf_course,glasgow
+SpeanBridge,Spean Bridge,https://speangolf.co.uk/#,highlands
+SouthRonaldsay,South Ronaldsay,https://southronaldsaygolf.com/,islands 
+Skeabost,Skeabost,,islands
+Silverknowes,Silverknowes,https://www.edinburghleisure.co.uk/venues/silverknowes-golf-course/,edinburgh
+Shetland,Shetland,https://www.shetlandgolfclub.co.uk/,islands,masters
+Sanquhar,Sanquhar,,south
+Sanday,Sanday,,islands 
+Saline,Saline,https://salinegc.co.uk/,fife,masters
+routenburn,Routenburn,https://www.routenburngolfclub.co.uk/,ayrshire,masters
+Rothesay,Rothesay,,islands
+Reay,Reay,https://reaygolfclub.com/,highlands,masters
+PortpatrickDinvinCourse,Portpatrick Dinvin Course,https://www.portpatrickgolfclub.com/,south
+Portobello,Portobello,https://www.edinburghleisure.co.uk/venues/portobello-golf-course/,edinburgh 
+PortBannatyne,Port Bannatyne,https://portbannatynegolfclub.co.uk/,islands 
+Polkemmet,Polkemmet,https://www.westlothianleisure.com/venues/polkemmet-golf-course-driving-range/,edinburgh 
+Palacerigg,Palacerigg,http://palacerigggolfclub.co.uk/index.html,edinburgh 
+Orkney,Orkney,https://orkneygolfclub.co.uk/,islands,masters 
+NewGalloway,New Galloway,https://newgallowaygolfclub.com/,south 
+NewCumnock,New Cumnock,https://members.tripod.com/bob_newcumnock/golf/welcomex.html,ayrshire 
+musselburgholdlinks,Musselburgh Old Links,http://www.musselburgholdlinks.co.uk/,edinburgh
+Muirkirk,Muirkirk,https://www.muirkirk.org.uk/muirkirk-community-information/muirkirk-golf-club/,ayrshire 
+Melville,Melville,https://melvillegolf.com/,edinburgh 
+melrose,Melrose,https://melrosegolfclub.co.uk/,borders,masters 
+MainsofTaymouth,Mains of Taymouth,https://www.taymouth.co.uk/on-site-facilities/kenmore-golf-course.php,perthshire
+Lybster,Lybster,https://lybstergolfclub.co.uk/,highlands,masters
+lochview,Lochview,https://www.activenl.co.uk/lochview-family-golf-centre,glasgow
+lochranza,Lochranza,https://www.arran-campsite.com/golf/,islands 
+troonlochgreen,Troon Lochgreen,https://www.troonlinksgolf.com/#main-content,ayrshire
+troondarley,Troon Darley,https://www.troonlinksgolf.com/#main-content,ayrshire
+troonfullartor,Troon Fullarton,https://www.troonlinksgolf.com/#main-content,ayrshire
+lochgoilhead,Lochgoilhead,https://lochgoilhead.info/golf-club/,islands
+Lochgilphead,Lochgilphead,https://www.lochgilpheadgolfclub.co.uk/,islands 
+Lochcarron,Lochcarron,https://lochcarrongolfclub.co.uk/,highlands 
+LochLomond,Loch Lomond,https://www.lochlomond.com/,glasgow
+Lilliesleaf,Lilliesleaf,https://www.dimpleknowe.co.uk/index.php/golf-course,borders 
+Leadhills,Leadhills,https://www.leadhillsgolfclub.com/,south 
+Lauder,Lauder,https://lauder.golf-club.website/website/index.php,borders 
+Larkhall,Larkhall,https://www.slleisureandculture.co.uk/info/243/larkhall_golf_course,glasgow 
+Langlands,Langlands,https://www.langlandsgolfclub.co.uk/,glasgow 
+Langholm,Langholm,https://www.langholmgolfclub.co.uk/visitors/,south
+KylesofBute,Kyles of Bute,https://www.kylesofbutegolfclub.co.uk/visitors,islands 
+Kirkcudbright,Kirkcudbright,https://www.kirkcudbrightgolf.co.uk/,south
+IsleofHarris,Isle of Harris,https://www.harrisgolf.com/,islands
+IsleofGigha,Isle of Gigha,https://www.visitgigha.co.uk/Golf,islands
+IrvineRavenspark,Irvine Ravenspark,https://www.irgc.co.uk/,ayrshire
+Inveraray,Inveraray,,islands
+Innellan,Innellan,https://www.innellangolfclub.co.uk/,islands,masters

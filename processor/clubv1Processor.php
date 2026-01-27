@@ -162,30 +162,32 @@ class ClubV1Processor extends Processor
 
         $available = "No";
 
-        foreach ($tmp["div"] as $teeTime) {
-            if ($teeTime["div"][0] == "Time") {
-                continue;
-            }
+        if (isset($tmp["div"])) {
+            foreach ($tmp["div"] as $teeTime) {
+                if ($teeTime["div"][0] == "Time") {
+                    continue;
+                }
 
-            if (
-                isset($teeTime["div"][1]["div"]["span"]) &&
-                trim($teeTime["div"][1]["div"]["span"]) == "Available"
-            ) {
-                $available = "Yes";
-            }
+                if (
+                    isset($teeTime["div"][1]["div"]["span"]) &&
+                    trim($teeTime["div"][1]["div"]["span"]) == "Available"
+                ) {
+                    $available = "Yes";
+                }
 
-            if (
-                isset($teeTime["div"][1]["div"][0]) &&
-                isset($teeTime["div"][1]["div"]) &&
-                is_array($teeTime["div"][1]["div"])
-            ) {
-                foreach ($teeTime["div"][1]["div"] as $slot) {
-                    if (
-                        is_array($slot) &&
-                        isset($slot["span"]) &&
-                        trim($slot["span"]) == "Available"
-                    ) {
-                        $available = "Yes";
+                if (
+                    isset($teeTime["div"][1]["div"][0]) &&
+                    isset($teeTime["div"][1]["div"]) &&
+                    is_array($teeTime["div"][1]["div"])
+                ) {
+                    foreach ($teeTime["div"][1]["div"] as $slot) {
+                        if (
+                            is_array($slot) &&
+                            isset($slot["span"]) &&
+                            trim($slot["span"]) == "Available"
+                        ) {
+                            $available = "Yes";
+                        }
                     }
                 }
             }

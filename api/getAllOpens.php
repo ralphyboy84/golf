@@ -10,4 +10,4 @@ $database = new database();
 $opens = new opens();
 $allOpens = $opens->getAllOpens($database->getDatabaseConnection());
 
-echo json_encode($allOpens);
+echo json_encode($allOpens, JSON_INVALID_UTF8_SUBSTITUTE);

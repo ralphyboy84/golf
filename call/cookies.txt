@@ -20,3 +20,15 @@ www.kingjamesvi.co.uk	FALSE	//visitorbooking/	FALSE	0	tee_target	%3Fdate%3D10-04
 crieff.intelligentgolf.co.uk	FALSE	/visitorbooking/	FALSE	0	tee_target	%3Fdate%3D25-07-2026%26course%3D1%26group%3D1
 #HttpOnly_www.craigmillarpark.co.uk	FALSE	/	TRUE	0	PHPSESSID	ifjjicppbv1v5riq2gkva2ga76
 www.craigmillarpark.co.uk	FALSE	/visitorbooking/	FALSE	0	tee_target	%3Fdate%3D11-04-2026%26course%3D1%26group%3D1
+#HttpOnly_www.kingsknowe.com	FALSE	/	TRUE	0	PHPSESSID	qva6au7p9viio4632q68qlj5lb
+www.kingsknowe.com	FALSE	/visitorbooking/	FALSE	0	tee_target	%3Fdate%3D05-04-2026%26course%3D1%26group%3D1
+#HttpOnly_www.murrayfieldgolfclub.co.uk	FALSE	/	TRUE	0	PHPSESSID	pg1b1i7p947sqlqvtault7mvak
+www.murrayfieldgolfclub.co.uk	FALSE	//visitorbooking/	FALSE	0	tee_target	%3Fdate%3D07-05-2026%26course%3D779%26group%3D1
+#HttpOnly_www.wollgolf.co.uk	FALSE	/	TRUE	0	PHPSESSID	ir7u52m5s00fa26u1nqc33qhvk
+www.wollgolf.co.uk	FALSE	/visitorbooking/	FALSE	0	tee_target	%3Fdate%3D28-01-2026%26course%3D779%26group%3D1
+#HttpOnly_www.prestonfieldgolf.co.uk	FALSE	/	TRUE	0	PHPSESSID	foe0qbr35f2dl4q2i38uf720g1
+www.prestonfieldgolf.co.uk	FALSE	/visitorbooking/	FALSE	0	tee_target	%3Fdate%3D20-06-2026%26course%3D1%26group%3D1
+#HttpOnly_pollok.intelligentgolf.co.uk	FALSE	/	TRUE	0	PHPSESSID	u1n3lba403n6050oa3btmsn22o
+pollok.intelligentgolf.co.uk	FALSE	/visitorbooking/	FALSE	0	tee_target	%3Fdate%3D04-07-2026%26course%3D1%26group%3D1
+#HttpOnly_www.duddingstongolfclub.co.uk	FALSE	/	TRUE	0	PHPSESSID	1qbnlql225o0g4e2ld2pk35qmt
+www.duddingstongolfclub.co.uk	FALSE	/visitorbooking/	FALSE	0	tee_target	%3Fdate%3D07-05-2026%26course%3D1%26group%3D1

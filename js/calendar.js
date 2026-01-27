@@ -19,6 +19,14 @@ document.addEventListener("DOMContentLoaded", function () {
   var calendar = new FullCalendar.Calendar(calendarEl, {
     themeSystem: "bootstrap5",
     initialView,
+    height: "auto", // lets it fill the parent, but can cause tiny height if empty
+    contentHeight: "auto", // similar
+    dayMaxEventRows: true, // optional
+    // Add a minHeight
+    viewDidMount: function (info) {
+      // set a min height for the listWeek container
+      info.el.style.minHeight = "400px"; // adjust as needed
+    },
     events: "../api/getAllOpens.php",
     windowResize: function (view) {
       if (window.innerWidth < 600) {
