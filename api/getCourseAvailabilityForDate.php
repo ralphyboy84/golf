@@ -2,6 +2,10 @@
 
 header("Content-Type: application/json; charset=utf-8");
 
+$explode = explode("_", $_GET["club"]);
+
+$_GET["club"] = $explode[0];
+
 require_once "courses.php";
 
 $teeTimeInfo = [];

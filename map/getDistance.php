@@ -16,6 +16,10 @@ $toArgs = explode(",", $_GET["to"]);
 $locations = [];
 
 foreach ($toArgs as $course) {
+    $explode = explode("_", $course);
+
+    $course = $explode[0];
+
     if (
         isset($golfCourses[$course]["location"]) &&
         !empty($golfCourses[$course]["location"])
@@ -28,7 +32,7 @@ foreach ($toArgs as $course) {
 }
 
 if ($locations) {
-    $locationString = implode(",", $locations);
+    $locationString = implode(",", array_unique($locations));
 } else {
     echo json_encode([]);
     return;
@@ -59,14 +63,25 @@ $responseData = json_decode($response, true);
 $newArray = [];
 
 if (count($responseData["results"][0]["locations"]) == 1) {
-    $newArray[$_GET["to"]] = gmdate(
-        "H:i:s",
-        $responseData["results"][0]["locations"][0]["properties"][0][
-            "travel_time"
-        ],
-    );
+    $explode = explode(",", $_GET["to"]);
+
+    foreach ($explode as $courseId) {
+        $newArray[$courseId] = gmdate(
+            "H:i:s",
+            $responseData["results"][0]["locations"][0]["properties"][0][
+                "travel_time"
+            ],
+        );
+    }
 } elseif (count($responseData["results"][0]["locations"]) > 1) {
     $dests = explode(",", $_GET["to"]);
+
+    // foreach ($dests as $dest) {
+    //     $exp = explode("_", $dest);
+    //     $tmpDests[] = $exp[0];
+    // }
+
+    // $dests = array_unique($tmpDests);
 
     $x = 0;
 

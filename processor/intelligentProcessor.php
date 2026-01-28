@@ -4,7 +4,7 @@ require_once "Processor.php";
 
 class IntelligentProcessor extends Processor
 {
-    public function processTeeTimeForDay($club, $data, $info, $date)
+    public function processTeeTimeForDay($data, $info, $date)
     {
         libxml_use_internal_errors(true);
 

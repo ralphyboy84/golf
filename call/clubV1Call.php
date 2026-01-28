@@ -17,10 +17,10 @@ class ClubV1Call extends Call
         return preg_replace("/^HTTP\/2\s+200\s.*?\R\R/s", "", $server_output);
     }
 
-    public function getTeeTimesForDay($date, $club, $courseId = false)
+    public function getTeeTimesForDay($date, $club, $courseId)
     {
         return $this->_doCurlCall(
-            "https://$club.hub.clubv1.com/Visitors/TeeSheet?date=$date",
+            "https://$club.hub.clubv1.com/Visitors/TeeSheet?date=$date&courseId=$courseId",
         );
     }
 

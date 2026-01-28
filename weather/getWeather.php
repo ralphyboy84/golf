@@ -43,6 +43,10 @@ $jsonReturn = [];
 $courses = explode(",", $_GET["to"]);
 
 foreach ($courses as $course) {
+    $explode = explode("_", $course);
+
+    $course = $explode[0];
+
     if (isset($golfCourses[$course]["location"]) && $dateOk) {
         if ($_SERVER["HTTP_HOST"] == "localhost") {
             $response = file_get_contents("../mockCalls/weather.json");

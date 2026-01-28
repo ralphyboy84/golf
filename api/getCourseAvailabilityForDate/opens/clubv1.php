@@ -9,11 +9,13 @@ $ClubV1Processor = new ClubV1Processor();
 if ($golfCourses[$_GET["club"]]["openBooking"]) {
     $slotsAvailable = "No";
 
-    $opens = $ClubV1Call->getAllOpensForCourse($_GET["courseId"]);
+    $opens = $ClubV1Call->getAllOpensForCourse(
+        $golfCourses[$_GET["club"]]["clubv1opencourseid"],
+    );
     $openOnDay = $ClubV1Processor->checkForOpenOnDay(
         $opens,
         $_GET["date"],
-        $_GET["courseId"],
+        $golfCourses[$_GET["club"]]["clubv1opencourseid"],
     );
 
     if (
@@ -42,7 +44,7 @@ if ($golfCourses[$_GET["club"]]["openBooking"]) {
             $database->getDatabaseConnection(),
             $_GET["club"],
             $openOnDay["competitionId"],
-            $_GET["courseId"],
+            $golfCourses[$_GET["club"]]["clubv1opencourseid"],
             $_GET["date"],
             $openOnDay["name"],
             $slotsAvailable,

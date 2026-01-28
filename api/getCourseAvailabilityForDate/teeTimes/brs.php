@@ -7,20 +7,17 @@ $BRSCall = new BRSCall();
 $BRSProcessor = new BRSProcessor();
 
 if ($golfCourses[$_GET["club"]]["onlineBooking"]) {
-    $courseId = $_GET["courseId"];
-
-    if ($courseId > 5) {
-        $courseId = 0;
-    }
+    $courseId = $golfCourses[$_GET["club"]]["brsCourseId"];
+    $brsDomain = $golfCourses[$_GET["club"]]["brsDomain"];
 
     $teeTimes = $BRSCall->getTeeTimesForDay(
         $_GET["date"],
-        $_GET["club"],
+        $brsDomain,
         $courseId,
     );
 
     $teeTimeInfo = $BRSProcessor->processTeeTimeForDay(
-        $_GET["club"],
+        $brsDomain,
         $teeTimes,
         $golfCourses[$_GET["club"]],
         $_GET["date"],

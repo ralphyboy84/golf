@@ -24,7 +24,7 @@ class IntelligentCall extends Call
         // return preg_replace("/^HTTP\/2\s+200\s.*?\R\R/s", "", $server_output);
     }
 
-    public function getTeeTimesForDay($baseUrl, $date, $courseId = false)
+    public function getTeeTimesForDay($baseUrl, $date, $courseId)
     {
         $ch = curl_init("$baseUrl/visitorbooking/");
         curl_setopt_array($ch, [
@@ -42,6 +42,10 @@ class IntelligentCall extends Call
         $post = [
             "date" => $date,
         ];
+
+        if ($courseId) {
+            $post["course"] = $courseId;
+        }
 
         curl_setopt_array($ch, [
             CURLOPT_RETURNTRANSFER => true,

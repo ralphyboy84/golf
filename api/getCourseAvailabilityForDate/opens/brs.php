@@ -7,11 +7,7 @@ $BRSCall = new BRSCall();
 $BRSProcessor = new BRSProcessor();
 
 if ($golfCourses[$_GET["club"]]["openBooking"]) {
-    $courseId = $_GET["courseId"];
-
-    if ($courseId > 5) {
-        $courseId = 0;
-    }
+    $courseId = $golfCourses[$_GET["club"]]["brsCourseId"];
 
     $slotsAvailable = "No";
 

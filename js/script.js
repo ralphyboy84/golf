@@ -390,7 +390,7 @@ async function getCoursesForDropDown(region) {
       if (courses[key].courses) {
         for (const [key2, value] of Object.entries(courses[key].courses)) {
           const option = document.createElement("option");
-          option.value = key; // key as value
+          option.value = key + "_" + value.courseId; // key as value
           option.textContent = courses[key].name + " - " + key2; // display name
           option.setAttribute("data-courseId", value.courseId || "");
           select.appendChild(option);
@@ -453,7 +453,7 @@ async function getActiveCourseInfo() {
   );
 
   document.getElementById("infoBar").innerHTML = `
-    Confirmed Working: ${courses.working} - Online Booking: ${courses.onlineBooking} - Open Booking: ${courses.openBooking}
+    Courses Loaded: ${courses.totalCourses} - Confirmed Working: ${courses.working} - Online Booking: ${courses.onlineBooking} - Open Booking: ${courses.openBooking}
   `;
 }
 
