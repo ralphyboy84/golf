@@ -453,7 +453,7 @@ async function getActiveCourseInfo() {
   );
 
   document.getElementById("infoBar").innerHTML = `
-    Courses Loaded: ${courses.totalCourses} - Confirmed Working: ${courses.working} - Online Booking: ${courses.onlineBooking} - Open Booking: ${courses.openBooking}
+    Courses Loaded: ${courses.totalCourses} - Online Booking: ${courses.onlineBooking} - Open Booking: ${courses.openBooking}
   `;
 }
 
