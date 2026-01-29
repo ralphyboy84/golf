@@ -38,10 +38,41 @@
       <div class="row">
         <div class="col text-center">Scottish Golf Tee Booker Beta Version</div>
       </div>
+      <div class="row p-3">
+        <div class="col-sm-12 col-md-6 text-center p-3">
+          <h3>Filter by Region</h3>
+          <select id="regionSelect" multiple="multiple"></select
+          ><br /><br />
+          <a class="btn btn-primary" onclick="filterByRegion()"
+            >Filter by Region(s)</a
+          >
+        </div>
+        <div class="col-sm-12 col-md-6 text-center p-3">
+          <h3>Course List</h3>
+          <select id="clubsSelect" multiple="multiple"></select
+          ><br /><br />
+          <a class="btn btn-primary" onclick="filterByCourse()"
+            >Filter by Course(s)</a
+          >
+        </div>
+        <div class="col-sm-12 col-md-6 text-center p-3">
+          <h3>Top 100</h3>
+          <a class="btn btn-primary" onclick="filterByTop100()"
+            >Filter by Top 100 Courses</a
+          >
+        </div>
+      </div>
+      <div id="loading" style="display: none">Loading events...</div>
       <div id="calendar"></div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.20/index.global.min.js"></script>
     <script src="js/calendar.js?v3.1"></script>
+    <script src="multiselect/js/jquery.min.js"></script>
+    <script src="multiselect/js/popper.js"></script>
+    <script src="multiselect/js/bootstrap.min.js"></script>
+    <script src="multiselect/js/bootstrap-multiselect.js"></script>
+    <script src="multiselect/js/main.js"></script>
+    <script src="js/script.js?v3.2"></script>
   </body>
 </html>

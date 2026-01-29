@@ -18,6 +18,7 @@ $mysqli = new mysqli($SERVERNAME, $USERNAME, $PASSWORD, $DATABASE);
 $sql = "
 SELECT *
 FROM clubs
+ORDER BY name ASC
 ";
 
 $result = $mysqli->query($sql);
@@ -65,10 +66,6 @@ function format_availability_days($days)
 
     return;
 }
-
-uksort($golfCourses, function ($a, $b) {
-    return strcasecmp($a, $b); // Compare keys ignoring case
-});
 
 function get_course_name($course, $golfCourses, $courseId = false)
 {

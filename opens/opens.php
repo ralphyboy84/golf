@@ -50,14 +50,49 @@ class Opens
         }
     }
 
-    public function getAllOpens($dbh)
-    {
+    public function getAllOpens(
+        $dbh,
+        $regions = false,
+        $top100 = false,
+        $courses = false,
+    ) {
+        $regionSql = "";
+        $top100Sql = "";
+        $coursesSql = "";
+
+        if ($regions) {
+            $regionArgs = explode(",", $regions);
+
+            foreach ($regionArgs as $region) {
+                $tmp[] = "'$region'";
+            }
+
+            $regionSql = " AND clubs.region IN (" . implode(", ", $tmp) . ") ";
+        }
+
+        if ($courses) {
+            $clubArgs = explode(",", $courses);
+
+            foreach ($clubArgs as $region) {
+                $tmp[] = "'$region'";
+            }
+
+            $coursesSql = " AND clubs.id IN (" . implode(", ", $tmp) . ") ";
+        }
+
+        if ($top100) {
+            $top100Sql = " AND clubs.top100 = 1 ";
+        }
+
         $sql = "
         SELECT *, 
         opens.name as 'compName'
         FROM opens, clubs
         WHERE opens.date >= NOW()
         AND opens.clubid = clubs.id
+        $regionSql 
+        $top100Sql
+        $coursesSql
         ";
 
         $result = $dbh->query($sql);

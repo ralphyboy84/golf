@@ -427,7 +427,10 @@ function setDate() {
   // Create a new date for tomorrow by adding 1 day (in milliseconds)
   const tomorrow = new Date(today);
   tomorrow.setDate(today.getDate() + 1);
-  document.getElementById("start").value = formatDateYYYYMMDD(tomorrow);
+
+  if (document.getElementById("start")) {
+    document.getElementById("start").value = formatDateYYYYMMDD(tomorrow);
+  }
 }
 
 function formatDateYYYYMMDD(date) {
@@ -452,9 +455,11 @@ async function getActiveCourseInfo() {
     res.json(),
   );
 
-  document.getElementById("infoBar").innerHTML = `
+  if (document.getElementById("infoBar")) {
+    document.getElementById("infoBar").innerHTML = `
     Courses Loaded: ${courses.totalCourses} - Online Booking: ${courses.onlineBooking} - Open Booking: ${courses.openBooking}
   `;
+  }
 }
 
 async function getWhereStayingLatLong() {
@@ -514,6 +519,8 @@ function isFutureDate(dateStr) {
 }
 
 navigator.geolocation.getCurrentPosition(function (location) {
-  document.getElementById("staying").value =
-    location.coords.latitude + "," + location.coords.longitude;
+  if (document.getElementById("staying")) {
+    document.getElementById("staying").value =
+      location.coords.latitude + "," + location.coords.longitude;
+  }
 });
