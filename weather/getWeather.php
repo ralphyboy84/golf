@@ -54,6 +54,10 @@ foreach ($courses as $course) {
             $lat = $golfCourses[$course]["location"]["lat"];
             $long = $golfCourses[$course]["location"]["lon"];
 
+            if ($lat == "0.000000") {
+                continue;
+            }
+
             $url = "https://data.hub.api.metoffice.gov.uk/sitespecific/v0/point/daily?latitude=$lat&longitude=$long";
 
             $ch = curl_init($url);

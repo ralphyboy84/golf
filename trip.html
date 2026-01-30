@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Golf Booking</title>
+    <link rel="icon" href="logo2.png" type="image/x-icon" />
+    <link rel="stylesheet" href="multiselect/css/style.css" />
+
+    <link
+      href="css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Lato:300,400,700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body class="bg-body-tertiary p-3">
+    <div class="container">
+      <div class="row">
+        <div class="col text-center">Scottish Golf Trip Planner</div>
+      </div>
+      <div class="row p-3">
+        <div class="col text-center">
+          Start Date:
+          <input
+            type="date"
+            id="startDate"
+            value="2026-04-09"
+            min="2026-01-01"
+            max="2028-07-22"
+          />
+        </div>
+      </div>
+      <div class="row p-1">
+        <div class="col text-center">
+          Numbers of Days:
+          <input type="number" id="days" name="days" min="1" value="3" />
+        </div>
+      </div>
+      <div class="row p-1">
+        <div class="col text-center">
+          What course are you staying closest to?
+          <select id="whereStaying"></select>
+        </div>
+      </div>
+      <div class="row p-1">
+        <div class="col text-center">
+          What category of courses are you wanting to play?
+          <select id="whereStaying">
+            <option value="a">A - the best of the best</option>
+            <option value="b">B - some description</option>
+            <option value="c">C - some description</option>
+            <option value="d">D - some description</option>
+            <option value="e">E - some description</option>
+            <option value="ab" selected="selected">
+              A mixture of As and Bs
+            </option>
+            <option value="abc">A mixture of As, Bs and Cs</option>
+            <option value="bcd">A mixture of Bs, Cs and Ds</option>
+          </select>
+        </div>
+      </div>
+      <div class="row p-1">
+        <div class="col text-center">
+          How far are you prepared to travel?
+          <select id="whereStaying">
+            <option value="10">10 miles</option>
+            <option value="20" selected="selected">20 miles</option>
+            <option value="50">50 miles</option>
+            <option value="100">100 miles</option>
+          </select>
+        </div>
+      </div>
+      <div class="row p-1">
+        <div class="col-sm-12 col-md-12 text-center p-3">
+          <a class="btn btn-primary" onclick="buildMyTrip()"
+            >Build my Trip...</a
+          >
+        </div>
+      </div>
+      <div class="row p-3" id="resultsDiv"></div>
+    </div>
+
+    <script src="multiselect/js/jquery.min.js"></script>
+    <script src="multiselect/js/popper.js"></script>
+    <script src="multiselect/js/bootstrap.min.js"></script>
+    <script src="multiselect/js/bootstrap-multiselect.js"></script>
+    <script src="multiselect/js/main.js"></script>
+    <script src="js/script.js?version=4"></script>
+    <script src="js/trip.js?version=4"></script>
+  </body>
+</html>

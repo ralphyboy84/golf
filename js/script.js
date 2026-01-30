@@ -376,48 +376,54 @@ async function findOpenForDropDown(selectBoxValues) {
 }
 
 async function getCoursesForDropDown(region) {
-  let courses = await fetch(`../api/getCourses.php?region=${region}`).then(
-    (res) => res.json(),
-  );
+  if (document.getElementById("clubsSelect")) {
+    let courses = await fetch(`../api/getCourses.php?region=${region}`).then(
+      (res) => res.json(),
+    );
 
-  document.getElementById("clubsSelect").innerHTML = "";
+    document.getElementById("clubsSelect").innerHTML = "";
 
-  const select = document.getElementById("clubsSelect");
+    const select = document.getElementById("clubsSelect");
 
-  // Loop through the object and add options
-  for (const key in courses) {
-    if (courses.hasOwnProperty(key)) {
-      if (courses[key].courses) {
-        for (const [key2, value] of Object.entries(courses[key].courses)) {
+    // Loop through the object and add options
+    for (const key in courses) {
+      if (courses.hasOwnProperty(key)) {
+        if (courses[key].courses) {
+          for (const [key2, value] of Object.entries(courses[key].courses)) {
+            const option = document.createElement("option");
+            option.value = key + "_" + value.courseId; // key as value
+            option.textContent = courses[key].name + " - " + key2; // display name
+            option.setAttribute("data-courseId", value.courseId || "");
+            select.appendChild(option);
+          }
+        } else {
           const option = document.createElement("option");
-          option.value = key + "_" + value.courseId; // key as value
-          option.textContent = courses[key].name + " - " + key2; // display name
-          option.setAttribute("data-courseId", value.courseId || "");
+          option.value = key; // key as value
+          option.textContent = courses[key].name; // display name
+          option.setAttribute("data-courseId", courses[key].courseId || "");
           select.appendChild(option);
         }
-      } else {
-        const option = document.createElement("option");
-        option.value = key; // key as value
-        option.textContent = courses[key].name; // display name
-        option.setAttribute("data-courseId", courses[key].courseId || "");
-        select.appendChild(option);
       }
     }
   }
 }
 
 async function getRegionsForDropDrown() {
-  let courses = await fetch(`../api/getRegions.php`).then((res) => res.json());
+  if (document.getElementById("regionSelect")) {
+    let courses = await fetch(`../api/getRegions.php`).then((res) =>
+      res.json(),
+    );
 
-  const select = document.getElementById("regionSelect");
+    const select = document.getElementById("regionSelect");
 
-  // Loop through the object and add options
-  for (let key in courses) {
-    const option = document.createElement("option");
+    // Loop through the object and add options
+    for (let key in courses) {
+      const option = document.createElement("option");
 
-    option.value = courses[key]; // key as value
-    option.textContent = capitalizeFirstChar(courses[key]); // display name
-    select.appendChild(option);
+      option.value = courses[key]; // key as value
+      option.textContent = capitalizeFirstChar(courses[key]); // display name
+      select.appendChild(option);
+    }
   }
 }
 

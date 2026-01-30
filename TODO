@@ -44,3 +44,24 @@ moray new also has opens on it
 strathlene gc appears to use hdid for opens - 1214
 
 dotgolf appears to have a competitions for this day section on the tee booker
+
+UPDATE clubs
+SET location = ST_SRID(POINT(lon, lat), 4326)
+WHERE lat <> 0
+  AND lon <> 0;
+
+Need to look at Carnoustie where all tee times are taken but still some slots free
+
+            {
+                "id": 3305175,
+                "slot_date_time": "2026-04-10T15:00:00",
+                "slot_mark": {
+                    "id": 1,
+                    "name": "Free"
+                },
+                "bookings": [
+                    {
+                        "players": 2
+                    }
+                ]
+            },
