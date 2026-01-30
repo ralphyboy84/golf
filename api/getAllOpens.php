@@ -10,6 +10,7 @@ $database = new database();
 $regions = "";
 $courses = "";
 $top100 = "";
+$keyword = "";
 
 if (isset($_GET["regions"]) && !empty($_GET["regions"])) {
     $regions = $_GET["regions"];
@@ -23,12 +24,17 @@ if (isset($_GET["courses"]) && !empty($_GET["courses"])) {
     $courses = $_GET["courses"];
 }
 
+if (isset($_GET["keyword"]) && !empty($_GET["keyword"])) {
+    $keyword = $_GET["keyword"];
+}
+
 $opens = new opens();
 $allOpens = $opens->getAllOpens(
     $database->getDatabaseConnection(),
     $regions,
     $top100,
     $courses,
+    $keyword,
 );
 
 echo json_encode($allOpens, JSON_INVALID_UTF8_SUBSTITUTE);

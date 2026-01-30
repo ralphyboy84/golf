@@ -116,3 +116,14 @@ function filterByTop100() {
   endpoint = `../api/getAllOpens.php?top100=1`;
   calendar.refetchEvents();
 }
+
+function filterByKeyWord() {
+  if (!document.getElementById("keyword").value) {
+    alert("You have not entered a keyword");
+    return;
+  }
+
+  eventsFetched = false;
+  endpoint = `../api/getAllOpens.php?keyword=${document.getElementById("keyword").value}`;
+  calendar.refetchEvents();
+}

@@ -55,10 +55,12 @@ class Opens
         $regions = false,
         $top100 = false,
         $courses = false,
+        $keywords = false,
     ) {
         $regionSql = "";
         $top100Sql = "";
         $coursesSql = "";
+        $keywordSql = "";
 
         if ($regions) {
             $regionArgs = explode(",", $regions);
@@ -80,6 +82,16 @@ class Opens
             $coursesSql = " AND clubs.id IN (" . implode(", ", $tmp) . ") ";
         }
 
+        if ($keywords) {
+            $keyArgs = explode(",", $keywords);
+
+            foreach ($keyArgs as $keyword) {
+                $tmp[] = " opens.name LIKE '%$keyword%'";
+            }
+
+            $keywordSql = " AND " . implode(" AND ", $tmp);
+        }
+
         if ($top100) {
             $top100Sql = " AND clubs.top100 = 1 ";
         }
@@ -93,6 +105,7 @@ class Opens
         $regionSql 
         $top100Sql
         $coursesSql
+        $keywordSql
         ";
 
         $result = $dbh->query($sql);
