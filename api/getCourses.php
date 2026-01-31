@@ -4,4 +4,8 @@ header("Content-Type: application/json; charset=utf-8");
 
 require_once "courses.php";
 
-echo json_encode($golfCourses);
+if (isset($golfCourses)) {
+    echo json_encode($golfCourses);
+} else {
+    echo "{}";
+}

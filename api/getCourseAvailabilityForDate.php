@@ -68,11 +68,11 @@ if (
     }
 }
 
-echo json_encode(
-    array_merge(
-        $teeTimeInfo,
-        $openOnDay,
-        $openCompetitionInfo,
-        $additionalArray,
-    ),
+$array = array_merge(
+    $teeTimeInfo,
+    $openOnDay,
+    $openCompetitionInfo,
+    $additionalArray,
 );
+
+echo json_encode($array);

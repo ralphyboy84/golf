@@ -1,3 +1,5 @@
 node_modules
 coverage
 tests/.phpunit.result.cache
+call/cookies.txt
+.DS_Store

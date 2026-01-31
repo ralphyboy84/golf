@@ -15,33 +15,78 @@ if ($_SERVER["HTTP_HOST"] == "localhost") {
 
 $mysqli = new mysqli($SERVERNAME, $USERNAME, $PASSWORD, $DATABASE);
 
-$locationSql = "";
-$spatialSql = "";
+$sqlParams = [];
 
 if (isset($_GET["location"]) && !empty($_GET["location"])) {
-    $locationSql = " WHERE lat != '0.000000' ";
+    $sqlParams[] = " lat != '0.000000' ";
 }
 
-if (isset($_GET["lat"]) && !empty($_GET["lat"])) {
+if (isset($_GET["onlineBooking"]) && !empty($_GET["onlineBooking"])) {
+    $sqlParams[] = " onlineBooking = '" . $_GET["onlineBooking"] . "' ";
+}
+
+if (
+    isset($_GET["courseQualityOption"]) &&
+    !empty($_GET["courseQualityOption"])
+) {
+    $args = explode(",", $_GET["courseQualityOption"]);
+
+    foreach ($args as $category) {
+        $newArgs[] = "'$category'";
+    }
+
+    $sqlParams[] = " category IN (" . implode(",", $newArgs) . ") ";
+}
+
+if (
+    isset($_GET["courseTypeOption"]) &&
+    !empty($_GET["courseTypeOption"]) &&
+    $_GET["courseTypeOption"] != "na"
+) {
+    $sqlParams[] = " coursetype = '{$_GET["courseTypeOption"]}' ";
+}
+
+if (
+    isset($_GET["lat"]) &&
+    !empty($_GET["lat"]) &&
+    isset($_GET["travelDistanceOption"]) &&
+    !empty($_GET["travelDistanceOption"])
+) {
     $lat = $_GET["lat"];
     $lon = $_GET["lon"];
+    $travelDistanceOption = $_GET["travelDistanceOption"];
 
-    $spatialSql = "
-    WHERE location IS NOT NULL
-    AND ST_Distance_Sphere(
-        location,
-        ST_SRID(POINT($lon, $lat), 4326)
-    ) <= 10000
-    AND onlineBooking = 'Yes'
- --   AND category IN ('a', 'b')
-    ";
+    if ($_SERVER["HTTP_HOST"] == "localhost") {
+        $sqlParams[] = "
+        location IS NOT NULL
+        AND ST_Distance_Sphere(
+            location,
+            ST_SRID(POINT($lon, $lat), 4326)
+        ) <= $travelDistanceOption
+        AND onlineBooking = 'Yes'
+        ";
+    } else {
+        $sqlParams[] = "
+        location IS NOT NULL
+        AND ST_Distance_Sphere(
+            location,
+            ST_GeomFromText('POINT($lon $lat)')
+        ) <= $travelDistanceOption
+        AND onlineBooking = 'Yes'
+        ";
+    }
+}
+
+$additionalSql = "";
+
+if ($sqlParams) {
+    $additionalSql = " WHERE " . implode(" AND ", $sqlParams);
 }
 
 $sql = "
 SELECT *
 FROM clubs
-$locationSql 
-$spatialSql
+$additionalSql 
 ORDER BY name ASC
 ";
 

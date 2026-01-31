@@ -58,29 +58,41 @@
       </div>
       <div class="row p-1">
         <div class="col text-center">
+          Do you have a preference for the type of course you want to play?
+          <select id="courseType">
+            <option value="links" selected="selected">Links Courses</option>
+            <option value="nonlinks">Non Links Courses</option>
+            <option value="na">Not Fussed</option>
+          </select>
+        </div>
+      </div>
+      <div class="row p-1">
+        <div class="col text-center">
           What category of courses are you wanting to play?
-          <select id="whereStaying">
+          <select id="courseQuality">
             <option value="a">A - the best of the best</option>
             <option value="b">B - some description</option>
             <option value="c">C - some description</option>
             <option value="d">D - some description</option>
             <option value="e">E - some description</option>
-            <option value="ab" selected="selected">
+            <option value="a,b" selected="selected">
               A mixture of As and Bs
             </option>
-            <option value="abc">A mixture of As, Bs and Cs</option>
-            <option value="bcd">A mixture of Bs, Cs and Ds</option>
+            <option value="a,b,c">A mixture of As, Bs and Cs</option>
+            <option value="b,c,d">A mixture of Bs, Cs and Ds</option>
           </select>
         </div>
       </div>
       <div class="row p-1">
         <div class="col text-center">
           How far are you prepared to travel?
-          <select id="whereStaying">
-            <option value="10">10 miles</option>
-            <option value="20" selected="selected">20 miles</option>
-            <option value="50">50 miles</option>
-            <option value="100">100 miles</option>
+          <select id="travelDistance">
+            <option value="10000">10 miles</option>
+            <option value="20000">20 miles</option>
+            <option value="30000">30 miles</option>
+            <option value="40000">40 miles</option>
+            <option value="50000">50 miles</option>
+            <option value="100000">100 miles</option>
           </select>
         </div>
       </div>
@@ -101,5 +113,6 @@
     <script src="multiselect/js/main.js"></script>
     <script src="js/script.js?version=4"></script>
     <script src="js/trip.js?version=4"></script>
+    <script src="js/theHardBit.js?version=4"></script>
   </body>
 </html>

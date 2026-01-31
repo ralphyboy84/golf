@@ -3,16 +3,41 @@
 require_once "../database/database.php";
 require_once "../opens/opens.php";
 
+$MOCK = false;
+
+$sql = "
+SELECT *
+FROM mock
+";
+
+$result = $mysqli->query($sql);
+
+if ($result->num_rows > 0) {
+    while ($row = $result->fetch_assoc()) {
+        if ($row["mockon"] == 1) {
+            $MOCK = 1;
+        }
+    }
+}
+
 if (
     isset($golfCourses[$_GET["club"]]["bookingSystem"]) &&
     !empty($golfCourses[$_GET["club"]]["bookingSystem"])
 ) {
-    require_once "getCourseAvailabilityForDate/teeTimes/{$golfCourses[$_GET["club"]]["bookingSystem"]}.php";
+    if (!$MOCK) {
+        require_once "getCourseAvailabilityForDate/teeTimes/{$golfCourses[$_GET["club"]]["bookingSystem"]}.php";
+    } else {
+        $teeTimeInfo = file_get_contents(
+            "../mockCalls/{$golfCourses[$_GET["club"]]["bookingSystem"]}/{$_GET["club"]}/{$_GET["date"]}.json",
+        );
+        $teeTimeInfo = json_decode($teeTimeInfo, 1);
+    }
 }
 
 if (
     isset($golfCourses[$_GET["club"]]["openBookingSystem"]) &&
-    !empty($golfCourses[$_GET["club"]]["openBookingSystem"])
+    !empty($golfCourses[$_GET["club"]]["openBookingSystem"]) &&
+    !$MOCK
 ) {
     require_once "getCourseAvailabilityForDate/opens/{$golfCourses[$_GET["club"]]["openBookingSystem"]}.php";
 }
