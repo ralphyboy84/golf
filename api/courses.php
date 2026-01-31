@@ -16,6 +16,8 @@ if ($_SERVER["HTTP_HOST"] == "localhost") {
 $mysqli = new mysqli($SERVERNAME, $USERNAME, $PASSWORD, $DATABASE);
 
 $sqlParams = [];
+$selectParams = [];
+$orderByParams = [];
 
 if (isset($_GET["location"]) && !empty($_GET["location"])) {
     $sqlParams[] = " lat != '0.000000' ";
@@ -57,6 +59,13 @@ if (
     $travelDistanceOption = $_GET["travelDistanceOption"];
 
     if ($_SERVER["HTTP_HOST"] == "localhost") {
+        $selectParams[] = "
+        ST_Distance_Sphere(
+            location,
+            ST_SRID(POINT($lon, $lat), 4326)
+        ) as 'distance'
+        ";
+
         $sqlParams[] = "
         location IS NOT NULL
         AND ST_Distance_Sphere(
@@ -74,20 +83,40 @@ if (
         ) <= $travelDistanceOption
         AND onlineBooking = 'Yes'
         ";
+
+        $selectParams[] = "
+        ST_Distance_Sphere(
+            location,
+            ST_GeomFromText('POINT($lon $lat)')
+        ) as 'distance'
+        ";
     }
+
+    $orderByParams[] = "distance";
 }
 
+$selectSql = "";
 $additionalSql = "";
+$orderBySql = "";
+
+if ($selectParams) {
+    $selectSql = ", " . implode(", ", $selectParams);
+}
 
 if ($sqlParams) {
     $additionalSql = " WHERE " . implode(" AND ", $sqlParams);
 }
 
+if ($orderByParams) {
+    $orderBySql = implode(", ", $orderByParams) . ", ";
+}
+
 $sql = "
 SELECT *
+$selectSql
 FROM clubs
 $additionalSql 
-ORDER BY name ASC
+ORDER BY $orderBySql name ASC
 ";
 
 $result = $mysqli->query($sql);

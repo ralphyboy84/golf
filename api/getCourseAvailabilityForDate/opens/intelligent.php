@@ -11,7 +11,7 @@ if ($golfCourses[$_GET["club"]]["openBooking"]) {
 
     $opens = $IntelligentCall->getAllOpensForCourse(
         $golfCourses[$_GET["club"]]["baseUrl"],
-        $_GET["club"],
+        $golfCourses[$_GET["club"]]["openBookingLink"],
     );
     $openOnDay = $IntelligentProcessor->checkForOpenOnDay(
         $opens,

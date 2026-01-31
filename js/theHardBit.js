@@ -1,5 +1,5 @@
 if (typeof exports !== "undefined") {
-  module.exports = doTheHardBit;
+  module.exports = { doTheHardBit, findDatesWhereNoAvailability };
 }
 
 // src/myFunction.js
@@ -81,7 +81,10 @@ function doTheHardBit(availabilityObject) {
     delete remainingAvailable[courseName];
   });
 
-  if (totalDays == returnedObject.length) {
+  const td = Number(totalDays);
+  const len = returnedObject.length;
+
+  if (td === len) {
     return returnedObject.sort((a, b) => (a.date > b.date ? 1 : -1));
   } else {
     const datesNoAvailability = findDatesWhereNoAvailability(

@@ -67,7 +67,7 @@ class IntelligentCall extends Call
         return $response;
     }
 
-    public function getAllOpensForCourse($baseUrl, $club)
+    public function getAllOpensForCourse($baseUrl, $bookingPage)
     {
         $ch = curl_init();
         curl_setopt_array($ch, [
@@ -76,7 +76,7 @@ class IntelligentCall extends Call
             CURLOPT_USERAGENT => "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36",
         ]);
         curl_setopt($ch, CURLOPT_HEADER, true);
-        curl_setopt($ch, CURLOPT_URL, "$baseUrl/competition2.php");
+        curl_setopt($ch, CURLOPT_URL, "$baseUrl/$bookingPage.php");
         $response = curl_exec($ch);
         $headerSize = curl_getinfo($ch, CURLINFO_HEADER_SIZE);
         curl_close($ch);

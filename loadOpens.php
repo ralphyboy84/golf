@@ -159,7 +159,7 @@ if ($_GET["load"] == "intelligent") {
 
             $opens = $intelligentCall->getAllOpensForCourse(
                 $golfCourses[$row["id"]]["baseUrl"],
-                $row["courseId"],
+                $golfCourses[$row["id"]]["openBookingLink"],
             );
 
             if ($opens) {

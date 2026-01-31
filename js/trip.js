@@ -87,7 +87,7 @@ async function buildMyTrip() {
     percentage = (otherCount / totalApiCalls) * 100;
 
     document.getElementById("resultsDiv").innerHTML =
-      `Please wait.... loading.... ${percentage}% complete`;
+      `Please wait.... loading.... ${percentage.toFixed(2)}% complete`;
   }
 
   const div = document.getElementById("resultsDiv");
@@ -170,6 +170,11 @@ async function buildMyTrip() {
 
   if (Object.keys(results).length == document.getElementById("days").value) {
     const newResults = doTheHardBit(results);
+
+    if (typeof newResults === "string") {
+      document.getElementById("resultsDiv").innerHTML += newResults;
+      return;
+    }
 
     let resultString = "";
 

@@ -1,5 +1,8 @@
 // tests/myFunction.test.js
-const doTheHardBit = require("../../js/theHardBit");
+const {
+  doTheHardBit,
+  findDatesWhereNoAvailability,
+} = require("../../js/theHardBit");
 
 // import { doTheHardBit } from "../../js/theHardBit.js";
 
