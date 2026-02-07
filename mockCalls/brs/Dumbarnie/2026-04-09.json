@@ -1,6 +1,9 @@
 {
-  "teeTimesAvailable": "No",
   "date": "09\/04\/2026",
-  "bookingUrl": "https:\/\/visitors.brsgolf.com\/dumbarnie#\/course\/1?date=2026-04-09",
-  "courseName": "Dumbarnie"
+  "teeTimesAvailable": "Yes",
+  "timesAvailable": 21,
+  "firstTime": "12:09",
+  "cheapestPrice": "90.00",
+  "bookingUrl": "https:\/\/visitors.brsgolf.com\/levenlinks?date=2026-04-11",
+  "courseName": "Leven"
 }
