@@ -1,5 +1,6 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=utf-8");
 
 $explode = explode("_", $_GET["club"]);
