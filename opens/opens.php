@@ -63,11 +63,16 @@ class Opens
         $top100 = false,
         $courses = false,
         $keywords = false,
+        $distance = false,
+        $latlon = false,
     ) {
         $regionSql = "";
         $top100Sql = "";
         $coursesSql = "";
         $keywordSql = "";
+
+        $sqlParams = [];
+        $selectParams = [];
 
         if ($regions) {
             $regionArgs = explode(",", $regions);
@@ -105,9 +110,61 @@ class Opens
             $top100Sql = " AND clubs.top100 = 1 ";
         }
 
+        if ($distance && $latlon) {
+            $latLonArgs = explode(",", $latlon);
+            $lat = $latLonArgs[0];
+            $lon = $latLonArgs[1];
+
+            if ($_SERVER["HTTP_HOST"] == "localhost") {
+                $selectParams[] = "
+                ST_Distance_Sphere(
+                    location,
+                    ST_SRID(POINT($lon, $lat), 4326)
+                ) as 'distance'
+                ";
+
+                $sqlParams[] = "
+                location IS NOT NULL
+                AND ST_Distance_Sphere(
+                    location,
+                    ST_SRID(POINT($lon, $lat), 4326)
+                ) <= $distance
+                AND onlineBooking = 'Yes'
+                ";
+            } else {
+                $sqlParams[] = "
+                location IS NOT NULL
+                AND ST_Distance_Sphere(
+                    location,
+                    ST_GeomFromText('POINT($lon $lat)')
+                ) <= $distance
+                AND onlineBooking = 'Yes'
+                ";
+
+                $selectParams[] = "
+                ST_Distance_Sphere(
+                    location,
+                    ST_GeomFromText('POINT($lon $lat)')
+                ) as 'distance'
+                ";
+            }
+        }
+
+        $selectSql = "";
+        $additionalSql = "";
+
+        if ($selectParams) {
+            $selectSql = ", " . implode(", ", $selectParams);
+        }
+
+        if ($sqlParams) {
+            $additionalSql = " AND " . implode(" AND ", $sqlParams);
+        }
+
         $sql = "
         SELECT *, 
         opens.name as 'compName'
+        $selectSql
         FROM opens, clubs
         WHERE opens.date >= NOW()
         AND opens.clubid = clubs.id
@@ -115,6 +172,7 @@ class Opens
         $top100Sql
         $coursesSql
         $keywordSql
+        $additionalSql 
         ";
 
         $result = $dbh->query($sql);

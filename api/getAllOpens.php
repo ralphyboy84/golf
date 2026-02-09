@@ -12,6 +12,8 @@ $regions = "";
 $courses = "";
 $top100 = "";
 $keyword = "";
+$distance = "";
+$latlon = "";
 
 if (isset($_GET["regions"]) && !empty($_GET["regions"])) {
     $regions = $_GET["regions"];
@@ -29,6 +31,14 @@ if (isset($_GET["keyword"]) && !empty($_GET["keyword"])) {
     $keyword = $_GET["keyword"];
 }
 
+if (isset($_GET["distance"]) && !empty($_GET["distance"])) {
+    $distance = $_GET["distance"];
+}
+
+if (isset($_GET["latlon"]) && !empty($_GET["latlon"])) {
+    $latlon = $_GET["latlon"];
+}
+
 $opens = new opens();
 $allOpens = $opens->getAllOpens(
     $database->getDatabaseConnection(),
@@ -36,6 +46,8 @@ $allOpens = $opens->getAllOpens(
     $top100,
     $courses,
     $keyword,
+    $distance,
+    $latlon,
 );
 
 echo json_encode($allOpens, JSON_INVALID_UTF8_SUBSTITUTE);
