@@ -33,6 +33,12 @@ class Opens
 
             $dbh->query($sql);
         } else {
+            $tokenSql = "";
+
+            if ($token) {
+                $tokenSql = " token = '{$token}', ";
+            }
+
             $updatedDate = date("Y-m-d H:i:s");
 
             $sql = "
@@ -40,6 +46,7 @@ class Opens
             SET availability = '{$slotsAvailable}',
             openid = '{$competitionId}',
             slots = '2',
+            $tokenSql
             lastupdate = '$updatedDate'
             WHERE clubid = '{$club}'
             AND courseid = '{$courseId}'
@@ -70,6 +77,7 @@ class Opens
             }
 
             $regionSql = " AND clubs.region IN (" . implode(", ", $tmp) . ") ";
+            unset($tmp);
         }
 
         if ($courses) {
@@ -90,6 +98,7 @@ class Opens
             }
 
             $keywordSql = " AND " . implode(" AND ", $tmp);
+            unset($tmp);
         }
 
         if ($top100) {
