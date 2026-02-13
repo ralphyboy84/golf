@@ -3,8 +3,8 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=utf-8");
 
-require_once "../database/database.php";
-require_once "../opens/opens.php";
+require_once "database/database.php";
+require_once "opens/opens.php";
 
 $database = new database();
 

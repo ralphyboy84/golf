@@ -3,7 +3,7 @@
 header("Access-Control-Allow-Origin: *");
 header("Content-Type: application/json; charset=utf-8");
 
-require_once "../courses.php";
+require_once "courses.php";
 
 $opensOfType = [];
 $totalOpenInfo = [];
