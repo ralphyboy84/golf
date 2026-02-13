@@ -27,10 +27,14 @@ if (
     if (!$MOCK) {
         require_once "getCourseAvailabilityForDate/teeTimes/{$golfCourses[$_GET["club"]]["bookingSystem"]}.php";
     } else {
-        $teeTimeInfo = file_get_contents(
-            "../mockCalls/{$golfCourses[$_GET["club"]]["bookingSystem"]}/{$_GET["club"]}/{$_GET["date"]}.json",
-        );
-        $teeTimeInfo = json_decode($teeTimeInfo, 1);
+        $teeTimeInfo = [];
+
+        $file = "../mockCalls/{$golfCourses[$_GET["club"]]["bookingSystem"]}/{$_GET["club"]}/{$_GET["date"]}.json";
+
+        if (file_exists($file)) {
+            $teeTimeInfo = file_get_contents($file);
+            $teeTimeInfo = json_decode($teeTimeInfo, 1);
+        }
     }
 }
 
