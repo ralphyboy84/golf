@@ -33,6 +33,7 @@ if (
             $golfCourses,
             $_GET["courseId"],
         ),
+        "image" => $golfCourses[$_GET["club"]]["image"],
     ];
 } else {
     $day = strtolower(date("D", strtotime($_GET["date"])));

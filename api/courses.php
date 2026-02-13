@@ -148,6 +148,7 @@ if ($result->num_rows > 0) {
             "clubv1opencourseid" => $row["clubv1opencourseid"],
             "brsDomain" => $row["brsDomain"],
             "brsCourseId" => $row["brsCourseId"],
+            "image" => $row["image"],
         ];
 
         unset($coursesArray);
